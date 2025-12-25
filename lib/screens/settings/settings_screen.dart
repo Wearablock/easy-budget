@@ -1,3 +1,4 @@
+import 'package:easy_budget/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
@@ -6,9 +7,10 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('설정'), // TODO: l10n
+        title: Text(l10n.settings),
       ),
       body: Center(
         child: Column(
@@ -21,12 +23,12 @@ class SettingsScreen extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             Text(
-              '설정 화면', // TODO: l10n
+              l10n.settingsScreenTitle,
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             const SizedBox(height: 8),
             Text(
-              'Phase 7 이후 구현 예정', // TODO: l10n
+              l10n.comingSoonPhase7,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                 color: Theme.of(context).colorScheme.outline,
               ),

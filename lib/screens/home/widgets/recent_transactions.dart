@@ -1,4 +1,5 @@
 import 'package:easy_budget/database/database.dart';
+import 'package:easy_budget/l10n/app_localizations.dart';
 import 'package:easy_budget/widgets/transaction_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
@@ -27,7 +28,7 @@ class RecentTransactions extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                '최근 거래', // TODO: l10n
+                AppLocalizations.of(context).recentTransactions,
                 style: Theme.of(
                   context,
                 ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
@@ -36,7 +37,7 @@ class RecentTransactions extends StatelessWidget {
                 onPressed: () {
                   // TODO: 전체 거래 목록 화면으로 이동
                 },
-                child: const Text('전체보기'), // TODO: l10n
+                child: Text(AppLocalizations.of(context).viewAll),
               ),
             ],
           ),
@@ -92,7 +93,7 @@ class RecentTransactions extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           Text(
-            '거래 내역이 없습니다', // TODO: l10n
+            AppLocalizations.of(context).noTransactions,
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
               color: Theme.of(
                 context,
@@ -101,7 +102,7 @@ class RecentTransactions extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            '+ 버튼을 눌러 첫 거래를 추가해보세요', // TODO: l10n
+            AppLocalizations.of(context).addFirstTransaction,
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
               color: Theme.of(
                 context,

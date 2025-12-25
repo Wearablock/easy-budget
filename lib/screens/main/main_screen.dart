@@ -1,4 +1,5 @@
 import 'package:easy_budget/database/database.dart';
+import 'package:easy_budget/l10n/app_localizations.dart';
 import 'package:easy_budget/screens/home/home_screen.dart';
 import 'package:easy_budget/screens/settings/settings_screen.dart';
 import 'package:easy_budget/screens/statistics/statistics_screen.dart';
@@ -51,7 +52,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget _buildFab(BuildContext context) {
     return FloatingActionButton(
       onPressed: () => _openAddTransaction(context),
-      tooltip: '거래 추가',
+      tooltip: AppLocalizations.of(context).addTransaction,
       child: const Icon(PhosphorIconsThin.plus),
     );
   }
@@ -77,17 +78,17 @@ class _MainScreenState extends State<MainScreen> {
         BottomNavigationBarItem(
           icon: Icon(PhosphorIconsThin.house),
           activeIcon: Icon(PhosphorIconsFill.house),
-          label: '홈', // TODO: l10n
+          label: AppLocalizations.of(context).home,
         ),
         BottomNavigationBarItem(
           icon: Icon(PhosphorIconsThin.chartBar),
           activeIcon: Icon(PhosphorIconsFill.chartBar),
-          label: '통계', // TODO: l10n
+          label: AppLocalizations.of(context).statistics,
         ),
         BottomNavigationBarItem(
           icon: Icon(PhosphorIconsThin.gear),
           activeIcon: Icon(PhosphorIconsFill.gear),
-          label: '설정', // TODO: l10n
+          label: AppLocalizations.of(context).settings,
         ),
       ],
     );

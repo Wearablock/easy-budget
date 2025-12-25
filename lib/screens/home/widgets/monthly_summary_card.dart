@@ -1,5 +1,6 @@
 import 'package:easy_budget/constants/app_colors.dart';
 import 'package:easy_budget/database/database.dart';
+import 'package:easy_budget/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
@@ -44,7 +45,7 @@ class MonthlySummaryCard extends StatelessWidget {
                     Expanded(
                       child: _buildAmountItem(
                         context: context,
-                        label: '수입', // TODO: l10n
+                        label: AppLocalizations.of(context).income,
                         amount: income,
                         color: AppColors.income,
                         icon: PhosphorIconsThin.arrowDown,
@@ -58,7 +59,7 @@ class MonthlySummaryCard extends StatelessWidget {
                     Expanded(
                       child: _buildAmountItem(
                         context: context,
-                        label: '지출', // TODO: l10n
+                        label: AppLocalizations.of(context).expense,
                         amount: expense,
                         color: AppColors.expense,
                         icon: PhosphorIconsThin.arrowUp,
@@ -91,7 +92,7 @@ class MonthlySummaryCard extends StatelessWidget {
     return Column(
       children: [
         Text(
-          '이번 달 잔액', // TODO: l10n
+          AppLocalizations.of(context).monthlyBalance,
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
             color: Theme.of(
               context,

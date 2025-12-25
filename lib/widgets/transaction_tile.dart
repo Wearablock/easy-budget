@@ -82,15 +82,15 @@ class TransactionTile extends StatelessWidget {
       children: [
         Text(
           categoryName.isNotEmpty ? categoryName : '알 수 없음',
-          style: Theme.of(
-            context,
-          ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500),
+          style: Theme.of(context).textTheme.bodySmall,
         ),
         if (transaction.memo != null && transaction.memo!.isNotEmpty) ...[
           const SizedBox(height: 2),
           Text(
             transaction.memo!,
-            style: Theme.of(context).textTheme.bodySmall,
+            style: Theme.of(
+              context,
+            ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),

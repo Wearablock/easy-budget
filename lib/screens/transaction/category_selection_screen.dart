@@ -1,9 +1,11 @@
 import 'package:easy_budget/constants/category_icons.dart';
 import 'package:easy_budget/database/database.dart';
 import 'package:easy_budget/l10n/app_localizations.dart';
+import 'package:easy_budget/screens/transaction/memo_input_screen.dart';
 import 'package:easy_budget/utils/category_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class CategorySelectionScreen extends StatefulWidget {
@@ -33,11 +35,14 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
   String? _error;
   bool _isLoading = true;
 
+  late DateTime _selectedDate;
+
   @override
   void initState() {
     super.initState();
     // 초기 선택값 설정 (뒤로가기 후 재진입 시)
     _selectedCategory = widget.initialCategory;
+    _selectedDate = DateTime.now();
     _loadCategories();
   }
 
@@ -79,6 +84,10 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
       body: SafeArea(
         child: Column(
           children: [
+            _buildDateSelector(context),
+
+            const Divider(height: 1),
+
             // 카테고리 그리드
             Expanded(child: _buildCategoryContent()),
 
@@ -88,6 +97,93 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
         ),
       ),
     );
+  }
+
+  Widget _buildDateSelector(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+
+    final locale = Localizations.localeOf(context).toString();
+    final dateFormat = DateFormat.yMMMd(locale);
+    final formattedDate = dateFormat.format(_selectedDate);
+
+    final now = DateTime.now();
+    final isToday =
+        _selectedDate.year == now.year &&
+        _selectedDate.month == now.month &&
+        _selectedDate.day == now.day;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: InkWell(
+        onTap: () => _showDatePicker(context),
+        borderRadius: BorderRadius.circular(12),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          decoration: BoxDecoration(
+            color: theme.colorScheme.surfaceContainerHighest,
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Row(
+            children: [
+              Icon(
+                PhosphorIconsThin.calendar,
+                size: 24,
+                color: theme.colorScheme.primary,
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      l10n.date,
+                      style: theme.textTheme.labelSmall?.copyWith(
+                        color: theme.colorScheme.outline,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      isToday
+                          ? '${l10n.today} ($formattedDate)'
+                          : formattedDate,
+                      style: theme.textTheme.bodyLarge?.copyWith(
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Icon(
+                PhosphorIconsThin.caretRight,
+                size: 20,
+                color: theme.colorScheme.outline,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Future<void> _showDatePicker(BuildContext context) async {
+    final now = DateTime.now();
+    final firstDate = DateTime(now.year - 1, now.month, now.day);
+    final lastDate = now;
+
+    final picked = await showDatePicker(
+      context: context,
+      initialDate: _selectedDate,
+      firstDate: firstDate,
+      lastDate: lastDate,
+    );
+
+    if (picked != null && picked != _selectedDate) {
+      HapticFeedback.lightImpact();
+      setState(() {
+        _selectedDate = picked;
+      });
+    }
   }
 
   Widget _buildCategoryContent() {
@@ -213,30 +309,22 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
   void _onNextPressed() {
     if (_selectedCategory == null) return;
 
-    // Phase 3-4: 날짜 선택 화면으로 이동
-    // 또는 바로 메모 입력 / 저장 화면으로
     debugPrint('Selected category: ${_selectedCategory!.nameKey}');
     debugPrint('Amount: ${widget.amountInMinorUnits}');
     debugPrint('Is Income: ${widget.isIncome}');
+    debugPrint('Date: $_selectedDate');
 
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('Category: ${_selectedCategory!.nameKey}'),
-        behavior: SnackBarBehavior.floating,
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => MemoInputScreen(
+          database: widget.database,
+          isIncome: widget.isIncome,
+          amountInMinorUnits: widget.amountInMinorUnits,
+          categoryId: _selectedCategory!.id,
+          transactionDate: _selectedDate,
+        ),
       ),
     );
-
-    // TODO: Phase 3-4에서 다음 화면으로 네비게이션
-    // Navigator.of(context).push(
-    //   MaterialPageRoute(
-    //     builder: (context) => DateSelectionScreen(
-    //       database: widget.database,
-    //       isIncome: widget.isIncome,
-    //       amountInMinorUnits: widget.amountInMinorUnits,
-    //       categoryId: _selectedCategory!.id,
-    //     ),
-    //   ),
-    // );
   }
 }
 
