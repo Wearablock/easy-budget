@@ -31,7 +31,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Easy Budget')),
+      appBar: AppBar(
+        scrolledUnderElevation: 0,
+        title: const Text('Easy Budget'),
+      ),
       body: SafeArea(
         child: Column(
           children: [

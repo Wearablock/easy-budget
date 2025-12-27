@@ -1,8 +1,8 @@
 import 'package:easy_budget/constants/app_colors.dart';
 import 'package:easy_budget/database/database.dart';
 import 'package:easy_budget/l10n/app_localizations.dart';
+import 'package:easy_budget/utils/currency_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class MonthlySummaryCard extends StatelessWidget {
@@ -83,11 +83,6 @@ class MonthlySummaryCard extends StatelessWidget {
 
   Widget _buildBalanceSection(BuildContext context, int balance) {
     final isPositive = balance >= 0;
-    final currencyFormat = NumberFormat.currency(
-      locale: Localizations.localeOf(context).languageCode,
-      symbol: '₩', // TODO: 동적 화폐 기호
-      decimalDigits: 0,
-    );
 
     return Column(
       children: [
@@ -101,7 +96,7 @@ class MonthlySummaryCard extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         Text(
-          currencyFormat.format(balance),
+          CurrencyUtils.formatWithSymbol(balance),
           style: Theme.of(context).textTheme.headlineLarge?.copyWith(
             color: isPositive ? AppColors.income : AppColors.expense,
             fontWeight: FontWeight.bold,
@@ -118,12 +113,6 @@ class MonthlySummaryCard extends StatelessWidget {
     required Color color,
     required IconData icon,
   }) {
-    final currencyFormat = NumberFormat.currency(
-      locale: Localizations.localeOf(context).languageCode,
-      symbol: '₩',
-      decimalDigits: 0,
-    );
-
     return Column(
       children: [
         Row(
@@ -143,7 +132,7 @@ class MonthlySummaryCard extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         Text(
-          currencyFormat.format(amount),
+          CurrencyUtils.formatWithSymbol(amount),
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
             color: color,
             fontWeight: FontWeight.w600,

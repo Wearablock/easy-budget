@@ -1,11 +1,10 @@
-import 'package:easy_budget/constants/category_icons.dart';
 import 'package:easy_budget/database/database.dart';
 import 'package:easy_budget/l10n/app_localizations.dart';
 import 'package:easy_budget/screens/transaction/memo_input_screen.dart';
-import 'package:easy_budget/utils/category_utils.dart';
+import 'package:easy_budget/widgets/category_grid_item.dart';
+import 'package:easy_budget/widgets/transaction_date_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:intl/intl.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class CategorySelectionScreen extends StatefulWidget {
@@ -13,15 +12,23 @@ class CategorySelectionScreen extends StatefulWidget {
   final bool isIncome;
   final int amountInMinorUnits;
 
-  /// 초기 선택 카테고리 (뒤로가기 후 재진입 시 상태 유지용)
-  final Category? initialCategory;
+  /// 수정 모드용 기존 거래
+  final Transaction? existingTransaction;
+
+  /// 초기 선택 카테고리 ID (수정 모드 또는 뒤로가기 후 재진입 시)
+  final int? initialCategoryId;
+
+  /// 초기 날짜 (수정 모드용)
+  final DateTime? initialDate;
 
   const CategorySelectionScreen({
     super.key,
     required this.database,
     required this.isIncome,
     required this.amountInMinorUnits,
-    this.initialCategory,
+    this.existingTransaction,
+    this.initialCategoryId,
+    this.initialDate,
   });
 
   @override
@@ -40,9 +47,7 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
   @override
   void initState() {
     super.initState();
-    // 초기 선택값 설정 (뒤로가기 후 재진입 시)
-    _selectedCategory = widget.initialCategory;
-    _selectedDate = DateTime.now();
+    _selectedDate = widget.initialDate ?? DateTime.now();
     _loadCategories();
   }
 
@@ -57,8 +62,17 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
           ? await widget.database.getIncomeCategories()
           : await widget.database.getExpenseCategories();
 
+      // 초기 카테고리 ID가 있으면 해당 카테고리 선택
+      Category? initialCategory;
+      if (widget.initialCategoryId != null) {
+        initialCategory = categories.where(
+          (c) => c.id == widget.initialCategoryId,
+        ).firstOrNull;
+      }
+
       setState(() {
         _categories = categories;
+        _selectedCategory = initialCategory;
         _isLoading = false;
       });
     } catch (e) {
@@ -84,7 +98,10 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            _buildDateSelector(context),
+            TransactionDateSelector(
+              selectedDate: _selectedDate,
+              onDateChanged: (date) => setState(() => _selectedDate = date),
+            ),
 
             const Divider(height: 1),
 
@@ -97,93 +114,6 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
         ),
       ),
     );
-  }
-
-  Widget _buildDateSelector(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
-    final theme = Theme.of(context);
-
-    final locale = Localizations.localeOf(context).toString();
-    final dateFormat = DateFormat.yMMMd(locale);
-    final formattedDate = dateFormat.format(_selectedDate);
-
-    final now = DateTime.now();
-    final isToday =
-        _selectedDate.year == now.year &&
-        _selectedDate.month == now.month &&
-        _selectedDate.day == now.day;
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      child: InkWell(
-        onTap: () => _showDatePicker(context),
-        borderRadius: BorderRadius.circular(12),
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-          decoration: BoxDecoration(
-            color: theme.colorScheme.surfaceContainerHighest,
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Row(
-            children: [
-              Icon(
-                PhosphorIconsThin.calendar,
-                size: 24,
-                color: theme.colorScheme.primary,
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      l10n.date,
-                      style: theme.textTheme.labelSmall?.copyWith(
-                        color: theme.colorScheme.outline,
-                      ),
-                    ),
-                    const SizedBox(height: 2),
-                    Text(
-                      isToday
-                          ? '${l10n.today} ($formattedDate)'
-                          : formattedDate,
-                      style: theme.textTheme.bodyLarge?.copyWith(
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Icon(
-                PhosphorIconsThin.caretRight,
-                size: 20,
-                color: theme.colorScheme.outline,
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Future<void> _showDatePicker(BuildContext context) async {
-    final now = DateTime.now();
-    final firstDate = DateTime(now.year - 1, now.month, now.day);
-    final lastDate = now;
-
-    final picked = await showDatePicker(
-      context: context,
-      initialDate: _selectedDate,
-      firstDate: firstDate,
-      lastDate: lastDate,
-    );
-
-    if (picked != null && picked != _selectedDate) {
-      HapticFeedback.lightImpact();
-      setState(() {
-        _selectedDate = picked;
-      });
-    }
   }
 
   Widget _buildCategoryContent() {
@@ -266,7 +196,7 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
         final category = categories[index];
         final isSelected = _selectedCategory?.id == category.id;
 
-        return _CategoryGridItem(
+        return CategoryGridItem(
           category: category,
           isSelected: isSelected,
           onTap: () => _onCategoryTap(category),
@@ -309,11 +239,6 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
   void _onNextPressed() {
     if (_selectedCategory == null) return;
 
-    debugPrint('Selected category: ${_selectedCategory!.nameKey}');
-    debugPrint('Amount: ${widget.amountInMinorUnits}');
-    debugPrint('Is Income: ${widget.isIncome}');
-    debugPrint('Date: $_selectedDate');
-
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => MemoInputScreen(
@@ -322,102 +247,7 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
           amountInMinorUnits: widget.amountInMinorUnits,
           categoryId: _selectedCategory!.id,
           transactionDate: _selectedDate,
-        ),
-      ),
-    );
-  }
-}
-
-class _CategoryGridItem extends StatelessWidget {
-  final Category category;
-  final bool isSelected;
-  final VoidCallback onTap;
-
-  const _CategoryGridItem({
-    required this.category,
-    required this.isSelected,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final categoryColor = Color(category.color);
-    final icon = CategoryIcons.getIcon(category.icon);
-    final name = CategoryUtils.getCategoryName(context, category);
-
-    return Semantics(
-      label: '$name 카테고리, ${isSelected ? "선택됨" : "선택 안됨"}',
-      button: true,
-      child: GestureDetector(
-        onTap: onTap,
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            border: isSelected
-                ? Border.all(color: categoryColor, width: 2)
-                : null,
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // 아이콘 원형 배경 + 체크 오버레이
-              Stack(
-                alignment: Alignment.center,
-                children: [
-                  // 기본 아이콘
-                  Container(
-                    width: 56,
-                    height: 56,
-                    decoration: BoxDecoration(
-                      color: categoryColor.withValues(
-                        alpha: theme.brightness == Brightness.dark
-                            ? 0.25
-                            : 0.15,
-                      ),
-                      shape: BoxShape.circle,
-                    ),
-                    child: Icon(icon, size: 28, color: categoryColor),
-                  ),
-                  // 선택 체크 오버레이 (AnimatedSwitcher 적용)
-                  AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 200),
-                    child: isSelected
-                        ? Container(
-                            key: const ValueKey('selected'),
-                            width: 56,
-                            height: 56,
-                            decoration: BoxDecoration(
-                              color: categoryColor.withValues(alpha: 0.85),
-                              shape: BoxShape.circle,
-                            ),
-                            child: const Icon(
-                              PhosphorIconsBold.check,
-                              size: 28,
-                              color: Colors.white,
-                            ),
-                          )
-                        : const SizedBox.shrink(key: ValueKey('unselected')),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 8),
-              // 카테고리 이름
-              Text(
-                name,
-                style: theme.textTheme.bodySmall?.copyWith(
-                  fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
-                  color: isSelected
-                      ? categoryColor
-                      : theme.colorScheme.onSurface,
-                ),
-                textAlign: TextAlign.center,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ],
-          ),
+          existingTransaction: widget.existingTransaction,
         ),
       ),
     );

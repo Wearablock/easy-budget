@@ -1,7 +1,9 @@
 import 'package:easy_budget/constants/app_colors.dart';
 import 'package:easy_budget/constants/category_icons.dart';
 import 'package:easy_budget/database/database.dart';
+import 'package:easy_budget/l10n/app_localizations.dart';
 import 'package:easy_budget/utils/category_utils.dart';
+import 'package:easy_budget/utils/currency_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
@@ -72,7 +74,7 @@ class TransactionTile extends StatelessWidget {
   }
 
   Widget _buildTransactionInfo(BuildContext context, Category? category) {
-    // 카테고리 이름 (TODO: l10n 적용)
+    final l10n = AppLocalizations.of(context);
     final categoryName =
         category?.customName ??
         CategoryUtils.getLocalizedName(context, category?.nameKey ?? '');
@@ -81,7 +83,7 @@ class TransactionTile extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          categoryName.isNotEmpty ? categoryName : '알 수 없음',
+          categoryName.isNotEmpty ? categoryName : l10n.unknownCategory,
           style: Theme.of(context).textTheme.bodySmall,
         ),
         if (transaction.memo != null && transaction.memo!.isNotEmpty) ...[
@@ -111,16 +113,9 @@ class TransactionTile extends StatelessWidget {
   Widget _buildAmount(BuildContext context) {
     final isIncome = transaction.isIncome;
     final color = isIncome ? AppColors.income : AppColors.expense;
-    final prefix = isIncome ? '+' : '-';
-
-    final currencyFormat = NumberFormat.currency(
-      locale: Localizations.localeOf(context).languageCode,
-      symbol: '₩',
-      decimalDigits: 0,
-    );
 
     return Text(
-      '$prefix${currencyFormat.format(transaction.amount)}',
+      CurrencyUtils.formatWithSign(transaction.amount, isIncome),
       style: Theme.of(context).textTheme.titleMedium?.copyWith(
         color: color,
         fontWeight: FontWeight.w600,

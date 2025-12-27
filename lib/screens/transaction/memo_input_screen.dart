@@ -1,7 +1,9 @@
 import 'package:drift/drift.dart' show Value;
+import 'package:easy_budget/app.dart';
 import 'package:easy_budget/database/database.dart';
 import 'package:easy_budget/l10n/app_localizations.dart';
 import 'package:easy_budget/utils/currency_utils.dart';
+import 'package:easy_budget/widgets/transaction_summary.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
@@ -13,6 +15,9 @@ class MemoInputScreen extends StatefulWidget {
   final int categoryId;
   final DateTime transactionDate;
 
+  /// 수정 모드용 기존 거래
+  final Transaction? existingTransaction;
+
   const MemoInputScreen({
     super.key,
     required this.database,
@@ -20,7 +25,10 @@ class MemoInputScreen extends StatefulWidget {
     required this.amountInMinorUnits,
     required this.categoryId,
     required this.transactionDate,
+    this.existingTransaction,
   });
+
+  bool get isEditMode => existingTransaction != null;
 
   @override
   State<MemoInputScreen> createState() => _MemoInputScreenState();
@@ -37,6 +45,12 @@ class _MemoInputScreenState extends State<MemoInputScreen> {
   @override
   void initState() {
     super.initState();
+
+    // 수정 모드일 때 기존 메모 로드
+    if (widget.existingTransaction?.memo != null) {
+      _memoController.text = widget.existingTransaction!.memo!;
+    }
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _memoFocusNode.requestFocus();
     });
@@ -51,15 +65,17 @@ class _MemoInputScreenState extends State<MemoInputScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
-
     return Scaffold(
       appBar: _buildAppBar(context),
       body: SafeArea(
         child: Column(
           children: [
             // 거래 요약
-            _buildTransactionSummary(context),
+            TransactionSummary(
+              amountInMinorUnits: widget.amountInMinorUnits,
+              isIncome: widget.isIncome,
+              transactionDate: widget.transactionDate,
+            ),
 
             const Divider(height: 1),
 
@@ -84,69 +100,6 @@ class _MemoInputScreenState extends State<MemoInputScreen> {
         onPressed: () => Navigator.of(context).pop(),
       ),
     );
-  }
-
-  Widget _buildTransactionSummary(BuildContext context) {
-    final theme = Theme.of(context);
-    final formattedAmount = CurrencyUtils.formatWithSymbol(
-      widget.amountInMinorUnits,
-    );
-
-    return Container(
-      padding: const EdgeInsets.all(16),
-      child: Row(
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  widget.isIncome ? '+$formattedAmount' : '-$formattedAmount',
-                  style: theme.textTheme.headlineMedium?.copyWith(
-                    color: widget.isIncome
-                        ? theme.colorScheme.primary
-                        : theme.colorScheme.error,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  _formatDate(widget.transactionDate),
-                  style: theme.textTheme.bodyMedium?.copyWith(
-                    color: theme.colorScheme.outline,
-                  ),
-                ),
-              ],
-            ),
-          ),
-
-          Container(
-            width: 48,
-            height: 48,
-            decoration: BoxDecoration(
-              color:
-                  (widget.isIncome
-                          ? theme.colorScheme.primary
-                          : theme.colorScheme.error)
-                      .withValues(alpha: 0.1),
-              shape: BoxShape.circle,
-            ),
-            child: Icon(
-              widget.isIncome
-                  ? PhosphorIconsThin.arrowUp
-                  : PhosphorIconsThin.arrowDown,
-              color: widget.isIncome
-                  ? theme.colorScheme.primary
-                  : theme.colorScheme.error,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  String _formatDate(DateTime date) {
-    return '${date.year}.${date.month.toString().padLeft(2, '0')}.${date.day.toString().padLeft(2, '0')}';
   }
 
   Widget _buildMemoInput(BuildContext context) {
@@ -252,37 +205,60 @@ class _MemoInputScreenState extends State<MemoInputScreen> {
     });
 
     try {
-      // 거래 저장
-      final transaction = TransactionsCompanion.insert(
-        amount: widget.amountInMinorUnits,
-        currencyCode: Value(CurrencyUtils.currentCurrency.code),
-        isIncome: widget.isIncome,
-        categoryId: widget.categoryId,
-        memo: Value(
-          _memoController.text.trim().isEmpty
-              ? null
-              : _memoController.text.trim(),
-        ),
-        transactionDate: widget.transactionDate,
-      );
-
-      await widget.database.insertTransaction(transaction);
-
-      if (!mounted) return;
-
-      // 성공 피드백
-      HapticFeedback.mediumImpact();
-
       final l10n = AppLocalizations.of(context);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            widget.isIncome ? l10n.incomeAdded : l10n.expenseAdded,
+      final memoText = _memoController.text.trim().isEmpty
+          ? null
+          : _memoController.text.trim();
+
+      // 앱 전역 ScaffoldMessenger 사용 (화면 전환 후에도 스낵바 정상 작동)
+      final messenger = EasyBudgetApp.scaffoldMessengerKey.currentState;
+
+      if (widget.isEditMode) {
+        // 수정 모드
+        final updated = widget.existingTransaction!.copyWith(
+          amount: widget.amountInMinorUnits,
+          isIncome: widget.isIncome,
+          categoryId: widget.categoryId,
+          memo: Value(memoText),
+          transactionDate: widget.transactionDate,
+        );
+        await widget.database.updateTransaction(updated);
+
+        if (!mounted) return;
+
+        HapticFeedback.mediumImpact();
+        messenger?.showSnackBar(
+          SnackBar(
+            content: Text(l10n.transactionUpdated),
+            behavior: SnackBarBehavior.floating,
+            duration: const Duration(seconds: 2),
           ),
-          behavior: SnackBarBehavior.floating,
-          duration: const Duration(seconds: 2),
-        ),
-      );
+        );
+      } else {
+        // 추가 모드
+        final transaction = TransactionsCompanion.insert(
+          amount: widget.amountInMinorUnits,
+          currencyCode: Value(CurrencyUtils.currentCurrency.code),
+          isIncome: widget.isIncome,
+          categoryId: widget.categoryId,
+          memo: Value(memoText),
+          transactionDate: widget.transactionDate,
+        );
+        await widget.database.insertTransaction(transaction);
+
+        if (!mounted) return;
+
+        HapticFeedback.mediumImpact();
+        messenger?.showSnackBar(
+          SnackBar(
+            content: Text(
+              widget.isIncome ? l10n.incomeAdded : l10n.expenseAdded,
+            ),
+            behavior: SnackBarBehavior.floating,
+            duration: const Duration(seconds: 2),
+          ),
+        );
+      }
 
       // 홈 화면으로 복귀 (모든 거래 입력 화면 닫기)
       Navigator.of(context).popUntil((route) => route.isFirst);

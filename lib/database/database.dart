@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
+import 'package:easy_budget/database/category_seeder.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p;
 
@@ -43,7 +44,7 @@ class AppDatabase extends _$AppDatabase {
     return MigrationStrategy(
       onCreate: (Migrator m) async {
         await m.createAll();
-        await _seedDefaultCategories();
+        await CategorySeeder.seedDefaultCategories(this);
       },
       onUpgrade: (Migrator m, int from, int to) async {
         if (from < 2) {
@@ -204,6 +205,12 @@ class AppDatabase extends _$AppDatabase {
     );
   }
 
+  Future<int> restoreTransaction(int id) {
+    return (update(transactions)..where((t) => t.id.equals(id))).write(
+      const TransactionsCompanion(isDeleted: Value(false)),
+    );
+  }
+
   // ===== 통계 메서드 =====
 
   Future<int> getTotalIncomeByMonth(int year, int month) async {
@@ -246,119 +253,6 @@ class AppDatabase extends _$AppDatabase {
     return result?.read(transactions.amount.sum()) ?? 0;
   }
 
-  // ===== Private Methods =====
-
-  Future<void> _seedDefaultCategories() async {
-    // 지출 카테고리
-    final expenseCategories = [
-      CategoriesCompanion.insert(
-        nameKey: 'categoryFood',
-        icon: 'fork-knife',
-        color: 0xFFFF9800,
-        isIncome: false,
-        isDefault: const Value(true),
-        sortOrder: const Value(0),
-      ),
-      CategoriesCompanion.insert(
-        nameKey: 'categoryTransport',
-        icon: 'car',
-        color: 0xFF2196F3,
-        isIncome: false,
-        isDefault: const Value(true),
-        sortOrder: const Value(1),
-      ),
-      CategoriesCompanion.insert(
-        nameKey: 'categoryShopping',
-        icon: 'shopping-bag',
-        color: 0xFFE91E63,
-        isIncome: false,
-        isDefault: const Value(true),
-        sortOrder: const Value(2),
-      ),
-      CategoriesCompanion.insert(
-        nameKey: 'categoryHousing',
-        icon: 'house',
-        color: 0xFF795548,
-        isIncome: false,
-        isDefault: const Value(true),
-        sortOrder: const Value(3),
-      ),
-      CategoriesCompanion.insert(
-        nameKey: 'categoryMedical',
-        icon: 'first-aid',
-        color: 0xFFF44336,
-        isIncome: false,
-        isDefault: const Value(true),
-        sortOrder: const Value(4),
-      ),
-      CategoriesCompanion.insert(
-        nameKey: 'categoryEntertainment',
-        icon: 'game-controller',
-        color: 0xFF9C27B0,
-        isIncome: false,
-        isDefault: const Value(true),
-        sortOrder: const Value(5),
-      ),
-      CategoriesCompanion.insert(
-        nameKey: 'categoryEducation',
-        icon: 'book-open',
-        color: 0xFF3F51B5,
-        isIncome: false,
-        isDefault: const Value(true),
-        sortOrder: const Value(6),
-      ),
-      CategoriesCompanion.insert(
-        nameKey: 'categoryOther',
-        icon: 'dots-three',
-        color: 0xFF607D8B,
-        isIncome: false,
-        isDefault: const Value(true),
-        sortOrder: const Value(7),
-      ),
-    ];
-
-    // 수입 카테고리
-    final incomeCategories = [
-      CategoriesCompanion.insert(
-        nameKey: 'categorySalary',
-        icon: 'briefcase',
-        color: 0xFF4CAF50,
-        isIncome: true,
-        isDefault: const Value(true),
-        sortOrder: const Value(0),
-      ),
-      CategoriesCompanion.insert(
-        nameKey: 'categorySideIncome',
-        icon: 'hand-coins',
-        color: 0xFF8BC34A,
-        isIncome: true,
-        isDefault: const Value(true),
-        sortOrder: const Value(1),
-      ),
-      CategoriesCompanion.insert(
-        nameKey: 'categoryInterest',
-        icon: 'percent',
-        color: 0xFF00BCD4,
-        isIncome: true,
-        isDefault: const Value(true),
-        sortOrder: const Value(2),
-      ),
-      CategoriesCompanion.insert(
-        nameKey: 'categoryOtherIncome',
-        icon: 'dots-three',
-        color: 0xFF607D8B,
-        isIncome: true,
-        isDefault: const Value(true),
-        sortOrder: const Value(3),
-      ),
-    ];
-
-    // 모든 카테고리 삽입
-    await batch((batch) {
-      batch.insertAll(categories, expenseCategories);
-      batch.insertAll(categories, incomeCategories);
-    });
-  }
 }
 
 LazyDatabase _openConnection() {

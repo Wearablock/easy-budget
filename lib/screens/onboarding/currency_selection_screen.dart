@@ -1,5 +1,6 @@
-import 'package:easy_budget/models/currency_config.dart';
+import 'package:easy_budget/l10n/app_localizations.dart';
 import 'package:easy_budget/services/preferences_service.dart';
+import 'package:easy_budget/widgets/currency_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
@@ -31,6 +32,7 @@ class _CurrencySelectionScreenState extends State<CurrencySelectionScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context);
 
     return Scaffold(
       body: SafeArea(
@@ -49,13 +51,13 @@ class _CurrencySelectionScreenState extends State<CurrencySelectionScreen> {
                   ),
                   const SizedBox(height: 24),
                   Text(
-                    'Select Your Currency',
+                    l10n.selectCurrencyTitle,
                     style: theme.textTheme.headlineMedium,
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'Choose the currency you use most often',
+                    l10n.selectCurrencySubtitle,
                     style: theme.textTheme.bodyMedium?.copyWith(
                       color: theme.colorScheme.outline,
                     ),
@@ -91,6 +93,7 @@ class _CurrencySelectionScreenState extends State<CurrencySelectionScreen> {
     List<String> codes,
   ) {
     final theme = Theme.of(context);
+    final regionName = _getLocalizedRegionName(context, region);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -98,97 +101,48 @@ class _CurrencySelectionScreenState extends State<CurrencySelectionScreen> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
           child: Text(
-            region,
+            regionName,
             style: theme.textTheme.labelLarge?.copyWith(
               color: theme.colorScheme.outline,
             ),
           ),
         ),
-        ...codes.map((code) => _buildCurrencyTile(context, code)),
+        ...codes.map(
+          (code) => CurrencyTile(
+            code: code,
+            isSelected: _selectedCode == code,
+            onTap: () {
+              setState(() {
+                _selectedCode = code;
+              });
+            },
+          ),
+        ),
         const SizedBox(height: 16),
       ],
     );
   }
 
-  Widget _buildCurrencyTile(BuildContext context, String code) {
-    final theme = Theme.of(context);
-    final config = CurrencyConfig.fromCode(code);
-    final isSelected = _selectedCode == code;
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4),
-      child: Material(
-        color: isSelected
-            ? theme.colorScheme.primaryContainer
-            : theme.colorScheme.surfaceContainerHighest,
-        borderRadius: BorderRadius.circular(12),
-        child: InkWell(
-          onTap: () {
-            setState(() {
-              _selectedCode = code;
-            });
-          },
-          borderRadius: BorderRadius.circular(12),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-            child: Row(
-              children: [
-                // 통화 기호
-                Container(
-                  width: 48,
-                  height: 48,
-                  decoration: BoxDecoration(
-                    color: isSelected
-                        ? theme.colorScheme.primary
-                        : theme.colorScheme.surface,
-                    borderRadius: BorderRadius.circular(24),
-                  ),
-                  alignment: Alignment.center,
-                  child: Text(
-                    config.symbol,
-                    style: theme.textTheme.titleMedium?.copyWith(
-                      color: isSelected
-                          ? theme.colorScheme.onPrimary
-                          : theme.colorScheme.onSurface,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 16),
-                // 통화 정보
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        config.code,
-                        style: theme.textTheme.titleMedium?.copyWith(
-                          fontWeight: isSelected ? FontWeight.w500 : null,
-                        ),
-                      ),
-                      Text(
-                        _getCurrencyName(config.code),
-                        style: theme.textTheme.bodySmall,
-                      ),
-                    ],
-                  ),
-                ),
-                // 체크 아이콘
-                if (isSelected)
-                  Icon(
-                    PhosphorIconsFill.checkCircle,
-                    color: theme.colorScheme.primary,
-                    size: 24,
-                  ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
+  String _getLocalizedRegionName(BuildContext context, String region) {
+    final l10n = AppLocalizations.of(context);
+    switch (region) {
+      case 'Americas':
+        return l10n.regionAmericas;
+      case 'Europe':
+        return l10n.regionEurope;
+      case 'Asia':
+        return l10n.regionAsia;
+      case 'Southeast Asia':
+        return l10n.regionSoutheastAsia;
+      case 'Middle East':
+        return l10n.regionMiddleEast;
+      default:
+        return region;
+    }
   }
 
   Widget _buildConfirmButton(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     final isEnabled = _selectedCode != null;
 
     return Padding(
@@ -198,9 +152,9 @@ class _CurrencySelectionScreenState extends State<CurrencySelectionScreen> {
         height: 56,
         child: FilledButton(
           onPressed: isEnabled ? _onConfirm : null,
-          child: const Text(
-            'Continue',
-            style: TextStyle(
+          child: Text(
+            l10n.continue_,
+            style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w400,
             ),
@@ -219,28 +173,5 @@ class _CurrencySelectionScreenState extends State<CurrencySelectionScreen> {
 
     // 메인 화면으로 이동
     widget.onComplete();
-  }
-
-  String _getCurrencyName(String code) {
-    const names = {
-      'USD': 'US Dollar',
-      'EUR': 'Euro',
-      'GBP': 'British Pound',
-      'JPY': 'Japanese Yen',
-      'KRW': 'Korean Won',
-      'CNY': 'Chinese Yuan',
-      'TWD': 'Taiwan Dollar',
-      'HKD': 'Hong Kong Dollar',
-      'INR': 'Indian Rupee',
-      'VND': 'Vietnamese Dong',
-      'THB': 'Thai Baht',
-      'IDR': 'Indonesian Rupiah',
-      'MXN': 'Mexican Peso',
-      'BRL': 'Brazilian Real',
-      'CHF': 'Swiss Franc',
-      'RUB': 'Russian Ruble',
-      'SAR': 'Saudi Riyal',
-    };
-    return names[code] ?? code;
   }
 }

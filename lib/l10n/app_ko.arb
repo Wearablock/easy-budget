@@ -50,5 +50,51 @@
   "categorySalary": "급여",
   "categorySideIncome": "부수입",
   "categoryInterest": "이자",
-  "categoryOtherIncome": "기타"
+  "categoryOtherIncome": "기타",
+
+  "editTransaction": "거래 수정",
+  "deleteTransaction": "거래 삭제",
+  "deleteConfirmTitle": "거래를 삭제할까요?",
+  "deleteConfirmMessage": "삭제 후 잠시 동안 실행 취소할 수 있습니다.",
+  "transactionUpdated": "거래가 수정되었습니다",
+  "transactionDeleted": "거래가 삭제되었습니다",
+
+  "enterAmount": "금액을 입력하세요",
+  "unknownCategory": "알 수 없음",
+
+  "selectDateToView": "날짜를 선택하여 거래를 확인하세요",
+  "noTransactionsOnDate": "이 날짜에 거래가 없습니다",
+
+  "all": "전체",
+
+  "undo": "실행 취소",
+  "transactionRestored": "거래가 복구되었습니다",
+
+  "selectCurrencyTitle": "통화 선택",
+  "selectCurrencySubtitle": "주로 사용하는 통화를 선택하세요",
+  "continue_": "계속",
+
+  "regionAmericas": "아메리카",
+  "regionEurope": "유럽",
+  "regionAsia": "아시아",
+  "regionSoutheastAsia": "동남아시아",
+  "regionMiddleEast": "중동",
+
+  "currencyUSD": "미국 달러",
+  "currencyEUR": "유로",
+  "currencyGBP": "영국 파운드",
+  "currencyJPY": "일본 엔",
+  "currencyKRW": "대한민국 원",
+  "currencyCNY": "중국 위안",
+  "currencyTWD": "대만 달러",
+  "currencyHKD": "홍콩 달러",
+  "currencyINR": "인도 루피",
+  "currencyVND": "베트남 동",
+  "currencyTHB": "태국 바트",
+  "currencyIDR": "인도네시아 루피아",
+  "currencyMXN": "멕시코 페소",
+  "currencyBRL": "브라질 헤알",
+  "currencyCHF": "스위스 프랑",
+  "currencyRUB": "러시아 루블",
+  "currencySAR": "사우디 리얄"
 }

@@ -1,3 +1,4 @@
+import 'package:easy_budget/app.dart';
 import 'package:easy_budget/constants/app_colors.dart';
 import 'package:easy_budget/database/database.dart';
 import 'package:easy_budget/l10n/app_localizations.dart';
@@ -6,14 +7,22 @@ import 'package:easy_budget/screens/transaction/category_selection_screen.dart';
 import 'package:easy_budget/utils/currency_utils.dart';
 import 'package:easy_budget/widgets/amount_input/amount_display.dart';
 import 'package:easy_budget/widgets/amount_input/number_keypad.dart';
+import 'package:easy_budget/widgets/transaction_type_toggle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class AddTransactionScreen extends StatefulWidget {
   final AppDatabase database;
+  final Transaction? existingTransaction;
 
-  const AddTransactionScreen({super.key, required this.database});
+  const AddTransactionScreen({
+    super.key,
+    required this.database,
+    this.existingTransaction,
+  });
+
+  bool get isEditMode => existingTransaction != null;
 
   @override
   State<AddTransactionScreen> createState() => _AddTransactionScreenState();
@@ -23,12 +32,46 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
   String _integerPart = '';
   String _decimalPart = '';
   bool _hasDecimalPoint = false;
-
   bool _isIncome = false;
+
+  // 수정 모드용 변수들
+  int? _existingCategoryId;
+  DateTime? _existingDate;
 
   CurrencyConfig get _currency => CurrencyUtils.currentCurrency;
 
   static const int _maxDisplayAmount = 999999999;
+
+  @override
+  void initState() {
+    super.initState();
+
+    if (widget.existingTransaction != null) {
+      final tx = widget.existingTransaction!;
+      _isIncome = tx.isIncome;
+
+      _loadAmountFromTransaction(tx.amount);
+
+      _existingCategoryId = tx.categoryId;
+      _existingDate = tx.transactionDate;
+    }
+  }
+
+  void _loadAmountFromTransaction(int amountInMinorUnits) {
+    if (_currency.hasDecimals) {
+      final multiplier = _currency.minorUnitMultiplier;
+      _integerPart = (amountInMinorUnits ~/ multiplier).toString();
+      _decimalPart = (amountInMinorUnits % multiplier).toString().padLeft(
+        _currency.decimalPlaces,
+        '0',
+      );
+      if (_decimalPart != '0' * _currency.decimalPlaces) {
+        _hasDecimalPoint = true;
+      }
+    } else {
+      _integerPart = amountInMinorUnits.toString();
+    }
+  }
 
   int get _amountInMinorUnits {
     if (_integerPart.isEmpty && _decimalPart.isEmpty) return 0;
@@ -53,161 +96,71 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
     return Scaffold(
       appBar: _buildAppBar(context),
       body: SafeArea(
-        child: Column(
-          children: [
-            // 수입/지출 토글
-            _buildTransactionTypeToggle(context),
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            // 화면 높이에 따라 레이아웃 조정
+            final availableHeight = constraints.maxHeight;
+            final isCompact = availableHeight < 500;
 
-            Expanded(
-              flex: 2,
-              child: AmountDisplay(
-                amountInMinorUnits: _amountInMinorUnits,
-                isIncome: _isIncome,
-              ),
-            ),
+            return Column(
+              children: [
+                // 수입/지출 토글
+                TransactionTypeToggle(
+                  isIncome: _isIncome,
+                  onChanged: (value) => setState(() => _isIncome = value),
+                ),
 
-            Expanded(
-              flex: 3,
-              child: NumberKeypad(
-                onKeyPressed: _onKeyPressed,
-                onDeletePressed: _onDeletePressed,
-                onDeleteLongPressed: _onClearAll,
-                // 소수점 화폐인 경우에만 소수점 버튼 표시
-                onDecimalPressed: _currency.hasDecimals
-                    ? _onDecimalPressed
-                    : null,
-                decimalSeparator: _currency.decimalSeparator,
-                showDoubleZero: !_currency.hasDecimals,
-              ),
-            ),
+                // 금액 표시 - 유연하게 축소 가능
+                Flexible(
+                  flex: isCompact ? 1 : 2,
+                  child: AmountDisplay(
+                    amountInMinorUnits: _amountInMinorUnits,
+                    isIncome: _isIncome,
+                  ),
+                ),
 
-            _buildNextButton(context),
-          ],
+                // 숫자 키패드 - 최소 크기 보장
+                Flexible(
+                  flex: 3,
+                  child: NumberKeypad(
+                    onKeyPressed: _onKeyPressed,
+                    onDeletePressed: _onDeletePressed,
+                    onDeleteLongPressed: _onClearAll,
+                    onDecimalPressed: _currency.hasDecimals
+                        ? _onDecimalPressed
+                        : null,
+                    decimalSeparator: _currency.decimalSeparator,
+                    showDoubleZero: !_currency.hasDecimals,
+                    compact: isCompact,
+                  ),
+                ),
+
+                _buildNextButton(context),
+              ],
+            );
+          },
         ),
       ),
     );
-  }
-
-  Widget _buildTransactionTypeToggle(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-      child: Container(
-        height: 48,
-        decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.surfaceContainerHighest,
-          borderRadius: BorderRadius.circular(24),
-        ),
-        child: Row(
-          children: [
-            // 지출 버튼
-            Expanded(
-              child: GestureDetector(
-                onTap: () => _onToggleType(false),
-                child: AnimatedContainer(
-                  duration: const Duration(milliseconds: 200),
-                  curve: Curves.easeInOut,
-                  decoration: BoxDecoration(
-                    color: !_isIncome ? AppColors.expense : Colors.transparent,
-                    borderRadius: BorderRadius.circular(24),
-                  ),
-                  child: Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          PhosphorIconsBold.minus,
-                          size: 18,
-                          color: !_isIncome
-                              ? Colors.white
-                              : Theme.of(context).colorScheme.onSurfaceVariant,
-                        ),
-                        const SizedBox(width: 6),
-                        Text(
-                          l10n.expense,
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w600,
-                            color: !_isIncome
-                                ? Colors.white
-                                : Theme.of(
-                                    context,
-                                  ).colorScheme.onSurfaceVariant,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            // 수입 버튼
-            Expanded(
-              child: GestureDetector(
-                onTap: () => _onToggleType(true),
-                child: AnimatedContainer(
-                  duration: const Duration(milliseconds: 200),
-                  curve: Curves.easeInOut,
-                  decoration: BoxDecoration(
-                    color: _isIncome ? AppColors.income : Colors.transparent,
-                    borderRadius: BorderRadius.circular(24),
-                  ),
-                  child: Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          PhosphorIconsBold.plus,
-                          size: 18,
-                          color: _isIncome
-                              ? Colors.white
-                              : Theme.of(context).colorScheme.onSurfaceVariant,
-                        ),
-                        const SizedBox(width: 6),
-                        Text(
-                          l10n.income,
-                          style: TextStyle(
-                            fontSize: 15,
-                            fontWeight: FontWeight.w600,
-                            color: _isIncome
-                                ? Colors.white
-                                : Theme.of(
-                                    context,
-                                  ).colorScheme.onSurfaceVariant,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  void _onToggleType(bool isIncome) {
-    if (_isIncome != isIncome) {
-      HapticFeedback.lightImpact();
-      setState(() {
-        _isIncome = isIncome;
-      });
-    }
   }
 
   AppBar _buildAppBar(BuildContext context) {
     final l10n = AppLocalizations.of(context);
 
     return AppBar(
-      title: Text(l10n.addTransaction),
+      title: Text(
+        widget.isEditMode ? l10n.editTransaction : l10n.addTransaction,
+      ),
       leading: IconButton(
         icon: const Icon(PhosphorIconsThin.x),
         onPressed: () => Navigator.of(context).pop(),
       ),
       actions: [
+        if (widget.isEditMode)
+          IconButton(
+            onPressed: () => _showDeleteConfirmation(context),
+            icon: const Icon(PhosphorIconsThin.trash),
+          ),
         // 화폐 표시 (추후 탭하면 화폐 선택 가능)
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -222,6 +175,69 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
         ),
       ],
     );
+  }
+
+  Future<void> _showDeleteConfirmation(BuildContext context) async {
+    final l10n = AppLocalizations.of(context);
+
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(l10n.deleteConfirmTitle),
+        content: Text(l10n.deleteConfirmMessage),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: Text(l10n.cancel),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            style: TextButton.styleFrom(
+              foregroundColor: Theme.of(context).colorScheme.error,
+            ),
+            child: Text(l10n.delete),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed == true && mounted) {
+      await _deleteTransaction();
+    }
+  }
+
+  Future<void> _deleteTransaction() async {
+    final l10n = AppLocalizations.of(context);
+    final messenger = EasyBudgetApp.scaffoldMessengerKey.currentState;
+
+    try {
+      await widget.database.softDeleteTransaction(
+        widget.existingTransaction!.id,
+      );
+
+      if (!mounted) return;
+
+      HapticFeedback.mediumImpact();
+
+      messenger?.showSnackBar(
+        SnackBar(
+          content: Text(l10n.transactionDeleted),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+
+      Navigator.of(context).popUntil((route) => route.isFirst);
+    } catch (e) {
+      if (!mounted) return;
+
+      messenger?.showSnackBar(
+        SnackBar(
+          content: Text(l10n.errorOccurred),
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: AppColors.expense,
+        ),
+      );
+    }
   }
 
   Widget _buildNextButton(BuildContext context) {
@@ -317,6 +333,9 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
           database: widget.database,
           isIncome: _isIncome,
           amountInMinorUnits: _amountInMinorUnits,
+          existingTransaction: widget.existingTransaction,
+          initialCategoryId: _existingCategoryId,
+          initialDate: _existingDate,
         ),
       ),
     );

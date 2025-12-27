@@ -4,16 +4,12 @@ import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class NumberKeypad extends StatelessWidget {
   final ValueChanged<String> onKeyPressed;
-
   final VoidCallback onDeletePressed;
-
   final VoidCallback? onDeleteLongPressed;
-
   final VoidCallback? onDecimalPressed;
-
   final String decimalSeparator;
-
   final bool showDoubleZero;
+  final bool compact;
 
   const NumberKeypad({
     super.key,
@@ -23,21 +19,24 @@ class NumberKeypad extends StatelessWidget {
     this.onDecimalPressed,
     this.decimalSeparator = '.',
     this.showDoubleZero = true,
+    this.compact = false,
   });
+
+  double get _spacing => compact ? 4 : 8;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(12),
+    return Padding(
+      padding: EdgeInsets.all(compact ? 8 : 12),
       child: Column(
         children: [
-          _buildRow(context, ['1', '2', '3']),
-          const SizedBox(height: 8),
-          _buildRow(context, ['4', '5', '6']),
-          const SizedBox(height: 8),
-          _buildRow(context, ['7', '8', '9']),
-          const SizedBox(height: 8),
-          _buildBottomRow(context),
+          Expanded(child: _buildRow(context, ['1', '2', '3'])),
+          SizedBox(height: _spacing),
+          Expanded(child: _buildRow(context, ['4', '5', '6'])),
+          SizedBox(height: _spacing),
+          Expanded(child: _buildRow(context, ['7', '8', '9'])),
+          SizedBox(height: _spacing),
+          Expanded(child: _buildBottomRow(context)),
         ],
       ),
     );
@@ -128,7 +127,10 @@ class _NumberButton extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
 
-  const _NumberButton({required this.label, required this.onPressed});
+  const _NumberButton({
+    required this.label,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -141,7 +143,6 @@ class _NumberButton extends StatelessWidget {
         onTap: onPressed,
         borderRadius: BorderRadius.circular(16),
         child: Container(
-          height: 60,
           alignment: Alignment.center,
           child: Text(
             label,
@@ -179,7 +180,6 @@ class _ActionButton extends StatelessWidget {
         onLongPress: onLongPressed,
         borderRadius: BorderRadius.circular(16),
         child: Container(
-          height: 60,
           alignment: Alignment.center,
           child: Icon(
             icon,

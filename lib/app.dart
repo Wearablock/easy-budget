@@ -9,6 +9,10 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 class EasyBudgetApp extends StatefulWidget {
   const EasyBudgetApp({super.key});
 
+  /// 앱 전역 ScaffoldMessenger 키
+  /// 화면 전환 시에도 스낵바가 정상 작동하도록 함
+  static final scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
+
   @override
   State<EasyBudgetApp> createState() => _EasyBudgetAppState();
 }
@@ -33,6 +37,7 @@ class _EasyBudgetAppState extends State<EasyBudgetApp> {
     return MaterialApp(
       title: 'Easy Budget',
       debugShowCheckedModeBanner: false,
+      scaffoldMessengerKey: EasyBudgetApp.scaffoldMessengerKey,
 
       // 테마 설정
       theme: AppTheme.light,

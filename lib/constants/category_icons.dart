@@ -1,5 +1,5 @@
-import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class CategoryIcons {
   static IconData getIcon(String iconName) {

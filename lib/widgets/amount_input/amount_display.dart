@@ -1,14 +1,13 @@
+import 'package:easy_budget/constants/app_colors.dart';
+import 'package:easy_budget/l10n/app_localizations.dart';
 import 'package:easy_budget/models/currency_config.dart';
 import 'package:easy_budget/utils/currency_utils.dart';
 import 'package:flutter/material.dart';
 
 class AmountDisplay extends StatelessWidget {
   final int amountInMinorUnits;
-
   final bool isIncome;
-
   final CurrencyConfig? currency;
-
   final VoidCallback? onTap;
 
   const AmountDisplay({
@@ -23,16 +22,18 @@ class AmountDisplay extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final config = currency ?? CurrencyUtils.currentCurrency;
-    final color = isIncome ? Colors.green.shade600 : theme.colorScheme.primary;
+    final color = isIncome ? AppColors.income : AppColors.expense;
 
     return GestureDetector(
       onTap: onTap,
       child: Container(
         width: double.infinity,
-        padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 24),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 24),
+        child: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
             if (config.symbolBefore) ...[
               Text(
                 config.symbol,
@@ -77,12 +78,13 @@ class AmountDisplay extends StatelessWidget {
 
             if (amountInMinorUnits == 0)
               Text(
-                '금액을 입력하세요', // TODO: l10n
+                AppLocalizations.of(context).enterAmount,
                 style: theme.textTheme.bodyMedium?.copyWith(
                   color: theme.colorScheme.outline,
                 ),
               ),
-          ],
+            ],
+          ),
         ),
       ),
     );

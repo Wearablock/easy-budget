@@ -50,5 +50,51 @@
   "categorySalary": "Salary",
   "categorySideIncome": "Side Income",
   "categoryInterest": "Interest",
-  "categoryOtherIncome": "Other"
+  "categoryOtherIncome": "Other",
+
+  "editTransaction": "Edit Transaction",
+  "deleteTransaction": "Delete Transaction",
+  "deleteConfirmTitle": "Delete Transaction?",
+  "deleteConfirmMessage": "You can undo this action for a few seconds after deletion.",
+  "transactionUpdated": "Transaction updated",
+  "transactionDeleted": "Transaction deleted",
+
+  "enterAmount": "Enter amount",
+  "unknownCategory": "Unknown",
+
+  "selectDateToView": "Select a date to view transactions",
+  "noTransactionsOnDate": "No transactions on this date",
+
+  "all": "All",
+
+  "undo": "Undo",
+  "transactionRestored": "Transaction restored",
+
+  "selectCurrencyTitle": "Select Your Currency",
+  "selectCurrencySubtitle": "Choose the currency you use most often",
+  "continue_": "Continue",
+
+  "regionAmericas": "Americas",
+  "regionEurope": "Europe",
+  "regionAsia": "Asia",
+  "regionSoutheastAsia": "Southeast Asia",
+  "regionMiddleEast": "Middle East",
+
+  "currencyUSD": "US Dollar",
+  "currencyEUR": "Euro",
+  "currencyGBP": "British Pound",
+  "currencyJPY": "Japanese Yen",
+  "currencyKRW": "Korean Won",
+  "currencyCNY": "Chinese Yuan",
+  "currencyTWD": "Taiwan Dollar",
+  "currencyHKD": "Hong Kong Dollar",
+  "currencyINR": "Indian Rupee",
+  "currencyVND": "Vietnamese Dong",
+  "currencyTHB": "Thai Baht",
+  "currencyIDR": "Indonesian Rupiah",
+  "currencyMXN": "Mexican Peso",
+  "currencyBRL": "Brazilian Real",
+  "currencyCHF": "Swiss Franc",
+  "currencyRUB": "Russian Ruble",
+  "currencySAR": "Saudi Riyal"
 }
