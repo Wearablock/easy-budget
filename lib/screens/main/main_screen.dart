@@ -28,7 +28,7 @@ class _MainScreenState extends State<MainScreen> {
     _screens = [
       HomeScreen(database: _db),
       StatisticsScreen(database: _db),
-      const SettingsScreen(),
+      SettingsScreen(database: _db),
     ];
   }
 

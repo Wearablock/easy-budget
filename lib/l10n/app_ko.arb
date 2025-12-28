@@ -96,5 +96,58 @@
   "currencyBRL": "브라질 헤알",
   "currencyCHF": "스위스 프랑",
   "currencyRUB": "러시아 루블",
-  "currencySAR": "사우디 리얄"
+  "currencySAR": "사우디 리얄",
+
+  "categoryManagement": "카테고리 관리",
+  "addCategory": "카테고리 추가",
+  "noCategoriesInList": "카테고리가 없습니다",
+  "tapPlusToAddCategory": "+ 버튼을 눌러 추가하세요",
+
+  "addCategoryTitle": "카테고리 추가",
+  "categoryName": "이름",
+  "categoryNameHint": "카테고리 이름 입력",
+  "categoryNameRequired": "카테고리 이름을 입력해주세요",
+  "categoryNameTooLong": "이름은 20자 이하로 입력해주세요",
+  "selectIcon": "아이콘",
+  "selectColor": "색상",
+  "categoryAdded": "카테고리가 추가되었습니다",
+  "preview": "미리보기",
+  "categoryNameDuplicate": "같은 이름의 카테고리가 이미 존재합니다",
+
+  "editCategoryTitle": "카테고리 수정",
+  "categoryUpdated": "카테고리가 수정되었습니다",
+  "categoryDeleted": "카테고리가 삭제되었습니다",
+  "deleteCategory": "카테고리 삭제",
+  "deleteCategoryConfirm": "\"{categoryName}\" 카테고리를 삭제하시겠습니까?",
+  "@deleteCategoryConfirm": {
+    "placeholders": {
+      "categoryName": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteCategoryWarning": "이 카테고리를 사용하는 거래 {count}건이 있습니다. 삭제하면 해당 거래의 카테고리가 \"기타\"로 변경됩니다.",
+  "@deleteCategoryWarning": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cannotDeleteDefaultCategory": "기본 카테고리는 삭제할 수 없습니다",
+  "cannotEditDefaultCategory": "기본 카테고리는 수정할 수 없습니다",
+  "defaultCategoryNameHint": "기본 카테고리의 이름은 변경할 수 없습니다",
+
+  "selectIconTitle": "아이콘 선택",
+  "searchIcon": "아이콘 검색...",
+  "iconCategoryFood": "음식",
+  "iconCategoryTransport": "교통",
+  "iconCategoryShopping": "쇼핑",
+  "iconCategoryLiving": "생활",
+  "iconCategoryHealth": "건강",
+  "iconCategoryLeisure": "여가",
+  "iconCategoryEducation": "교육",
+  "iconCategoryFinance": "금융",
+  "iconCategoryFamily": "가족",
+  "iconCategoryEtc": "기타"
 }

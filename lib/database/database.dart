@@ -37,7 +37,7 @@ class AppDatabase extends _$AppDatabase {
   AppDatabase() : super(_openConnection());
 
   @override
-  int get schemaVersion => 2;
+  int get schemaVersion => 3;
 
   @override
   MigrationStrategy get migration {
@@ -47,6 +47,14 @@ class AppDatabase extends _$AppDatabase {
         await CategorySeeder.seedDefaultCategories(this);
       },
       onUpgrade: (Migrator m, int from, int to) async {
+        if (from < 3) {
+          // 기타 카테고리의 sortOrder를 9999로 업데이트
+          await customStatement('''
+            UPDATE categories
+            SET sort_order = 9999
+            WHERE name_key IN ('categoryOther', 'categoryOtherIncome')
+          ''');
+        }
         if (from < 2) {
           await m.addColumn(transactions, transactions.currencyCode);
 
@@ -134,6 +142,94 @@ class AppDatabase extends _$AppDatabase {
   Future<int> softDeleteCategory(int id) {
     return (update(categories)..where((c) => c.id.equals(id))).write(
       const CategoriesCompanion(isDeleted: Value(true)),
+    );
+  }
+
+  /// 카테고리 이름 중복 체크
+  ///
+  /// 같은 타입(수입/지출)에서 동일한 이름이 있는지 확인
+  Future<bool> isCategoryNameExists(String name, bool isIncome) async {
+    final categories = isIncome
+        ? await getIncomeCategories()
+        : await getExpenseCategories();
+
+    return categories.any(
+      (c) => c.customName?.toLowerCase() == name.toLowerCase(),
+    );
+  }
+
+  /// 새 카테고리의 sortOrder 계산
+  ///
+  /// 기타 카테고리(sortOrder=9999) 앞에 오도록 최대값 + 1 반환
+  Future<int> getNextCategorySortOrder(bool isIncome) async {
+    final categoryList = isIncome
+        ? await getIncomeCategories()
+        : await getExpenseCategories();
+
+    // 기타 카테고리(9999) 제외한 최대 sortOrder 찾기
+    int maxOrder = 0;
+    for (final category in categoryList) {
+      if (category.sortOrder < 9999 && category.sortOrder > maxOrder) {
+        maxOrder = category.sortOrder;
+      }
+    }
+
+    return maxOrder + 1;
+  }
+
+  /// 카테고리 ID로 거래 수 조회
+  Future<int> getTransactionCountByCategory(int categoryId) async {
+    final result = await (selectOnly(transactions)
+          ..addColumns([transactions.id.count()])
+          ..where(
+            transactions.isDeleted.equals(false) &
+                transactions.categoryId.equals(categoryId),
+          ))
+        .getSingleOrNull();
+
+    return result?.read(transactions.id.count()) ?? 0;
+  }
+
+  /// 카테고리 삭제 시 거래를 "기타" 카테고리로 이동
+  Future<void> moveCategoryTransactionsToOther(
+    int fromCategoryId,
+    bool isIncome,
+  ) async {
+    // 기타 카테고리 찾기
+    final otherCategory = await (select(categories)
+          ..where(
+            (c) =>
+                c.isDeleted.equals(false) &
+                c.isIncome.equals(isIncome) &
+                c.nameKey.equals(
+                  isIncome ? 'categoryOtherIncome' : 'categoryOther',
+                ),
+          ))
+        .getSingleOrNull();
+
+    if (otherCategory != null) {
+      await (update(transactions)
+            ..where((t) => t.categoryId.equals(fromCategoryId)))
+          .write(TransactionsCompanion(categoryId: Value(otherCategory.id)));
+    }
+  }
+
+  /// 카테고리 이름 중복 체크 (자신 제외)
+  ///
+  /// 수정 시 자기 자신은 제외하고 중복 체크
+  Future<bool> isCategoryNameExistsExcept(
+    String name,
+    bool isIncome,
+    int excludeId,
+  ) async {
+    final categoryList = isIncome
+        ? await getIncomeCategories()
+        : await getExpenseCategories();
+
+    return categoryList.any(
+      (c) =>
+          c.id != excludeId &&
+          c.customName?.toLowerCase() == name.toLowerCase(),
     );
   }
 

@@ -96,5 +96,58 @@
   "currencyBRL": "Brazilian Real",
   "currencyCHF": "Swiss Franc",
   "currencyRUB": "Russian Ruble",
-  "currencySAR": "Saudi Riyal"
+  "currencySAR": "Saudi Riyal",
+
+  "categoryManagement": "Categories",
+  "addCategory": "Add Category",
+  "noCategoriesInList": "No categories yet",
+  "tapPlusToAddCategory": "Tap + to add a category",
+
+  "addCategoryTitle": "Add Category",
+  "categoryName": "Name",
+  "categoryNameHint": "Enter category name",
+  "categoryNameRequired": "Please enter a category name",
+  "categoryNameTooLong": "Name must be 20 characters or less",
+  "selectIcon": "Icon",
+  "selectColor": "Color",
+  "categoryAdded": "Category added",
+  "preview": "Preview",
+  "categoryNameDuplicate": "A category with this name already exists",
+
+  "editCategoryTitle": "Edit Category",
+  "categoryUpdated": "Category updated",
+  "categoryDeleted": "Category deleted",
+  "deleteCategory": "Delete Category",
+  "deleteCategoryConfirm": "Are you sure you want to delete \"{categoryName}\"?",
+  "@deleteCategoryConfirm": {
+    "placeholders": {
+      "categoryName": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteCategoryWarning": "This category has {count} transactions. Deleting it will change those transactions to \"Other\".",
+  "@deleteCategoryWarning": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cannotDeleteDefaultCategory": "Default categories cannot be deleted",
+  "cannotEditDefaultCategory": "Default categories cannot be edited",
+  "defaultCategoryNameHint": "Default category names cannot be changed",
+
+  "selectIconTitle": "Select Icon",
+  "searchIcon": "Search icons...",
+  "iconCategoryFood": "Food",
+  "iconCategoryTransport": "Transport",
+  "iconCategoryShopping": "Shopping",
+  "iconCategoryLiving": "Living",
+  "iconCategoryHealth": "Health",
+  "iconCategoryLeisure": "Leisure",
+  "iconCategoryEducation": "Education",
+  "iconCategoryFinance": "Finance",
+  "iconCategoryFamily": "Family",
+  "iconCategoryEtc": "Other"
 }

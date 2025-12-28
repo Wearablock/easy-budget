@@ -79,7 +79,7 @@ class CategorySeeder {
         color: 0xFF607D8B,
         isIncome: false,
         isDefault: const Value(true),
-        sortOrder: const Value(7),
+        sortOrder: const Value(9999),
       ),
     ];
   }
@@ -117,7 +117,7 @@ class CategorySeeder {
         color: 0xFF607D8B,
         isIncome: true,
         isDefault: const Value(true),
-        sortOrder: const Value(3),
+        sortOrder: const Value(9999),
       ),
     ];
   }
