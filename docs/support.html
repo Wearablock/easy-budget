@@ -202,7 +202,7 @@
     </main>
 
     <footer>
-      <p>&copy; 2026 Wearablock Inc. All rights reserved.</p>
+      <p>&copy; <span id="footerYear"></span> Wearablock Inc. All rights reserved.</p>
       <p>
         <a href="terms.html">Terms of Service</a> |
         <a href="privacy.html">Privacy Policy</a> |
@@ -212,6 +212,9 @@
   </div>
 
   <script>
+    // 현재 연도 동적 적용
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+
     function toggleDropdown() {
       document.getElementById('langDropdown').classList.toggle('show');
     }

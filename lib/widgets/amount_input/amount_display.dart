@@ -56,7 +56,6 @@ class AmountDisplay extends StatelessWidget {
                 style: theme.textTheme.displayLarge?.copyWith(
                   color: color,
                   fontWeight: FontWeight.w600,
-                  fontSize: 48,
                   letterSpacing: -1,
                 ),
                 textAlign: TextAlign.center,

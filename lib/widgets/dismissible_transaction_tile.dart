@@ -1,5 +1,6 @@
 import 'package:easy_budget/app.dart';
 import 'package:easy_budget/constants/app_colors.dart';
+import 'package:easy_budget/constants/app_spacing.dart';
 import 'package:easy_budget/database/database.dart';
 import 'package:easy_budget/l10n/app_localizations.dart';
 import 'package:easy_budget/widgets/transaction_tile.dart';
@@ -44,20 +45,19 @@ class DismissibleTransactionTile extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
         color: AppColors.expense,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: AppSpacing.borderRadiusMd,
       ),
       alignment: Alignment.centerRight,
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Icon(PhosphorIconsThin.trash, color: Colors.white, size: 24),
+          const Icon(PhosphorIconsThin.trash, color: Colors.white, size: 20),
           const SizedBox(height: 4),
           Text(
             l10n.delete,
-            style: const TextStyle(
+            style: Theme.of(context).textTheme.labelSmall?.copyWith(
               color: Colors.white,
-              fontSize: 12,
               fontWeight: FontWeight.w600,
             ),
           ),

@@ -1,14 +1,16 @@
 import 'package:easy_budget/app.dart';
+import 'package:easy_budget/constants/app_spacing.dart';
+import 'package:easy_budget/constants/app_urls.dart';
 import 'package:easy_budget/database/database.dart';
 import 'package:easy_budget/l10n/app_localizations.dart';
 import 'package:easy_budget/screens/category/category_list_screen.dart';
 import 'package:easy_budget/screens/settings/language_selection_screen.dart';
 import 'package:easy_budget/screens/settings/currency_settings_screen.dart';
+import 'package:easy_budget/screens/settings/webview_screen.dart';
 import 'package:easy_budget/services/preferences_service.dart';
 import 'package:easy_budget/utils/currency_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class SettingsScreen extends StatefulWidget {
   final AppDatabase database;
@@ -20,12 +22,6 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  // URL 설정 - 실제 배포 시 변경 필요
-  static const String _baseDocsUrl = 'https://wearablock.github.io/easy-budget';
-  static const String _termsUrl = '$_baseDocsUrl/terms.html';
-  static const String _privacyUrl = '$_baseDocsUrl/privacy.html';
-  static const String _supportUrl = '$_baseDocsUrl/support.html';
-
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
@@ -54,19 +50,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
             context,
             icon: PhosphorIconsThin.fileText,
             title: l10n.termsOfService,
-            onTap: () => _openUrl(context, _termsUrl),
+            onTap: () => _openWebView(context, l10n.termsOfService, AppUrls.termsUrl),
           ),
           _buildLinkTile(
             context,
             icon: PhosphorIconsThin.shieldCheck,
             title: l10n.privacyPolicy,
-            onTap: () => _openUrl(context, _privacyUrl),
+            onTap: () => _openWebView(context, l10n.privacyPolicy, AppUrls.privacyUrl),
           ),
           _buildLinkTile(
             context,
             icon: PhosphorIconsThin.headset,
             title: l10n.support,
-            onTap: () => _openUrl(context, _supportUrl),
+            onTap: () => _openWebView(context, l10n.support, AppUrls.supportUrl),
           ),
 
           const SizedBox(height: 8),
@@ -159,11 +155,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return ListTile(
       leading: _buildIconContainer(context, icon),
       title: Text(title),
-      trailing: Icon(
-        PhosphorIconsThin.arrowSquareOut,
-        color: Theme.of(context).colorScheme.outline,
-        size: 20,
-      ),
+      trailing: const Icon(PhosphorIconsThin.caretRight),
       onTap: onTap,
     );
   }
@@ -178,14 +170,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Widget _buildIconContainer(BuildContext context, IconData icon) {
     return Container(
-      width: 40,
-      height: 40,
+      width: AppSpacing.iconContainerSm,
+      height: AppSpacing.iconContainerSm,
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.primaryContainer,
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: AppSpacing.borderRadiusSm,
       ),
       child: Icon(
         icon,
+        size: 20,
         color: Theme.of(context).colorScheme.onPrimaryContainer,
       ),
     );
@@ -308,33 +301,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 
-  Future<void> _openUrl(BuildContext context, String url) async {
-    final l10n = AppLocalizations.of(context);
-    final uri = Uri.parse(url);
-
-    try {
-      if (await canLaunchUrl(uri)) {
-        await launchUrl(uri, mode: LaunchMode.externalApplication);
-      } else {
-        if (context.mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(l10n.cannotOpenLink),
-              behavior: SnackBarBehavior.floating,
-            ),
-          );
-        }
-      }
-    } catch (e) {
-      if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(l10n.cannotOpenLink),
-            behavior: SnackBarBehavior.floating,
-          ),
-        );
-      }
-    }
+  void _openWebView(BuildContext context, String title, String url) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => WebViewScreen(title: title, url: url),
+      ),
+    );
   }
 
   void _showThemeDialog(BuildContext context, AppLocalizations l10n) {

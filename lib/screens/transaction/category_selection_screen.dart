@@ -218,7 +218,10 @@ class _CategorySelectionScreenState extends State<CategorySelectionScreen> {
           onPressed: isEnabled ? _onNextPressed : null,
           child: Text(
             l10n.next,
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+              color: Theme.of(context).colorScheme.onPrimary,
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ),
       ),

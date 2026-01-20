@@ -1,4 +1,7 @@
 import 'package:drift/drift.dart' hide Column;
+import 'package:easy_budget/constants/app_colors.dart';
+import 'package:easy_budget/constants/app_limits.dart';
+import 'package:easy_budget/constants/app_spacing.dart';
 import 'package:easy_budget/database/database.dart';
 import 'package:easy_budget/l10n/app_localizations.dart';
 import 'package:easy_budget/screens/category/widgets/category_preview.dart';
@@ -116,18 +119,15 @@ class _EditCategoryScreenState extends State<EditCategoryScreen> {
                 decoration: InputDecoration(
                   hintText: l10n.categoryNameHint,
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: AppSpacing.borderRadiusMd,
                   ),
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 14,
-                  ),
+                  contentPadding: AppSpacing.inputPadding,
                   filled: _isDefaultCategory,
                   fillColor: _isDefaultCategory
                       ? theme.colorScheme.surfaceContainerHighest
                       : null,
                 ),
-                maxLength: 20,
+                maxLength: AppLimits.maxCategoryNameLength,
                 textInputAction: TextInputAction.done,
                 onChanged: (_) => setState(() {}),
                 validator: (value) {
@@ -135,7 +135,7 @@ class _EditCategoryScreenState extends State<EditCategoryScreen> {
                   if (value == null || value.trim().isEmpty) {
                     return l10n.categoryNameRequired;
                   }
-                  if (value.length > 20) {
+                  if (value.length > AppLimits.maxCategoryNameLength) {
                     return l10n.categoryNameTooLong;
                   }
                   return null;
@@ -218,8 +218,8 @@ class _EditCategoryScreenState extends State<EditCategoryScreen> {
                         )
                       : Text(
                           l10n.save,
-                          style: const TextStyle(
-                            fontSize: 16,
+                          style: theme.textTheme.titleMedium?.copyWith(
+                            color: theme.colorScheme.onPrimary,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -253,7 +253,7 @@ class _EditCategoryScreenState extends State<EditCategoryScreen> {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(l10n.categoryNameDuplicate),
-              backgroundColor: Theme.of(context).colorScheme.error,
+              backgroundColor: AppColors.expense,
             ),
           );
           return;
@@ -291,7 +291,7 @@ class _EditCategoryScreenState extends State<EditCategoryScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(l10n.errorOccurred),
-            backgroundColor: Theme.of(context).colorScheme.error,
+            backgroundColor: AppColors.expense,
           ),
         );
       }
@@ -306,7 +306,7 @@ class _EditCategoryScreenState extends State<EditCategoryScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(l10n.cannotDeleteDefaultCategory),
-          backgroundColor: Theme.of(context).colorScheme.error,
+          backgroundColor: AppColors.expense,
         ),
       );
       return;
@@ -369,7 +369,7 @@ class _EditCategoryScreenState extends State<EditCategoryScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(l10n.errorOccurred),
-            backgroundColor: Theme.of(context).colorScheme.error,
+            backgroundColor: AppColors.expense,
           ),
         );
       }

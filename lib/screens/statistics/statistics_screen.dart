@@ -1,29 +1,15 @@
+import 'package:easy_budget/constants/app_limits.dart';
 import 'package:easy_budget/database/database.dart';
 import 'package:easy_budget/l10n/app_localizations.dart';
+import 'package:easy_budget/models/statistics_data.dart';
 import 'package:easy_budget/screens/statistics/category_statistics_screen.dart';
 import 'package:easy_budget/screens/statistics/widgets/category_expense_list.dart';
 import 'package:easy_budget/screens/statistics/widgets/monthly_trend_section.dart';
 import 'package:easy_budget/screens/statistics/widgets/statistics_month_selector.dart';
 import 'package:easy_budget/screens/statistics/widgets/statistics_summary_card.dart';
+import 'package:easy_budget/services/statistics_service.dart';
 import 'package:easy_budget/services/transaction_notifier.dart';
 import 'package:flutter/material.dart';
-
-/// 통계 데이터를 통합 관리하는 클래스
-class _StatisticsData {
-  final int income;
-  final int expense;
-  final int? previousBalance;
-  final List<CategoryExpenseData> expensesByCategory;
-  final List<CategoryExpenseData> incomesByCategory;
-
-  _StatisticsData({
-    required this.income,
-    required this.expense,
-    this.previousBalance,
-    required this.expensesByCategory,
-    required this.incomesByCategory,
-  });
-}
 
 class StatisticsScreen extends StatefulWidget {
   final AppDatabase database;
@@ -37,7 +23,7 @@ class StatisticsScreen extends StatefulWidget {
 class StatisticsScreenState extends State<StatisticsScreen> {
   late int _selectedYear;
   late int _selectedMonth;
-  Future<_StatisticsData>? _dataFuture;
+  Future<StatisticsData>? _dataFuture;
 
   // 월별 추이 섹션 새로고침을 위한 키
   final GlobalKey<MonthlyTrendSectionState> _trendSectionKey = GlobalKey();
@@ -73,44 +59,10 @@ class StatisticsScreenState extends State<StatisticsScreen> {
   }
 
   void _loadData() {
-    _dataFuture = _loadAllData();
-  }
-
-  Future<_StatisticsData> _loadAllData() async {
-    final income = await widget.database.getTotalIncomeByMonth(
+    final statisticsService = StatisticsService(widget.database);
+    _dataFuture = statisticsService.getMonthlyStatistics(
       _selectedYear,
       _selectedMonth,
-    );
-    final expense = await widget.database.getTotalExpenseByMonth(
-      _selectedYear,
-      _selectedMonth,
-    );
-
-    int? previousBalance;
-    try {
-      previousBalance = await widget.database.getBalanceBeforeMonth(
-        _selectedYear,
-        _selectedMonth,
-      );
-    } catch (_) {
-      // 전월 데이터 없음
-    }
-
-    final expensesByCategory = await widget.database.getExpensesByCategory(
-      _selectedYear,
-      _selectedMonth,
-    );
-    final incomesByCategory = await widget.database.getIncomesByCategory(
-      _selectedYear,
-      _selectedMonth,
-    );
-
-    return _StatisticsData(
-      income: income,
-      expense: expense,
-      previousBalance: previousBalance,
-      expensesByCategory: expensesByCategory,
-      incomesByCategory: incomesByCategory,
     );
   }
 
@@ -142,7 +94,7 @@ class StatisticsScreenState extends State<StatisticsScreen> {
     final picked = await showDatePicker(
       context: context,
       initialDate: DateTime(_selectedYear, _selectedMonth),
-      firstDate: DateTime(2020),
+      firstDate: DateTime(AppLimits.transactionStartYear),
       lastDate: DateTime(2100),
       initialDatePickerMode: DatePickerMode.year,
     );
@@ -162,7 +114,7 @@ class StatisticsScreenState extends State<StatisticsScreen> {
 
     return Scaffold(
       appBar: AppBar(title: Text(l10n.statistics)),
-      body: FutureBuilder<_StatisticsData>(
+      body: FutureBuilder<StatisticsData>(
         future: _dataFuture,
         builder: (context, snapshot) {
           final isLoading =

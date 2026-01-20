@@ -34,7 +34,7 @@
     <!-- English Content -->
     <main id="content-en" class="content-section active">
       <h2>Terms of Service</h2>
-      <p><strong>Effective Date:</strong> January 19, 2026</p>
+      <p><strong>Effective Date:</strong> January 20, 2026</p>
 
       <div class="info-box">
         <p>By using Easy Budget, you agree to these Terms of Service. Please read them carefully before using the application.</p>
@@ -136,7 +136,7 @@
     <!-- Korean Content -->
     <main id="content-ko" class="content-section">
       <h2>이용약관</h2>
-      <p><strong>시행일:</strong> 2026년 1월 19일</p>
+      <p><strong>시행일:</strong> 2026년 1월 20일</p>
 
       <div class="info-box">
         <p>Easy Budget을 사용함으로써 본 이용약관에 동의하게 됩니다. 애플리케이션 사용 전에 주의 깊게 읽어주시기 바랍니다.</p>
@@ -236,7 +236,7 @@
     </main>
 
     <footer>
-      <p>&copy; 2026 Wearablock Inc. All rights reserved.</p>
+      <p>&copy; <span id="footerYear"></span> Wearablock Inc. All rights reserved.</p>
       <p>
         <a href="terms.html">Terms of Service</a> |
         <a href="privacy.html">Privacy Policy</a> |
@@ -246,6 +246,9 @@
   </div>
 
   <script>
+    // 현재 연도 동적 적용
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+
     function toggleDropdown() {
       document.getElementById('langDropdown').classList.toggle('show');
     }

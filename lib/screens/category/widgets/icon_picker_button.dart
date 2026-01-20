@@ -1,3 +1,4 @@
+import 'package:easy_budget/constants/app_spacing.dart';
 import 'package:easy_budget/constants/category_icons.dart';
 import 'package:easy_budget/l10n/app_localizations.dart';
 import 'package:easy_budget/screens/category/widgets/icon_picker_sheet.dart';
@@ -26,23 +27,23 @@ class IconPickerButton extends StatelessWidget {
 
     return InkWell(
       onTap: () => _showIconPicker(context),
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: AppSpacing.borderRadiusMd,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        padding: AppSpacing.inputPadding,
         decoration: BoxDecoration(
           border: Border.all(color: theme.colorScheme.outline),
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: AppSpacing.borderRadiusMd,
         ),
         child: Row(
           children: [
             Container(
-              width: 40,
-              height: 40,
+              width: AppSpacing.iconContainerSm,
+              height: AppSpacing.iconContainerSm,
               decoration: BoxDecoration(
                 color: selectedColor.withValues(alpha: 0.15),
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: AppSpacing.borderRadiusSm,
               ),
-              child: Icon(icon, color: selectedColor),
+              child: Icon(icon, size: 20, color: selectedColor),
             ),
             const SizedBox(width: 12),
             Expanded(

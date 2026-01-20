@@ -8,21 +8,64 @@
 }
 
 :root {
-  --primary: #6366F1;
-  --primary-light: #818CF8;
-  --primary-dark: #4F46E5;
-  --income: #10B981;
-  --income-light: #34D399;
-  --expense: #EF4444;
-  --expense-light: #F87171;
-  --text-primary: #1F2937;
-  --text-secondary: #6B7280;
-  --text-muted: #9CA3AF;
-  --background: #F9FAFB;
+  /* Primary (Green) - 앱과 동일 */
+  --primary: #59C36A;
+  --primary-light: #7DD68B;
+  --primary-dark: #3DAA57;
+
+  /* Income/Expense - 앱과 동일 */
+  --income: #59C36A;
+  --income-light: #E8F5E9;
+  --expense: #F44336;
+  --expense-light: #FFEBEE;
+
+  /* Light Mode - 앱과 동일 */
+  --background: #FFF9E6;
   --surface: #FFFFFF;
-  --surface-secondary: #F3F4F6;
-  --divider: #E5E7EB;
-  --border: #D1D5DB;
+  --surface-secondary: #F5F5F5;
+  --text-primary: #212121;
+  --text-secondary: #757575;
+  --text-muted: #9E9E9E;
+  --divider: #E0E0E0;
+  --border: #E0E0E0;
+}
+
+/* Dark Mode - 앱과 동일 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #121212;
+    --surface: #1E1E1E;
+    --surface-secondary: #2C2C2C;
+    --text-primary: #FFFFFF;
+    --text-secondary: #B3B3B3;
+    --text-muted: #808080;
+    --divider: #424242;
+    --border: #424242;
+  }
+
+  .container {
+    box-shadow: none;
+  }
+
+  .info-box {
+    background: linear-gradient(135deg, rgba(89, 195, 106, 0.15) 0%, rgba(125, 214, 139, 0.08) 100%);
+  }
+
+  .app-info {
+    background: linear-gradient(135deg, var(--surface-secondary) 0%, var(--surface) 100%);
+  }
+
+  .faq-item {
+    background: var(--surface-secondary);
+  }
+
+  table {
+    box-shadow: none;
+  }
+
+  th {
+    background-color: var(--surface-secondary);
+  }
 }
 
 body {
@@ -156,7 +199,7 @@ h1 {
 }
 
 .lang-option.active {
-  background-color: rgba(99, 102, 241, 0.08);
+  background-color: rgba(89, 195, 106, 0.1);
   color: var(--primary);
 }
 
@@ -229,7 +272,7 @@ a:hover {
 
 /* Info Box */
 .info-box {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(129, 140, 248, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(89, 195, 106, 0.1) 0%, rgba(125, 214, 139, 0.05) 100%);
   border-left: 4px solid var(--primary);
   padding: 20px 24px;
   margin: 24px 0;
@@ -352,7 +395,7 @@ footer a:hover {
 
 .faq-item:hover {
   border-color: var(--primary);
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+  box-shadow: 0 4px 12px rgba(89, 195, 106, 0.15);
 }
 
 .faq-item h4 {
@@ -378,17 +421,17 @@ footer a:hover {
 }
 
 .badge-income {
-  background: rgba(16, 185, 129, 0.1);
+  background: rgba(89, 195, 106, 0.15);
   color: var(--income);
 }
 
 .badge-expense {
-  background: rgba(239, 68, 68, 0.1);
+  background: rgba(244, 67, 54, 0.1);
   color: var(--expense);
 }
 
 .badge-feature {
-  background: rgba(99, 102, 241, 0.1);
+  background: rgba(89, 195, 106, 0.15);
   color: var(--primary);
 }
 

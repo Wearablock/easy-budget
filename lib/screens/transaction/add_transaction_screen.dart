@@ -1,5 +1,6 @@
 import 'package:easy_budget/app.dart';
 import 'package:easy_budget/constants/app_colors.dart';
+import 'package:easy_budget/constants/app_limits.dart';
 import 'package:easy_budget/database/database.dart';
 import 'package:easy_budget/l10n/app_localizations.dart';
 import 'package:easy_budget/models/currency_config.dart';
@@ -40,8 +41,6 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
   DateTime? _existingDate;
 
   CurrencyConfig get _currency => CurrencyUtils.currentCurrency;
-
-  static const int _maxDisplayAmount = 999999999;
 
   @override
   void initState() {
@@ -257,7 +256,10 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
           onPressed: isEnabled ? _onNextPressed : null,
           child: Text(
             l10n.next,
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+              color: Theme.of(context).colorScheme.onPrimary,
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ),
       ),
@@ -286,7 +288,7 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
 
         // 최대 금액 체크
         final newInteger = _integerPart + key;
-        if ((int.tryParse(newInteger) ?? 0) > _maxDisplayAmount) return;
+        if ((int.tryParse(newInteger) ?? 0) > AppLimits.maxDisplayAmount) return;
 
         _integerPart = newInteger;
       }

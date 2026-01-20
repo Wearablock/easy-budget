@@ -1,9 +1,9 @@
-import 'package:drift/drift.dart' show Value;
 import 'package:easy_budget/app.dart';
+import 'package:easy_budget/constants/app_colors.dart';
+import 'package:easy_budget/constants/app_limits.dart';
 import 'package:easy_budget/database/database.dart';
 import 'package:easy_budget/l10n/app_localizations.dart';
-import 'package:easy_budget/services/transaction_notifier.dart';
-import 'package:easy_budget/utils/currency_utils.dart';
+import 'package:easy_budget/services/transaction_service.dart';
 import 'package:easy_budget/widgets/transaction_summary.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -40,8 +40,6 @@ class _MemoInputScreenState extends State<MemoInputScreen> {
   final FocusNode _memoFocusNode = FocusNode();
 
   bool _isSaving = false;
-
-  static const int _maxMemoLength = 100;
 
   @override
   void initState() {
@@ -130,7 +128,7 @@ class _MemoInputScreenState extends State<MemoInputScreen> {
               const Spacer(),
               // 글자 수 카운터
               Text(
-                '${_memoController.text.length}/$_maxMemoLength',
+                '${_memoController.text.length}/$AppLimits.maxMemoLength',
                 style: theme.textTheme.labelSmall?.copyWith(
                   color: theme.colorScheme.outline,
                 ),
@@ -142,7 +140,7 @@ class _MemoInputScreenState extends State<MemoInputScreen> {
           TextField(
             controller: _memoController,
             focusNode: _memoFocusNode,
-            maxLength: _maxMemoLength,
+            maxLength: AppLimits.maxMemoLength,
             maxLines: 4,
             textInputAction: TextInputAction.done,
             decoration: InputDecoration(
@@ -187,8 +185,8 @@ class _MemoInputScreenState extends State<MemoInputScreen> {
                 )
               : Text(
                   l10n.save,
-                  style: const TextStyle(
-                    fontSize: 18,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    color: Theme.of(context).colorScheme.onPrimary,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -213,17 +211,18 @@ class _MemoInputScreenState extends State<MemoInputScreen> {
 
       // 앱 전역 ScaffoldMessenger 사용 (화면 전환 후에도 스낵바 정상 작동)
       final messenger = EasyBudgetApp.scaffoldMessengerKey.currentState;
+      final transactionService = TransactionService(widget.database);
 
       if (widget.isEditMode) {
         // 수정 모드
-        final updated = widget.existingTransaction!.copyWith(
+        await transactionService.updateTransaction(
+          existingTransaction: widget.existingTransaction!,
           amount: widget.amountInMinorUnits,
           isIncome: widget.isIncome,
           categoryId: widget.categoryId,
-          memo: Value(memoText),
           transactionDate: widget.transactionDate,
+          memo: memoText,
         );
-        await widget.database.updateTransaction(updated);
 
         if (!mounted) return;
 
@@ -237,15 +236,13 @@ class _MemoInputScreenState extends State<MemoInputScreen> {
         );
       } else {
         // 추가 모드
-        final transaction = TransactionsCompanion.insert(
+        await transactionService.addTransaction(
           amount: widget.amountInMinorUnits,
-          currencyCode: Value(CurrencyUtils.currentCurrency.code),
           isIncome: widget.isIncome,
           categoryId: widget.categoryId,
-          memo: Value(memoText),
           transactionDate: widget.transactionDate,
+          memo: memoText,
         );
-        await widget.database.insertTransaction(transaction);
 
         if (!mounted) return;
 
@@ -261,9 +258,6 @@ class _MemoInputScreenState extends State<MemoInputScreen> {
         );
       }
 
-      // 거래 변경 알림 (통계 화면 등에서 새로고침)
-      TransactionNotifier().notifyTransactionChanged();
-
       // 홈 화면으로 복귀 (모든 거래 입력 화면 닫기)
       Navigator.of(context).popUntil((route) => route.isFirst);
     } catch (e) {
@@ -278,7 +272,7 @@ class _MemoInputScreenState extends State<MemoInputScreen> {
         SnackBar(
           content: Text(l10n.errorOccurred),
           behavior: SnackBarBehavior.floating,
-          backgroundColor: Theme.of(context).colorScheme.error,
+          backgroundColor: AppColors.expense,
         ),
       );
     }

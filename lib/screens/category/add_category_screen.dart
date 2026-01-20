@@ -1,4 +1,7 @@
 import 'package:drift/drift.dart' hide Column;
+import 'package:easy_budget/constants/app_colors.dart';
+import 'package:easy_budget/constants/app_limits.dart';
+import 'package:easy_budget/constants/app_spacing.dart';
 import 'package:easy_budget/constants/category_colors.dart';
 import 'package:easy_budget/constants/category_icons.dart';
 import 'package:easy_budget/database/database.dart';
@@ -86,21 +89,18 @@ class _AddCategoryScreenState extends State<AddCategoryScreen> {
                 decoration: InputDecoration(
                   hintText: l10n.categoryNameHint,
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: AppSpacing.borderRadiusMd,
                   ),
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 14,
-                  ),
+                  contentPadding: AppSpacing.inputPadding,
                 ),
-                maxLength: 20,
+                maxLength: AppLimits.maxCategoryNameLength,
                 textInputAction: TextInputAction.done,
                 onChanged: (_) => setState(() {}),
                 validator: (value) {
                   if (value == null || value.trim().isEmpty) {
                     return l10n.categoryNameRequired;
                   }
-                  if (value.length > 20) {
+                  if (value.length > AppLimits.maxCategoryNameLength) {
                     return l10n.categoryNameTooLong;
                   }
                   return null;
@@ -160,8 +160,8 @@ class _AddCategoryScreenState extends State<AddCategoryScreen> {
                         )
                       : Text(
                           l10n.save,
-                          style: const TextStyle(
-                            fontSize: 16,
+                          style: theme.textTheme.titleMedium?.copyWith(
+                            color: theme.colorScheme.onPrimary,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -195,7 +195,7 @@ class _AddCategoryScreenState extends State<AddCategoryScreen> {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(l10n.categoryNameDuplicate),
-              backgroundColor: Theme.of(context).colorScheme.error,
+              backgroundColor: AppColors.expense,
             ),
           );
         }
@@ -239,7 +239,7 @@ class _AddCategoryScreenState extends State<AddCategoryScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(l10n.errorOccurred),
-            backgroundColor: Theme.of(context).colorScheme.error,
+            backgroundColor: AppColors.expense,
           ),
         );
       }

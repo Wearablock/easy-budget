@@ -78,7 +78,7 @@ class TransactionTypeToggle extends StatelessWidget {
               children: [
                 Icon(
                   icon,
-                  size: 18,
+                  size: 20,
                   color: isSelected
                       ? Colors.white
                       : theme.colorScheme.onSurfaceVariant,
@@ -86,8 +86,7 @@ class TransactionTypeToggle extends StatelessWidget {
                 const SizedBox(width: 6),
                 Text(
                   label,
-                  style: TextStyle(
-                    fontSize: 15,
+                  style: theme.textTheme.labelLarge?.copyWith(
                     fontWeight: FontWeight.w600,
                     color: isSelected
                         ? Colors.white

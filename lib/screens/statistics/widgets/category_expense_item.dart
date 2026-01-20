@@ -1,3 +1,4 @@
+import 'package:easy_budget/constants/app_spacing.dart';
 import 'package:easy_budget/constants/category_icons.dart';
 import 'package:easy_budget/utils/category_utils.dart';
 import 'package:easy_budget/utils/currency_utils.dart';
@@ -30,13 +31,13 @@ class CategoryExpenseItem extends StatelessWidget {
         children: [
           // 카테고리 아이콘
           Container(
-            width: 40,
-            height: 40,
+            width: AppSpacing.iconContainerSm,
+            height: AppSpacing.iconContainerSm,
             decoration: BoxDecoration(
               color: color.withValues(alpha: 0.15),
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: AppSpacing.borderRadiusSm,
             ),
-            child: Icon(icon, color: color, size: 22),
+            child: Icon(icon, color: color, size: 20),
           ),
           const SizedBox(width: 12),
 

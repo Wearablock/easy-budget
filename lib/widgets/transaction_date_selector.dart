@@ -1,3 +1,4 @@
+import 'package:easy_budget/constants/app_spacing.dart';
 import 'package:easy_budget/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -31,12 +32,12 @@ class TransactionDateSelector extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: InkWell(
         onTap: () => _showDatePicker(context),
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: AppSpacing.borderRadiusMd,
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          padding: AppSpacing.inputPadding,
           decoration: BoxDecoration(
             color: theme.colorScheme.surfaceContainerHighest,
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: AppSpacing.borderRadiusMd,
           ),
           child: Row(
             children: [

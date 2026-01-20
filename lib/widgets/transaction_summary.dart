@@ -1,3 +1,4 @@
+import 'package:easy_budget/constants/app_colors.dart';
 import 'package:easy_budget/utils/currency_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
@@ -19,7 +20,7 @@ class TransactionSummary extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final formattedAmount = CurrencyUtils.formatWithSymbol(amountInMinorUnits);
-    final color = isIncome ? theme.colorScheme.primary : theme.colorScheme.error;
+    final color = isIncome ? AppColors.income : AppColors.expense;
 
     return Container(
       padding: const EdgeInsets.all(16),

@@ -4,6 +4,7 @@ import 'package:easy_budget/screens/home/home_screen.dart';
 import 'package:easy_budget/screens/settings/settings_screen.dart';
 import 'package:easy_budget/screens/statistics/statistics_screen.dart';
 import 'package:easy_budget/screens/transaction/add_transaction_screen.dart';
+import 'package:easy_budget/widgets/banner_ad_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
@@ -48,7 +49,13 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: IndexedStack(index: _currentIndex, children: _screens),
-      bottomNavigationBar: _buildBottomNavigationBar(context),
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const BannerAdWidget(),
+          _buildBottomNavigationBar(context),
+        ],
+      ),
       floatingActionButton: _showFab ? _buildFab(context) : null,
     );
   }

@@ -1,3 +1,4 @@
+import 'package:easy_budget/constants/app_spacing.dart';
 import 'package:easy_budget/constants/category_icons.dart';
 import 'package:easy_budget/database/database.dart';
 import 'package:easy_budget/utils/category_utils.dart';
@@ -32,7 +33,7 @@ class CategoryGridItem extends StatelessWidget {
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 200),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: AppSpacing.borderRadiusMd,
             border: isSelected
                 ? Border.all(color: categoryColor, width: 2)
                 : null,
@@ -60,15 +61,15 @@ class CategoryGridItem extends StatelessWidget {
       children: [
         // 기본 아이콘
         Container(
-          width: 56,
-          height: 56,
+          width: AppSpacing.iconContainerLg,
+          height: AppSpacing.iconContainerLg,
           decoration: BoxDecoration(
             color: categoryColor.withValues(
               alpha: theme.brightness == Brightness.dark ? 0.25 : 0.15,
             ),
             shape: BoxShape.circle,
           ),
-          child: Icon(icon, size: 28, color: categoryColor),
+          child: Icon(icon, size: 24, color: categoryColor),
         ),
         // 선택 체크 오버레이
         AnimatedSwitcher(
@@ -76,15 +77,15 @@ class CategoryGridItem extends StatelessWidget {
           child: isSelected
               ? Container(
                   key: const ValueKey('selected'),
-                  width: 56,
-                  height: 56,
+                  width: AppSpacing.iconContainerLg,
+                  height: AppSpacing.iconContainerLg,
                   decoration: BoxDecoration(
                     color: categoryColor.withValues(alpha: 0.85),
                     shape: BoxShape.circle,
                   ),
                   child: const Icon(
                     PhosphorIconsBold.check,
-                    size: 28,
+                    size: 24,
                     color: Colors.white,
                   ),
                 )

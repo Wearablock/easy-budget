@@ -1,4 +1,5 @@
 import 'package:easy_budget/constants/app_colors.dart';
+import 'package:easy_budget/constants/app_spacing.dart';
 import 'package:easy_budget/constants/category_icons.dart';
 import 'package:easy_budget/database/database.dart';
 import 'package:easy_budget/l10n/app_localizations.dart';
@@ -63,13 +64,13 @@ class TransactionTile extends StatelessWidget {
         : Theme.of(context).colorScheme.outline;
 
     return Container(
-      width: 44,
-      height: 44,
+      width: AppSpacing.iconContainerSm,
+      height: AppSpacing.iconContainerSm,
       decoration: BoxDecoration(
         color: color.withValues(alpha: 0.1),
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: AppSpacing.borderRadiusSm,
       ),
-      child: Icon(iconData, color: color, size: 22),
+      child: Icon(iconData, color: color, size: 20),
     );
   }
 
