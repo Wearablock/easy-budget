@@ -302,9 +302,26 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   void _openWebView(BuildContext context, String title, String url) {
+    // 현재 언어 코드를 URL 파라미터로 추가
+    final langCode = PreferencesService.languageCode;
+    String? htmlLangCode;
+    if (langCode != null) {
+      // HTML에서는 zh-TW 형식 사용
+      htmlLangCode = langCode == 'zh_Hant' ? 'zh-TW' : langCode;
+    } else {
+      // 시스템 기본값일 경우 현재 locale 사용
+      final locale = Localizations.localeOf(context);
+      if (locale.scriptCode == 'Hant') {
+        htmlLangCode = 'zh-TW';
+      } else {
+        htmlLangCode = locale.languageCode;
+      }
+    }
+    final urlWithLang = '$url?lang=$htmlLangCode';
+
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => WebViewScreen(title: title, url: url),
+        builder: (context) => WebViewScreen(title: title, url: urlWithLang),
       ),
     );
   }

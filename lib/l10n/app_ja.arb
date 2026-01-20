@@ -1,0 +1,255 @@
+{
+  "@@locale": "ja",
+  "appTitle": "Easy Budget",
+  "income": "収入",
+  "expense": "支出",
+  "balance": "残高",
+  "addTransaction": "取引を追加",
+  "category": "カテゴリ",
+  "amount": "金額",
+  "memo": "メモ",
+  "date": "日付",
+  "today": "今日",
+  "statistics": "統計",
+  "settings": "設定",
+  "save": "保存",
+  "cancel": "キャンセル",
+  "delete": "削除",
+  "edit": "編集",
+  "confirmDelete": "本当に削除しますか？",
+  "noTransactions": "取引がありません",
+  "thisMonth": "今月",
+  "monthlyTotal": "月間合計",
+  "next": "次へ",
+  "errorOccurred": "エラーが発生しました",
+  "retry": "再試行",
+  "noCategories": "カテゴリがありません",
+  "memoHint": "メモを追加（任意）",
+  "incomeAdded": "収入を追加しました",
+  "expenseAdded": "支出を追加しました",
+
+  "home": "ホーム",
+  "monthlyBalance": "月間収支",
+  "recentTransactions": "最近の取引",
+  "viewAll": "すべて表示",
+  "addFirstTransaction": "+をタップして最初の取引を追加",
+  "settingsScreenTitle": "設定",
+  "statisticsScreenTitle": "統計",
+  "comingSoonPhase6": "Phase 6で実装予定",
+  "comingSoonPhase7": "Phase 7で実装予定",
+
+  "categoryFood": "食費",
+  "categoryTransport": "交通費",
+  "categoryShopping": "買い物",
+  "categoryHousing": "住居費",
+  "categoryMedical": "医療費",
+  "categoryEntertainment": "娯楽",
+  "categoryEducation": "教育",
+  "categoryOther": "その他",
+
+  "categorySalary": "給料",
+  "categorySideIncome": "副収入",
+  "categoryInterest": "利息",
+  "categoryOtherIncome": "その他",
+
+  "editTransaction": "取引を編集",
+  "deleteTransaction": "取引を削除",
+  "deleteConfirmTitle": "取引を削除しますか？",
+  "deleteConfirmMessage": "削除後、数秒間は元に戻すことができます。",
+  "transactionUpdated": "取引を更新しました",
+  "transactionDeleted": "取引を削除しました",
+
+  "enterAmount": "金額を入力",
+  "unknownCategory": "不明",
+
+  "selectDateToView": "日付を選択して取引を表示",
+  "noTransactionsOnDate": "この日付の取引はありません",
+
+  "all": "すべて",
+
+  "undo": "元に戻す",
+  "transactionRestored": "取引を復元しました",
+
+  "selectCurrencyTitle": "通貨を選択",
+  "selectCurrencySubtitle": "よく使う通貨を選択してください",
+  "continue_": "続行",
+
+  "regionAmericas": "アメリカ",
+  "regionEurope": "ヨーロッパ",
+  "regionAsia": "アジア",
+  "regionSoutheastAsia": "東南アジア",
+  "regionMiddleEast": "中東",
+
+  "currencyUSD": "米ドル",
+  "currencyEUR": "ユーロ",
+  "currencyGBP": "英ポンド",
+  "currencyJPY": "日本円",
+  "currencyKRW": "韓国ウォン",
+  "currencyCNY": "中国元",
+  "currencyTWD": "台湾ドル",
+  "currencyHKD": "香港ドル",
+  "currencyINR": "インドルピー",
+  "currencyVND": "ベトナムドン",
+  "currencyTHB": "タイバーツ",
+  "currencyIDR": "インドネシアルピア",
+  "currencyMXN": "メキシコペソ",
+  "currencyBRL": "ブラジルレアル",
+  "currencyCHF": "スイスフラン",
+  "currencyRUB": "ロシアルーブル",
+  "currencySAR": "サウジアラビアリヤル",
+
+  "categoryManagement": "カテゴリ管理",
+  "addCategory": "カテゴリを追加",
+  "noCategoriesInList": "カテゴリがありません",
+  "tapPlusToAddCategory": "+をタップしてカテゴリを追加",
+
+  "addCategoryTitle": "カテゴリを追加",
+  "categoryName": "名前",
+  "categoryNameHint": "カテゴリ名を入力",
+  "categoryNameRequired": "カテゴリ名を入力してください",
+  "categoryNameTooLong": "名前は20文字以内にしてください",
+  "selectIcon": "アイコン",
+  "selectColor": "色",
+  "categoryAdded": "カテゴリを追加しました",
+  "preview": "プレビュー",
+  "categoryNameDuplicate": "同じ名前のカテゴリが既に存在します",
+
+  "editCategoryTitle": "カテゴリを編集",
+  "categoryUpdated": "カテゴリを更新しました",
+  "categoryDeleted": "カテゴリを削除しました",
+  "deleteCategory": "カテゴリを削除",
+  "deleteCategoryConfirm": "「{categoryName}」を削除しますか？",
+  "@deleteCategoryConfirm": {
+    "placeholders": {
+      "categoryName": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteCategoryWarning": "このカテゴリには{count}件の取引があります。削除すると、それらの取引は「その他」に変更されます。",
+  "@deleteCategoryWarning": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cannotDeleteDefaultCategory": "デフォルトカテゴリは削除できません",
+  "cannotEditDefaultCategory": "デフォルトカテゴリは編集できません",
+  "defaultCategoryNameHint": "デフォルトカテゴリの名前は変更できません",
+
+  "selectIconTitle": "アイコンを選択",
+  "searchIcon": "アイコンを検索...",
+  "iconCategoryFood": "食費",
+  "iconCategoryTransport": "交通",
+  "iconCategoryShopping": "買い物",
+  "iconCategoryLiving": "生活",
+  "iconCategoryHealth": "健康",
+  "iconCategoryLeisure": "レジャー",
+  "iconCategoryEducation": "教育",
+  "iconCategoryFinance": "金融",
+  "iconCategoryFamily": "家族",
+  "iconCategoryEtc": "その他",
+
+  "vsLastMonth": "先月比",
+  "categoryExpenseTitle": "カテゴリ別支出",
+  "noExpenseData": "支出データがありません",
+  "noIncomeData": "収入データがありません",
+  "noDataForMonth": "今月の取引がありません",
+
+  "categoryStatisticsTitle": "カテゴリ統計",
+  "totalExpense": "総支出",
+  "totalIncome": "総収入",
+  "transactionCount": "{count}件の取引",
+  "@transactionCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "tapToSeeDetails": "セクションをタップして詳細を表示",
+
+  "monthlyTrend": "月次推移",
+  "barChart": "棒グラフ",
+  "lineChart": "折れ線",
+  "incomeLabel": "収入",
+  "expenseLabel": "支出",
+  "balanceLabel": "残高",
+  "noTrendData": "この期間のデータがありません",
+  "last6Months": "過去6ヶ月",
+  "categoryIncomeTitle": "カテゴリ別収入",
+  "loadingStatistics": "統計を読み込み中...",
+  "statisticsError": "統計の読み込みに失敗しました",
+
+  "language": "言語",
+  "selectLanguage": "言語を選択",
+  "languageChanged": "言語を変更しました",
+  "currentLanguage": "現在: {language}",
+  "@currentLanguage": {
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
+  "systemDefault": "システムデフォルト",
+
+  "currency": "通貨",
+  "selectCurrency": "通貨を選択",
+  "currencyChanged": "通貨を変更しました",
+  "currentCurrency": "現在: {currency}",
+  "@currentCurrency": {
+    "placeholders": {
+      "currency": {
+        "type": "String"
+      }
+    }
+  },
+
+  "general": "一般",
+  "appearance": "外観",
+  "dataManagement": "データ管理",
+  "about": "アプリについて",
+  "version": "バージョン",
+  "privacyPolicy": "プライバシーポリシー",
+  "termsOfService": "利用規約",
+  "feedback": "フィードバックを送信",
+  "rateApp": "アプリを評価",
+
+  "backup": "バックアップ",
+  "restore": "復元",
+  "exportData": "データをエクスポート",
+  "importData": "データをインポート",
+  "backupSuccess": "バックアップが完了しました",
+  "restoreSuccess": "復元が完了しました",
+  "backupFailed": "バックアップに失敗しました",
+  "restoreFailed": "復元に失敗しました",
+
+  "darkMode": "ダークモード",
+  "lightMode": "ライトモード",
+  "systemTheme": "システム設定",
+
+  "languageEnglish": "English",
+  "languageKorean": "한국어",
+  "languageJapanese": "日本語",
+  "languageChinese": "中文",
+  "languageGerman": "Deutsch",
+  "languageFrench": "Français",
+  "languageSpanish": "Español",
+  "languagePortuguese": "Português",
+  "languageItalian": "Italiano",
+  "languageRussian": "Русский",
+  "languageArabic": "العربية",
+  "languageThai": "ภาษาไทย",
+  "languageVietnamese": "Tiếng Việt",
+  "languageIndonesian": "Bahasa Indonesia",
+
+  "restartRequired": "変更を適用するにはアプリを再起動してください",
+  "ok": "OK",
+
+  "termsAndPolicies": "規約とポリシー",
+  "support": "サポート",
+  "cannotOpenLink": "リンクを開けません",
+  "openSource": "オープンソースライセンス"
+}

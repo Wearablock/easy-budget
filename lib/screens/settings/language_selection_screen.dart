@@ -25,17 +25,18 @@ class LanguageSelectionScreen extends StatefulWidget {
 }
 
 class _LanguageSelectionScreenState extends State<LanguageSelectionScreen> {
-  // 현재 지원하는 언어만 표시 (en, ko)
+  // 현재 지원하는 언어만 표시 (en, ko, ja, zh, zh_TW)
   // 추후 다른 언어 추가 시 여기에 추가
   static const List<LanguageOption> _supportedLanguages = [
     LanguageOption(code: 'en', name: 'English', flag: '🇺🇸'),
     LanguageOption(code: 'ko', name: '한국어', flag: '🇰🇷'),
+    LanguageOption(code: 'ja', name: '日本語', flag: '🇯🇵'),
+    LanguageOption(code: 'zh', name: '简体中文', flag: '🇨🇳'),
+    LanguageOption(code: 'zh_Hant', name: '繁體中文', flag: '🇹🇼'),
   ];
 
   // 추후 지원 예정 언어
   static const List<LanguageOption> _comingSoonLanguages = [
-    LanguageOption(code: 'ja', name: '日本語', flag: '🇯🇵'),
-    LanguageOption(code: 'zh', name: '中文', flag: '🇨🇳'),
     LanguageOption(code: 'de', name: 'Deutsch', flag: '🇩🇪'),
     LanguageOption(code: 'fr', name: 'Français', flag: '🇫🇷'),
     LanguageOption(code: 'es', name: 'Español', flag: '🇪🇸'),
@@ -162,7 +163,17 @@ class _LanguageSelectionScreenState extends State<LanguageSelectionScreen> {
   }
 
   void _changeLanguage(String? code) {
-    final locale = code != null ? Locale(code) : null;
+    Locale? locale;
+    if (code != null) {
+      if (code == 'zh_Hant') {
+        locale = const Locale.fromSubtags(
+          languageCode: 'zh',
+          scriptCode: 'Hant',
+        );
+      } else {
+        locale = Locale(code);
+      }
+    }
     EasyBudgetApp.setLocale(locale);
     Navigator.of(context).pop(true);
   }

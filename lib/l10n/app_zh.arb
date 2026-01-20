@@ -1,0 +1,255 @@
+{
+  "@@locale": "zh",
+  "appTitle": "Easy Budget",
+  "income": "收入",
+  "expense": "支出",
+  "balance": "余额",
+  "addTransaction": "添加交易",
+  "category": "类别",
+  "amount": "金额",
+  "memo": "备注",
+  "date": "日期",
+  "today": "今天",
+  "statistics": "统计",
+  "settings": "设置",
+  "save": "保存",
+  "cancel": "取消",
+  "delete": "删除",
+  "edit": "编辑",
+  "confirmDelete": "确定要删除吗？",
+  "noTransactions": "暂无交易",
+  "thisMonth": "本月",
+  "monthlyTotal": "月度总计",
+  "next": "下一步",
+  "errorOccurred": "发生错误",
+  "retry": "重试",
+  "noCategories": "暂无类别",
+  "memoHint": "添加备注（可选）",
+  "incomeAdded": "收入已添加",
+  "expenseAdded": "支出已添加",
+
+  "home": "首页",
+  "monthlyBalance": "月度收支",
+  "recentTransactions": "最近交易",
+  "viewAll": "查看全部",
+  "addFirstTransaction": "点击 + 添加您的第一笔交易",
+  "settingsScreenTitle": "设置",
+  "statisticsScreenTitle": "统计",
+  "comingSoonPhase6": "Phase 6 即将推出",
+  "comingSoonPhase7": "Phase 7 即将推出",
+
+  "categoryFood": "餐饮",
+  "categoryTransport": "交通",
+  "categoryShopping": "购物",
+  "categoryHousing": "住房",
+  "categoryMedical": "医疗",
+  "categoryEntertainment": "娱乐",
+  "categoryEducation": "教育",
+  "categoryOther": "其他",
+
+  "categorySalary": "工资",
+  "categorySideIncome": "副业收入",
+  "categoryInterest": "利息",
+  "categoryOtherIncome": "其他",
+
+  "editTransaction": "编辑交易",
+  "deleteTransaction": "删除交易",
+  "deleteConfirmTitle": "确定删除交易？",
+  "deleteConfirmMessage": "删除后几秒内可以撤销。",
+  "transactionUpdated": "交易已更新",
+  "transactionDeleted": "交易已删除",
+
+  "enterAmount": "请输入金额",
+  "unknownCategory": "未知",
+
+  "selectDateToView": "选择日期查看交易",
+  "noTransactionsOnDate": "该日期暂无交易",
+
+  "all": "全部",
+
+  "undo": "撤销",
+  "transactionRestored": "交易已恢复",
+
+  "selectCurrencyTitle": "选择货币",
+  "selectCurrencySubtitle": "选择您常用的货币",
+  "continue_": "继续",
+
+  "regionAmericas": "美洲",
+  "regionEurope": "欧洲",
+  "regionAsia": "亚洲",
+  "regionSoutheastAsia": "东南亚",
+  "regionMiddleEast": "中东",
+
+  "currencyUSD": "美元",
+  "currencyEUR": "欧元",
+  "currencyGBP": "英镑",
+  "currencyJPY": "日元",
+  "currencyKRW": "韩元",
+  "currencyCNY": "人民币",
+  "currencyTWD": "新台币",
+  "currencyHKD": "港币",
+  "currencyINR": "印度卢比",
+  "currencyVND": "越南盾",
+  "currencyTHB": "泰铢",
+  "currencyIDR": "印尼盾",
+  "currencyMXN": "墨西哥比索",
+  "currencyBRL": "巴西雷亚尔",
+  "currencyCHF": "瑞士法郎",
+  "currencyRUB": "俄罗斯卢布",
+  "currencySAR": "沙特里亚尔",
+
+  "categoryManagement": "类别管理",
+  "addCategory": "添加类别",
+  "noCategoriesInList": "暂无类别",
+  "tapPlusToAddCategory": "点击 + 添加类别",
+
+  "addCategoryTitle": "添加类别",
+  "categoryName": "名称",
+  "categoryNameHint": "请输入类别名称",
+  "categoryNameRequired": "请输入类别名称",
+  "categoryNameTooLong": "名称不能超过20个字符",
+  "selectIcon": "图标",
+  "selectColor": "颜色",
+  "categoryAdded": "类别已添加",
+  "preview": "预览",
+  "categoryNameDuplicate": "该类别名称已存在",
+
+  "editCategoryTitle": "编辑类别",
+  "categoryUpdated": "类别已更新",
+  "categoryDeleted": "类别已删除",
+  "deleteCategory": "删除类别",
+  "deleteCategoryConfirm": "确定要删除「{categoryName}」吗？",
+  "@deleteCategoryConfirm": {
+    "placeholders": {
+      "categoryName": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteCategoryWarning": "该类别有{count}笔交易。删除后，这些交易将改为「其他」类别。",
+  "@deleteCategoryWarning": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cannotDeleteDefaultCategory": "默认类别无法删除",
+  "cannotEditDefaultCategory": "默认类别无法编辑",
+  "defaultCategoryNameHint": "默认类别名称无法更改",
+
+  "selectIconTitle": "选择图标",
+  "searchIcon": "搜索图标...",
+  "iconCategoryFood": "餐饮",
+  "iconCategoryTransport": "交通",
+  "iconCategoryShopping": "购物",
+  "iconCategoryLiving": "生活",
+  "iconCategoryHealth": "健康",
+  "iconCategoryLeisure": "休闲",
+  "iconCategoryEducation": "教育",
+  "iconCategoryFinance": "金融",
+  "iconCategoryFamily": "家庭",
+  "iconCategoryEtc": "其他",
+
+  "vsLastMonth": "较上月",
+  "categoryExpenseTitle": "分类支出",
+  "noExpenseData": "暂无支出数据",
+  "noIncomeData": "暂无收入数据",
+  "noDataForMonth": "本月暂无交易",
+
+  "categoryStatisticsTitle": "类别统计",
+  "totalExpense": "总支出",
+  "totalIncome": "总收入",
+  "transactionCount": "{count}笔交易",
+  "@transactionCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "tapToSeeDetails": "点击查看详情",
+
+  "monthlyTrend": "月度趋势",
+  "barChart": "柱状图",
+  "lineChart": "折线图",
+  "incomeLabel": "收入",
+  "expenseLabel": "支出",
+  "balanceLabel": "余额",
+  "noTrendData": "该时期暂无数据",
+  "last6Months": "近6个月",
+  "categoryIncomeTitle": "分类收入",
+  "loadingStatistics": "正在加载统计...",
+  "statisticsError": "统计加载失败",
+
+  "language": "语言",
+  "selectLanguage": "选择语言",
+  "languageChanged": "语言已更改",
+  "currentLanguage": "当前: {language}",
+  "@currentLanguage": {
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
+  "systemDefault": "系统默认",
+
+  "currency": "货币",
+  "selectCurrency": "选择货币",
+  "currencyChanged": "货币已更改",
+  "currentCurrency": "当前: {currency}",
+  "@currentCurrency": {
+    "placeholders": {
+      "currency": {
+        "type": "String"
+      }
+    }
+  },
+
+  "general": "通用",
+  "appearance": "外观",
+  "dataManagement": "数据管理",
+  "about": "关于",
+  "version": "版本",
+  "privacyPolicy": "隐私政策",
+  "termsOfService": "服务条款",
+  "feedback": "发送反馈",
+  "rateApp": "给应用评分",
+
+  "backup": "备份",
+  "restore": "恢复",
+  "exportData": "导出数据",
+  "importData": "导入数据",
+  "backupSuccess": "备份完成",
+  "restoreSuccess": "恢复完成",
+  "backupFailed": "备份失败",
+  "restoreFailed": "恢复失败",
+
+  "darkMode": "深色模式",
+  "lightMode": "浅色模式",
+  "systemTheme": "跟随系统",
+
+  "languageEnglish": "English",
+  "languageKorean": "한국어",
+  "languageJapanese": "日本語",
+  "languageChinese": "中文",
+  "languageGerman": "Deutsch",
+  "languageFrench": "Français",
+  "languageSpanish": "Español",
+  "languagePortuguese": "Português",
+  "languageItalian": "Italiano",
+  "languageRussian": "Русский",
+  "languageArabic": "العربية",
+  "languageThai": "ภาษาไทย",
+  "languageVietnamese": "Tiếng Việt",
+  "languageIndonesian": "Bahasa Indonesia",
+
+  "restartRequired": "请重启应用以应用更改",
+  "ok": "确定",
+
+  "termsAndPolicies": "条款与政策",
+  "support": "支持",
+  "cannotOpenLink": "无法打开链接",
+  "openSource": "开源许可"
+}

@@ -61,7 +61,11 @@ class PreferencesService {
   /// 저장된 Locale 가져오기
   static Locale? get locale {
     final code = languageCode;
-    return code != null ? Locale(code) : null;
+    if (code == null) return null;
+    if (code == 'zh_Hant') {
+      return const Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hant');
+    }
+    return Locale(code);
   }
 
   /// 저장된 테마 모드 가져오기

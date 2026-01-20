@@ -71,7 +71,16 @@ class _EasyBudgetAppState extends State<EasyBudgetApp> {
     setState(() {
       _locale = locale;
     });
-    PreferencesService.setLanguageCode(locale?.languageCode);
+    // zh_Hant (Traditional Chinese) 처리
+    String? code;
+    if (locale != null) {
+      if (locale.scriptCode == 'Hant') {
+        code = 'zh_Hant';
+      } else {
+        code = locale.languageCode;
+      }
+    }
+    PreferencesService.setLanguageCode(code);
   }
 
   @override
@@ -97,6 +106,9 @@ class _EasyBudgetAppState extends State<EasyBudgetApp> {
       supportedLocales: const [
         Locale('en'),
         Locale('ko'),
+        Locale('ja'),
+        Locale('zh'),
+        Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hant'),
       ],
 
       home: _showOnboarding
