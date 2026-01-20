@@ -1,0 +1,255 @@
+{
+  "@@locale": "vi",
+  "appTitle": "Sổ Thu Chi",
+  "income": "Thu nhập",
+  "expense": "Chi tiêu",
+  "balance": "Số dư",
+  "addTransaction": "Thêm giao dịch",
+  "category": "Danh mục",
+  "amount": "Số tiền",
+  "memo": "Ghi chú",
+  "date": "Ngày",
+  "today": "Hôm nay",
+  "statistics": "Thống kê",
+  "settings": "Cài đặt",
+  "save": "Lưu",
+  "cancel": "Hủy",
+  "delete": "Xóa",
+  "edit": "Sửa",
+  "confirmDelete": "Bạn có chắc chắn muốn xóa?",
+  "noTransactions": "Chưa có giao dịch nào",
+  "thisMonth": "Tháng này",
+  "monthlyTotal": "Tổng tháng",
+  "next": "Tiếp",
+  "errorOccurred": "Đã xảy ra lỗi",
+  "retry": "Thử lại",
+  "noCategories": "Không có danh mục",
+  "memoHint": "Thêm ghi chú (tùy chọn)",
+  "incomeAdded": "Đã thêm thu nhập",
+  "expenseAdded": "Đã thêm chi tiêu",
+
+  "home": "Trang chủ",
+  "monthlyBalance": "Số dư tháng",
+  "recentTransactions": "Giao dịch gần đây",
+  "viewAll": "Xem tất cả",
+  "addFirstTransaction": "Nhấn + để thêm giao dịch đầu tiên",
+  "settingsScreenTitle": "Cài đặt",
+  "statisticsScreenTitle": "Thống kê",
+  "comingSoonPhase6": "Sắp ra mắt trong Giai đoạn 6",
+  "comingSoonPhase7": "Sắp ra mắt trong Giai đoạn 7",
+
+  "categoryFood": "Ăn uống",
+  "categoryTransport": "Di chuyển",
+  "categoryShopping": "Mua sắm",
+  "categoryHousing": "Nhà ở",
+  "categoryMedical": "Y tế",
+  "categoryEntertainment": "Giải trí",
+  "categoryEducation": "Giáo dục",
+  "categoryOther": "Khác",
+
+  "categorySalary": "Lương",
+  "categorySideIncome": "Thu nhập phụ",
+  "categoryInterest": "Lãi suất",
+  "categoryOtherIncome": "Khác",
+
+  "editTransaction": "Sửa giao dịch",
+  "deleteTransaction": "Xóa giao dịch",
+  "deleteConfirmTitle": "Xóa giao dịch?",
+  "deleteConfirmMessage": "Bạn có thể hoàn tác hành động này trong vài giây sau khi xóa.",
+  "transactionUpdated": "Đã cập nhật giao dịch",
+  "transactionDeleted": "Đã xóa giao dịch",
+
+  "enterAmount": "Nhập số tiền",
+  "unknownCategory": "Không xác định",
+
+  "selectDateToView": "Chọn ngày để xem giao dịch",
+  "noTransactionsOnDate": "Không có giao dịch vào ngày này",
+
+  "all": "Tất cả",
+
+  "undo": "Hoàn tác",
+  "transactionRestored": "Đã khôi phục giao dịch",
+
+  "selectCurrencyTitle": "Chọn đơn vị tiền tệ",
+  "selectCurrencySubtitle": "Chọn đơn vị tiền tệ bạn sử dụng nhiều nhất",
+  "continue_": "Tiếp tục",
+
+  "regionAmericas": "Châu Mỹ",
+  "regionEurope": "Châu Âu",
+  "regionAsia": "Châu Á",
+  "regionSoutheastAsia": "Đông Nam Á",
+  "regionMiddleEast": "Trung Đông",
+
+  "currencyUSD": "Đô la Mỹ",
+  "currencyEUR": "Euro",
+  "currencyGBP": "Bảng Anh",
+  "currencyJPY": "Yên Nhật",
+  "currencyKRW": "Won Hàn Quốc",
+  "currencyCNY": "Nhân dân tệ",
+  "currencyTWD": "Đô la Đài Loan",
+  "currencyHKD": "Đô la Hồng Kông",
+  "currencyINR": "Rupee Ấn Độ",
+  "currencyVND": "Đồng Việt Nam",
+  "currencyTHB": "Baht Thái",
+  "currencyIDR": "Rupiah Indonesia",
+  "currencyMXN": "Peso Mexico",
+  "currencyBRL": "Real Brazil",
+  "currencyCHF": "Franc Thụy Sĩ",
+  "currencyRUB": "Rúp Nga",
+  "currencySAR": "Riyal Ả Rập Saudi",
+
+  "categoryManagement": "Danh mục",
+  "addCategory": "Thêm danh mục",
+  "noCategoriesInList": "Chưa có danh mục nào",
+  "tapPlusToAddCategory": "Nhấn + để thêm danh mục",
+
+  "addCategoryTitle": "Thêm danh mục",
+  "categoryName": "Tên",
+  "categoryNameHint": "Nhập tên danh mục",
+  "categoryNameRequired": "Vui lòng nhập tên danh mục",
+  "categoryNameTooLong": "Tên phải có 20 ký tự trở xuống",
+  "selectIcon": "Biểu tượng",
+  "selectColor": "Màu sắc",
+  "categoryAdded": "Đã thêm danh mục",
+  "preview": "Xem trước",
+  "categoryNameDuplicate": "Danh mục với tên này đã tồn tại",
+
+  "editCategoryTitle": "Sửa danh mục",
+  "categoryUpdated": "Đã cập nhật danh mục",
+  "categoryDeleted": "Đã xóa danh mục",
+  "deleteCategory": "Xóa danh mục",
+  "deleteCategoryConfirm": "Bạn có chắc chắn muốn xóa \"{categoryName}\"?",
+  "@deleteCategoryConfirm": {
+    "placeholders": {
+      "categoryName": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteCategoryWarning": "Danh mục này có {count} giao dịch. Xóa sẽ chuyển các giao dịch đó sang \"Khác\".",
+  "@deleteCategoryWarning": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cannotDeleteDefaultCategory": "Không thể xóa danh mục mặc định",
+  "cannotEditDefaultCategory": "Không thể sửa danh mục mặc định",
+  "defaultCategoryNameHint": "Không thể đổi tên danh mục mặc định",
+
+  "selectIconTitle": "Chọn biểu tượng",
+  "searchIcon": "Tìm kiếm biểu tượng...",
+  "iconCategoryFood": "Ăn uống",
+  "iconCategoryTransport": "Di chuyển",
+  "iconCategoryShopping": "Mua sắm",
+  "iconCategoryLiving": "Sinh hoạt",
+  "iconCategoryHealth": "Sức khỏe",
+  "iconCategoryLeisure": "Giải trí",
+  "iconCategoryEducation": "Giáo dục",
+  "iconCategoryFinance": "Tài chính",
+  "iconCategoryFamily": "Gia đình",
+  "iconCategoryEtc": "Khác",
+
+  "vsLastMonth": "so với tháng trước",
+  "categoryExpenseTitle": "Chi tiêu theo danh mục",
+  "noExpenseData": "Không có dữ liệu chi tiêu",
+  "noIncomeData": "Không có dữ liệu thu nhập",
+  "noDataForMonth": "Không có giao dịch trong tháng này",
+
+  "categoryStatisticsTitle": "Thống kê danh mục",
+  "totalExpense": "Tổng chi tiêu",
+  "totalIncome": "Tổng thu nhập",
+  "transactionCount": "{count} giao dịch",
+  "@transactionCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "tapToSeeDetails": "Nhấn vào phần để xem chi tiết",
+
+  "monthlyTrend": "Xu hướng tháng",
+  "barChart": "Cột",
+  "lineChart": "Đường",
+  "incomeLabel": "Thu nhập",
+  "expenseLabel": "Chi tiêu",
+  "balanceLabel": "Số dư",
+  "noTrendData": "Không có dữ liệu trong khoảng thời gian này",
+  "last6Months": "6 tháng gần đây",
+  "categoryIncomeTitle": "Thu nhập theo danh mục",
+  "loadingStatistics": "Đang tải thống kê...",
+  "statisticsError": "Không thể tải thống kê",
+
+  "language": "Ngôn ngữ",
+  "selectLanguage": "Chọn ngôn ngữ",
+  "languageChanged": "Đã thay đổi ngôn ngữ",
+  "currentLanguage": "Hiện tại: {language}",
+  "@currentLanguage": {
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
+  "systemDefault": "Mặc định hệ thống",
+
+  "currency": "Đơn vị tiền tệ",
+  "selectCurrency": "Chọn đơn vị tiền tệ",
+  "currencyChanged": "Đã thay đổi đơn vị tiền tệ",
+  "currentCurrency": "Hiện tại: {currency}",
+  "@currentCurrency": {
+    "placeholders": {
+      "currency": {
+        "type": "String"
+      }
+    }
+  },
+
+  "general": "Chung",
+  "appearance": "Giao diện",
+  "dataManagement": "Quản lý dữ liệu",
+  "about": "Giới thiệu",
+  "version": "Phiên bản",
+  "privacyPolicy": "Chính sách bảo mật",
+  "termsOfService": "Điều khoản dịch vụ",
+  "feedback": "Gửi phản hồi",
+  "rateApp": "Đánh giá ứng dụng",
+
+  "backup": "Sao lưu",
+  "restore": "Khôi phục",
+  "exportData": "Xuất dữ liệu",
+  "importData": "Nhập dữ liệu",
+  "backupSuccess": "Sao lưu thành công",
+  "restoreSuccess": "Khôi phục thành công",
+  "backupFailed": "Sao lưu thất bại",
+  "restoreFailed": "Khôi phục thất bại",
+
+  "darkMode": "Chế độ tối",
+  "lightMode": "Chế độ sáng",
+  "systemTheme": "Hệ thống",
+
+  "languageEnglish": "English",
+  "languageKorean": "한국어",
+  "languageJapanese": "日本語",
+  "languageChinese": "中文",
+  "languageGerman": "Deutsch",
+  "languageFrench": "Français",
+  "languageSpanish": "Español",
+  "languagePortuguese": "Português",
+  "languageItalian": "Italiano",
+  "languageRussian": "Русский",
+  "languageArabic": "العربية",
+  "languageThai": "ภาษาไทย",
+  "languageVietnamese": "Tiếng Việt",
+  "languageIndonesian": "Bahasa Indonesia",
+
+  "restartRequired": "Vui lòng khởi động lại ứng dụng để áp dụng thay đổi",
+  "ok": "OK",
+
+  "termsAndPolicies": "Điều khoản & Chính sách",
+  "support": "Hỗ trợ",
+  "cannotOpenLink": "Không thể mở liên kết",
+  "openSource": "Giấy phép mã nguồn mở"
+}

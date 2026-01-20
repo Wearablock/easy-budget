@@ -25,18 +25,12 @@ class LanguageSelectionScreen extends StatefulWidget {
 }
 
 class _LanguageSelectionScreenState extends State<LanguageSelectionScreen> {
-  // 현재 지원하는 언어만 표시 (en, ko, ja, zh, zh_TW)
-  // 추후 다른 언어 추가 시 여기에 추가
-  static const List<LanguageOption> _supportedLanguages = [
+  static const List<LanguageOption> _languages = [
     LanguageOption(code: 'en', name: 'English', flag: '🇺🇸'),
     LanguageOption(code: 'ko', name: '한국어', flag: '🇰🇷'),
     LanguageOption(code: 'ja', name: '日本語', flag: '🇯🇵'),
     LanguageOption(code: 'zh', name: '简体中文', flag: '🇨🇳'),
     LanguageOption(code: 'zh_Hant', name: '繁體中文', flag: '🇹🇼'),
-  ];
-
-  // 추후 지원 예정 언어
-  static const List<LanguageOption> _comingSoonLanguages = [
     LanguageOption(code: 'de', name: 'Deutsch', flag: '🇩🇪'),
     LanguageOption(code: 'fr', name: 'Français', flag: '🇫🇷'),
     LanguageOption(code: 'es', name: 'Español', flag: '🇪🇸'),
@@ -76,45 +70,13 @@ class _LanguageSelectionScreenState extends State<LanguageSelectionScreen> {
             isSelected: _selectedCode == null,
           ),
           const Divider(),
-
-          // 지원 언어
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-            child: Text(
-              'Supported',
-              style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                    color: Theme.of(context).colorScheme.primary,
-                  ),
-            ),
-          ),
-          ..._supportedLanguages.map(
+          ..._languages.map(
             (lang) => _buildLanguageTile(
               context,
               code: lang.code,
               name: lang.name,
               flag: lang.flag,
               isSelected: _selectedCode == lang.code,
-            ),
-          ),
-
-          // 추후 지원 예정 언어 (비활성화)
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16, 24, 16, 8),
-            child: Text(
-              'Coming Soon',
-              style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                    color: Theme.of(context).colorScheme.outline,
-                  ),
-            ),
-          ),
-          ..._comingSoonLanguages.map(
-            (lang) => _buildLanguageTile(
-              context,
-              code: lang.code,
-              name: lang.name,
-              flag: lang.flag,
-              isSelected: false,
-              enabled: false,
             ),
           ),
         ],
@@ -128,37 +90,25 @@ class _LanguageSelectionScreenState extends State<LanguageSelectionScreen> {
     required String name,
     required String flag,
     required bool isSelected,
-    bool enabled = true,
   }) {
     return ListTile(
-      enabled: enabled,
       leading: Text(
         flag,
-        style: TextStyle(
-          fontSize: 24,
-          color: enabled ? null : Theme.of(context).disabledColor,
-        ),
+        style: const TextStyle(fontSize: 24),
       ),
-      title: Text(
-        name,
-        style: TextStyle(
-          color: enabled ? null : Theme.of(context).disabledColor,
-        ),
-      ),
+      title: Text(name),
       trailing: isSelected
           ? Icon(
               PhosphorIconsFill.checkCircle,
               color: Theme.of(context).colorScheme.primary,
             )
           : null,
-      onTap: enabled
-          ? () {
-              setState(() {
-                _selectedCode = code;
-              });
-              _changeLanguage(code);
-            }
-          : null,
+      onTap: () {
+        setState(() {
+          _selectedCode = code;
+        });
+        _changeLanguage(code);
+      },
     );
   }
 

@@ -47,7 +47,7 @@ class _MonthlyBarChartState extends State<MonthlyBarChart> {
     return SizedBox(
       height: 220,
       child: Padding(
-        padding: const EdgeInsets.only(right: 16, top: 16),
+        padding: const EdgeInsetsDirectional.only(end: 16, top: 16),
         child: BarChart(
           BarChartData(
             maxY: yAxisMax.toDouble(),

@@ -1,0 +1,255 @@
+{
+  "@@locale": "th",
+  "appTitle": "บัญชีง่ายๆ",
+  "income": "รายรับ",
+  "expense": "รายจ่าย",
+  "balance": "ยอดคงเหลือ",
+  "addTransaction": "เพิ่มรายการ",
+  "category": "หมวดหมู่",
+  "amount": "จำนวนเงิน",
+  "memo": "บันทึก",
+  "date": "วันที่",
+  "today": "วันนี้",
+  "statistics": "สถิติ",
+  "settings": "ตั้งค่า",
+  "save": "บันทึก",
+  "cancel": "ยกเลิก",
+  "delete": "ลบ",
+  "edit": "แก้ไข",
+  "confirmDelete": "คุณแน่ใจหรือไม่ว่าต้องการลบ?",
+  "noTransactions": "ยังไม่มีรายการ",
+  "thisMonth": "เดือนนี้",
+  "monthlyTotal": "ยอดรวมรายเดือน",
+  "next": "ถัดไป",
+  "errorOccurred": "เกิดข้อผิดพลาด",
+  "retry": "ลองอีกครั้ง",
+  "noCategories": "ไม่มีหมวดหมู่",
+  "memoHint": "เพิ่มบันทึก (ไม่บังคับ)",
+  "incomeAdded": "เพิ่มรายรับแล้ว",
+  "expenseAdded": "เพิ่มรายจ่ายแล้ว",
+
+  "home": "หน้าแรก",
+  "monthlyBalance": "ยอดคงเหลือรายเดือน",
+  "recentTransactions": "รายการล่าสุด",
+  "viewAll": "ดูทั้งหมด",
+  "addFirstTransaction": "แตะ + เพื่อเพิ่มรายการแรก",
+  "settingsScreenTitle": "ตั้งค่า",
+  "statisticsScreenTitle": "สถิติ",
+  "comingSoonPhase6": "เร็วๆ นี้ในเฟส 6",
+  "comingSoonPhase7": "เร็วๆ นี้ในเฟส 7",
+
+  "categoryFood": "อาหาร",
+  "categoryTransport": "เดินทาง",
+  "categoryShopping": "ช้อปปิ้ง",
+  "categoryHousing": "ที่อยู่อาศัย",
+  "categoryMedical": "การแพทย์",
+  "categoryEntertainment": "บันเทิง",
+  "categoryEducation": "การศึกษา",
+  "categoryOther": "อื่นๆ",
+
+  "categorySalary": "เงินเดือน",
+  "categorySideIncome": "รายได้เสริม",
+  "categoryInterest": "ดอกเบี้ย",
+  "categoryOtherIncome": "อื่นๆ",
+
+  "editTransaction": "แก้ไขรายการ",
+  "deleteTransaction": "ลบรายการ",
+  "deleteConfirmTitle": "ลบรายการ?",
+  "deleteConfirmMessage": "คุณสามารถยกเลิกการกระทำนี้ได้ภายในไม่กี่วินาทีหลังจากลบ",
+  "transactionUpdated": "อัปเดตรายการแล้ว",
+  "transactionDeleted": "ลบรายการแล้ว",
+
+  "enterAmount": "ใส่จำนวนเงิน",
+  "unknownCategory": "ไม่ทราบ",
+
+  "selectDateToView": "เลือกวันที่เพื่อดูรายการ",
+  "noTransactionsOnDate": "ไม่มีรายการในวันนี้",
+
+  "all": "ทั้งหมด",
+
+  "undo": "เลิกทำ",
+  "transactionRestored": "กู้คืนรายการแล้ว",
+
+  "selectCurrencyTitle": "เลือกสกุลเงินของคุณ",
+  "selectCurrencySubtitle": "เลือกสกุลเงินที่คุณใช้บ่อยที่สุด",
+  "continue_": "ดำเนินการต่อ",
+
+  "regionAmericas": "อเมริกา",
+  "regionEurope": "ยุโรป",
+  "regionAsia": "เอเชีย",
+  "regionSoutheastAsia": "เอเชียตะวันออกเฉียงใต้",
+  "regionMiddleEast": "ตะวันออกกลาง",
+
+  "currencyUSD": "ดอลลาร์สหรัฐ",
+  "currencyEUR": "ยูโร",
+  "currencyGBP": "ปอนด์อังกฤษ",
+  "currencyJPY": "เยนญี่ปุ่น",
+  "currencyKRW": "วอนเกาหลี",
+  "currencyCNY": "หยวนจีน",
+  "currencyTWD": "ดอลลาร์ไต้หวัน",
+  "currencyHKD": "ดอลลาร์ฮ่องกง",
+  "currencyINR": "รูปีอินเดีย",
+  "currencyVND": "ด่องเวียดนาม",
+  "currencyTHB": "บาทไทย",
+  "currencyIDR": "รูเปียห์อินโดนีเซีย",
+  "currencyMXN": "เปโซเม็กซิโก",
+  "currencyBRL": "เรียลบราซิล",
+  "currencyCHF": "ฟรังก์สวิส",
+  "currencyRUB": "รูเบิลรัสเซีย",
+  "currencySAR": "ริยาลซาอุดีอาระเบีย",
+
+  "categoryManagement": "หมวดหมู่",
+  "addCategory": "เพิ่มหมวดหมู่",
+  "noCategoriesInList": "ยังไม่มีหมวดหมู่",
+  "tapPlusToAddCategory": "แตะ + เพื่อเพิ่มหมวดหมู่",
+
+  "addCategoryTitle": "เพิ่มหมวดหมู่",
+  "categoryName": "ชื่อ",
+  "categoryNameHint": "ใส่ชื่อหมวดหมู่",
+  "categoryNameRequired": "กรุณาใส่ชื่อหมวดหมู่",
+  "categoryNameTooLong": "ชื่อต้องไม่เกิน 20 ตัวอักษร",
+  "selectIcon": "ไอคอน",
+  "selectColor": "สี",
+  "categoryAdded": "เพิ่มหมวดหมู่แล้ว",
+  "preview": "ตัวอย่าง",
+  "categoryNameDuplicate": "มีหมวดหมู่ชื่อนี้อยู่แล้ว",
+
+  "editCategoryTitle": "แก้ไขหมวดหมู่",
+  "categoryUpdated": "อัปเดตหมวดหมู่แล้ว",
+  "categoryDeleted": "ลบหมวดหมู่แล้ว",
+  "deleteCategory": "ลบหมวดหมู่",
+  "deleteCategoryConfirm": "คุณแน่ใจหรือไม่ว่าต้องการลบ \"{categoryName}\"?",
+  "@deleteCategoryConfirm": {
+    "placeholders": {
+      "categoryName": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteCategoryWarning": "หมวดหมู่นี้มี {count} รายการ การลบจะเปลี่ยนรายการเหล่านั้นเป็น \"อื่นๆ\"",
+  "@deleteCategoryWarning": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cannotDeleteDefaultCategory": "ไม่สามารถลบหมวดหมู่เริ่มต้นได้",
+  "cannotEditDefaultCategory": "ไม่สามารถแก้ไขหมวดหมู่เริ่มต้นได้",
+  "defaultCategoryNameHint": "ไม่สามารถเปลี่ยนชื่อหมวดหมู่เริ่มต้นได้",
+
+  "selectIconTitle": "เลือกไอคอน",
+  "searchIcon": "ค้นหาไอคอน...",
+  "iconCategoryFood": "อาหาร",
+  "iconCategoryTransport": "เดินทาง",
+  "iconCategoryShopping": "ช้อปปิ้ง",
+  "iconCategoryLiving": "ที่อยู่อาศัย",
+  "iconCategoryHealth": "สุขภาพ",
+  "iconCategoryLeisure": "พักผ่อน",
+  "iconCategoryEducation": "การศึกษา",
+  "iconCategoryFinance": "การเงิน",
+  "iconCategoryFamily": "ครอบครัว",
+  "iconCategoryEtc": "อื่นๆ",
+
+  "vsLastMonth": "เทียบกับเดือนก่อน",
+  "categoryExpenseTitle": "รายจ่ายตามหมวดหมู่",
+  "noExpenseData": "ไม่มีข้อมูลรายจ่าย",
+  "noIncomeData": "ไม่มีข้อมูลรายรับ",
+  "noDataForMonth": "ไม่มีรายการในเดือนนี้",
+
+  "categoryStatisticsTitle": "สถิติหมวดหมู่",
+  "totalExpense": "รายจ่ายรวม",
+  "totalIncome": "รายรับรวม",
+  "transactionCount": "{count} รายการ",
+  "@transactionCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "tapToSeeDetails": "แตะส่วนเพื่อดูรายละเอียด",
+
+  "monthlyTrend": "แนวโน้มรายเดือน",
+  "barChart": "แท่ง",
+  "lineChart": "เส้น",
+  "incomeLabel": "รายรับ",
+  "expenseLabel": "รายจ่าย",
+  "balanceLabel": "ยอดคงเหลือ",
+  "noTrendData": "ไม่มีข้อมูลในช่วงนี้",
+  "last6Months": "6 เดือนที่ผ่านมา",
+  "categoryIncomeTitle": "รายรับตามหมวดหมู่",
+  "loadingStatistics": "กำลังโหลดสถิติ...",
+  "statisticsError": "ไม่สามารถโหลดสถิติได้",
+
+  "language": "ภาษา",
+  "selectLanguage": "เลือกภาษา",
+  "languageChanged": "เปลี่ยนภาษาแล้ว",
+  "currentLanguage": "ปัจจุบัน: {language}",
+  "@currentLanguage": {
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
+  "systemDefault": "ค่าเริ่มต้นของระบบ",
+
+  "currency": "สกุลเงิน",
+  "selectCurrency": "เลือกสกุลเงิน",
+  "currencyChanged": "เปลี่ยนสกุลเงินแล้ว",
+  "currentCurrency": "ปัจจุบัน: {currency}",
+  "@currentCurrency": {
+    "placeholders": {
+      "currency": {
+        "type": "String"
+      }
+    }
+  },
+
+  "general": "ทั่วไป",
+  "appearance": "รูปลักษณ์",
+  "dataManagement": "จัดการข้อมูล",
+  "about": "เกี่ยวกับ",
+  "version": "เวอร์ชัน",
+  "privacyPolicy": "นโยบายความเป็นส่วนตัว",
+  "termsOfService": "ข้อกำหนดการใช้งาน",
+  "feedback": "ส่งความคิดเห็น",
+  "rateApp": "ให้คะแนนแอปนี้",
+
+  "backup": "สำรองข้อมูล",
+  "restore": "กู้คืน",
+  "exportData": "ส่งออกข้อมูล",
+  "importData": "นำเข้าข้อมูล",
+  "backupSuccess": "สำรองข้อมูลสำเร็จ",
+  "restoreSuccess": "กู้คืนสำเร็จ",
+  "backupFailed": "สำรองข้อมูลล้มเหลว",
+  "restoreFailed": "กู้คืนล้มเหลว",
+
+  "darkMode": "โหมดมืด",
+  "lightMode": "โหมดสว่าง",
+  "systemTheme": "ระบบ",
+
+  "languageEnglish": "English",
+  "languageKorean": "한국어",
+  "languageJapanese": "日本語",
+  "languageChinese": "中文",
+  "languageGerman": "Deutsch",
+  "languageFrench": "Français",
+  "languageSpanish": "Español",
+  "languagePortuguese": "Português",
+  "languageItalian": "Italiano",
+  "languageRussian": "Русский",
+  "languageArabic": "العربية",
+  "languageThai": "ภาษาไทย",
+  "languageVietnamese": "Tiếng Việt",
+  "languageIndonesian": "Bahasa Indonesia",
+
+  "restartRequired": "กรุณาเริ่มแอปใหม่เพื่อใช้การเปลี่ยนแปลง",
+  "ok": "ตกลง",
+
+  "termsAndPolicies": "ข้อกำหนดและนโยบาย",
+  "support": "ช่วยเหลือ",
+  "cannotOpenLink": "ไม่สามารถเปิดลิงก์ได้",
+  "openSource": "ใบอนุญาตโอเพนซอร์ส"
+}

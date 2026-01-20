@@ -82,7 +82,7 @@ class CategoryExpenseItem extends StatelessWidget {
                       width: 48,
                       child: Text(
                         '${percentage.toStringAsFixed(1)}%',
-                        textAlign: TextAlign.right,
+                        textAlign: TextAlign.end,
                         style: theme.textTheme.bodySmall?.copyWith(
                           color: theme.colorScheme.outline,
                         ),

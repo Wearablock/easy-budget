@@ -1,0 +1,255 @@
+{
+  "@@locale": "ru",
+  "appTitle": "Простой Бюджет",
+  "income": "Доходы",
+  "expense": "Расходы",
+  "balance": "Баланс",
+  "addTransaction": "Добавить транзакцию",
+  "category": "Категория",
+  "amount": "Сумма",
+  "memo": "Заметка",
+  "date": "Дата",
+  "today": "Сегодня",
+  "statistics": "Статистика",
+  "settings": "Настройки",
+  "save": "Сохранить",
+  "cancel": "Отмена",
+  "delete": "Удалить",
+  "edit": "Редактировать",
+  "confirmDelete": "Вы уверены, что хотите удалить?",
+  "noTransactions": "Нет транзакций",
+  "thisMonth": "Этот месяц",
+  "monthlyTotal": "Месячный итог",
+  "next": "Далее",
+  "errorOccurred": "Произошла ошибка",
+  "retry": "Повторить",
+  "noCategories": "Нет доступных категорий",
+  "memoHint": "Добавить заметку (необязательно)",
+  "incomeAdded": "Доход добавлен",
+  "expenseAdded": "Расход добавлен",
+
+  "home": "Главная",
+  "monthlyBalance": "Месячный баланс",
+  "recentTransactions": "Последние транзакции",
+  "viewAll": "Смотреть все",
+  "addFirstTransaction": "Нажмите +, чтобы добавить первую транзакцию",
+  "settingsScreenTitle": "Настройки",
+  "statisticsScreenTitle": "Статистика",
+  "comingSoonPhase6": "Скоро в Фазе 6",
+  "comingSoonPhase7": "Скоро в Фазе 7",
+
+  "categoryFood": "Еда",
+  "categoryTransport": "Транспорт",
+  "categoryShopping": "Покупки",
+  "categoryHousing": "Жильё",
+  "categoryMedical": "Здоровье",
+  "categoryEntertainment": "Развлечения",
+  "categoryEducation": "Образование",
+  "categoryOther": "Другое",
+
+  "categorySalary": "Зарплата",
+  "categorySideIncome": "Дополнительный доход",
+  "categoryInterest": "Проценты",
+  "categoryOtherIncome": "Другое",
+
+  "editTransaction": "Редактировать транзакцию",
+  "deleteTransaction": "Удалить транзакцию",
+  "deleteConfirmTitle": "Удалить транзакцию?",
+  "deleteConfirmMessage": "Вы можете отменить это действие в течение нескольких секунд после удаления.",
+  "transactionUpdated": "Транзакция обновлена",
+  "transactionDeleted": "Транзакция удалена",
+
+  "enterAmount": "Введите сумму",
+  "unknownCategory": "Неизвестно",
+
+  "selectDateToView": "Выберите дату для просмотра транзакций",
+  "noTransactionsOnDate": "Нет транзакций на эту дату",
+
+  "all": "Все",
+
+  "undo": "Отменить",
+  "transactionRestored": "Транзакция восстановлена",
+
+  "selectCurrencyTitle": "Выберите валюту",
+  "selectCurrencySubtitle": "Выберите валюту, которую вы используете чаще всего",
+  "continue_": "Продолжить",
+
+  "regionAmericas": "Америка",
+  "regionEurope": "Европа",
+  "regionAsia": "Азия",
+  "regionSoutheastAsia": "Юго-Восточная Азия",
+  "regionMiddleEast": "Ближний Восток",
+
+  "currencyUSD": "Доллар США",
+  "currencyEUR": "Евро",
+  "currencyGBP": "Британский фунт",
+  "currencyJPY": "Японская иена",
+  "currencyKRW": "Корейская вона",
+  "currencyCNY": "Китайский юань",
+  "currencyTWD": "Тайваньский доллар",
+  "currencyHKD": "Гонконгский доллар",
+  "currencyINR": "Индийская рупия",
+  "currencyVND": "Вьетнамский донг",
+  "currencyTHB": "Тайский бат",
+  "currencyIDR": "Индонезийская рупия",
+  "currencyMXN": "Мексиканское песо",
+  "currencyBRL": "Бразильский реал",
+  "currencyCHF": "Швейцарский франк",
+  "currencyRUB": "Российский рубль",
+  "currencySAR": "Саудовский риял",
+
+  "categoryManagement": "Категории",
+  "addCategory": "Добавить категорию",
+  "noCategoriesInList": "Нет категорий",
+  "tapPlusToAddCategory": "Нажмите +, чтобы добавить категорию",
+
+  "addCategoryTitle": "Добавить категорию",
+  "categoryName": "Название",
+  "categoryNameHint": "Введите название категории",
+  "categoryNameRequired": "Пожалуйста, введите название категории",
+  "categoryNameTooLong": "Название должно быть не более 20 символов",
+  "selectIcon": "Иконка",
+  "selectColor": "Цвет",
+  "categoryAdded": "Категория добавлена",
+  "preview": "Предпросмотр",
+  "categoryNameDuplicate": "Категория с таким названием уже существует",
+
+  "editCategoryTitle": "Редактировать категорию",
+  "categoryUpdated": "Категория обновлена",
+  "categoryDeleted": "Категория удалена",
+  "deleteCategory": "Удалить категорию",
+  "deleteCategoryConfirm": "Вы уверены, что хотите удалить \"{categoryName}\"?",
+  "@deleteCategoryConfirm": {
+    "placeholders": {
+      "categoryName": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteCategoryWarning": "В этой категории {count} транзакций. При удалении они будут изменены на \"Другое\".",
+  "@deleteCategoryWarning": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cannotDeleteDefaultCategory": "Категории по умолчанию нельзя удалить",
+  "cannotEditDefaultCategory": "Категории по умолчанию нельзя редактировать",
+  "defaultCategoryNameHint": "Названия категорий по умолчанию нельзя изменить",
+
+  "selectIconTitle": "Выбрать иконку",
+  "searchIcon": "Поиск иконок...",
+  "iconCategoryFood": "Еда",
+  "iconCategoryTransport": "Транспорт",
+  "iconCategoryShopping": "Покупки",
+  "iconCategoryLiving": "Быт",
+  "iconCategoryHealth": "Здоровье",
+  "iconCategoryLeisure": "Досуг",
+  "iconCategoryEducation": "Образование",
+  "iconCategoryFinance": "Финансы",
+  "iconCategoryFamily": "Семья",
+  "iconCategoryEtc": "Другое",
+
+  "vsLastMonth": "по сравнению с прошлым месяцем",
+  "categoryExpenseTitle": "Расходы по категориям",
+  "noExpenseData": "Нет данных о расходах",
+  "noIncomeData": "Нет данных о доходах",
+  "noDataForMonth": "Нет транзакций за этот месяц",
+
+  "categoryStatisticsTitle": "Статистика по категориям",
+  "totalExpense": "Всего расходов",
+  "totalIncome": "Всего доходов",
+  "transactionCount": "{count} транзакций",
+  "@transactionCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "tapToSeeDetails": "Нажмите для подробностей",
+
+  "monthlyTrend": "Месячная динамика",
+  "barChart": "Столбцы",
+  "lineChart": "Линия",
+  "incomeLabel": "Доходы",
+  "expenseLabel": "Расходы",
+  "balanceLabel": "Баланс",
+  "noTrendData": "Нет данных за этот период",
+  "last6Months": "Последние 6 месяцев",
+  "categoryIncomeTitle": "Доходы по категориям",
+  "loadingStatistics": "Загрузка статистики...",
+  "statisticsError": "Ошибка загрузки статистики",
+
+  "language": "Язык",
+  "selectLanguage": "Выбрать язык",
+  "languageChanged": "Язык изменён",
+  "currentLanguage": "Текущий: {language}",
+  "@currentLanguage": {
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
+  "systemDefault": "Системный",
+
+  "currency": "Валюта",
+  "selectCurrency": "Выбрать валюту",
+  "currencyChanged": "Валюта изменена",
+  "currentCurrency": "Текущая: {currency}",
+  "@currentCurrency": {
+    "placeholders": {
+      "currency": {
+        "type": "String"
+      }
+    }
+  },
+
+  "general": "Общие",
+  "appearance": "Внешний вид",
+  "dataManagement": "Управление данными",
+  "about": "О приложении",
+  "version": "Версия",
+  "privacyPolicy": "Политика конфиденциальности",
+  "termsOfService": "Условия использования",
+  "feedback": "Отправить отзыв",
+  "rateApp": "Оценить приложение",
+
+  "backup": "Резервная копия",
+  "restore": "Восстановить",
+  "exportData": "Экспорт данных",
+  "importData": "Импорт данных",
+  "backupSuccess": "Резервная копия создана",
+  "restoreSuccess": "Восстановление завершено",
+  "backupFailed": "Ошибка резервного копирования",
+  "restoreFailed": "Ошибка восстановления",
+
+  "darkMode": "Тёмная тема",
+  "lightMode": "Светлая тема",
+  "systemTheme": "Системная",
+
+  "languageEnglish": "English",
+  "languageKorean": "한국어",
+  "languageJapanese": "日本語",
+  "languageChinese": "中文",
+  "languageGerman": "Deutsch",
+  "languageFrench": "Français",
+  "languageSpanish": "Español",
+  "languagePortuguese": "Português",
+  "languageItalian": "Italiano",
+  "languageRussian": "Русский",
+  "languageArabic": "العربية",
+  "languageThai": "ภาษาไทย",
+  "languageVietnamese": "Tiếng Việt",
+  "languageIndonesian": "Bahasa Indonesia",
+
+  "restartRequired": "Перезапустите приложение для применения изменений",
+  "ok": "ОК",
+
+  "termsAndPolicies": "Условия и политики",
+  "support": "Поддержка",
+  "cannotOpenLink": "Не удалось открыть ссылку",
+  "openSource": "Лицензии открытого ПО"
+}

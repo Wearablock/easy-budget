@@ -1,0 +1,255 @@
+{
+  "@@locale": "pt",
+  "appTitle": "Orçamento Fácil",
+  "income": "Receitas",
+  "expense": "Despesas",
+  "balance": "Saldo",
+  "addTransaction": "Adicionar transação",
+  "category": "Categoria",
+  "amount": "Valor",
+  "memo": "Nota",
+  "date": "Data",
+  "today": "Hoje",
+  "statistics": "Estatísticas",
+  "settings": "Configurações",
+  "save": "Salvar",
+  "cancel": "Cancelar",
+  "delete": "Excluir",
+  "edit": "Editar",
+  "confirmDelete": "Tem certeza de que deseja excluir?",
+  "noTransactions": "Sem transações",
+  "thisMonth": "Este mês",
+  "monthlyTotal": "Total mensal",
+  "next": "Próximo",
+  "errorOccurred": "Ocorreu um erro",
+  "retry": "Tentar novamente",
+  "noCategories": "Nenhuma categoria disponível",
+  "memoHint": "Adicionar uma nota (opcional)",
+  "incomeAdded": "Receita adicionada",
+  "expenseAdded": "Despesa adicionada",
+
+  "home": "Início",
+  "monthlyBalance": "Saldo mensal",
+  "recentTransactions": "Transações recentes",
+  "viewAll": "Ver tudo",
+  "addFirstTransaction": "Toque em + para adicionar sua primeira transação",
+  "settingsScreenTitle": "Configurações",
+  "statisticsScreenTitle": "Estatísticas",
+  "comingSoonPhase6": "Em breve na Fase 6",
+  "comingSoonPhase7": "Em breve na Fase 7",
+
+  "categoryFood": "Alimentação",
+  "categoryTransport": "Transporte",
+  "categoryShopping": "Compras",
+  "categoryHousing": "Moradia",
+  "categoryMedical": "Saúde",
+  "categoryEntertainment": "Lazer",
+  "categoryEducation": "Educação",
+  "categoryOther": "Outros",
+
+  "categorySalary": "Salário",
+  "categorySideIncome": "Renda extra",
+  "categoryInterest": "Juros",
+  "categoryOtherIncome": "Outros",
+
+  "editTransaction": "Editar transação",
+  "deleteTransaction": "Excluir transação",
+  "deleteConfirmTitle": "Excluir transação?",
+  "deleteConfirmMessage": "Você pode desfazer esta ação por alguns segundos após excluir.",
+  "transactionUpdated": "Transação atualizada",
+  "transactionDeleted": "Transação excluída",
+
+  "enterAmount": "Digite o valor",
+  "unknownCategory": "Desconhecido",
+
+  "selectDateToView": "Selecione uma data para ver as transações",
+  "noTransactionsOnDate": "Nenhuma transação nesta data",
+
+  "all": "Tudo",
+
+  "undo": "Desfazer",
+  "transactionRestored": "Transação restaurada",
+
+  "selectCurrencyTitle": "Selecione sua moeda",
+  "selectCurrencySubtitle": "Escolha a moeda que você mais usa",
+  "continue_": "Continuar",
+
+  "regionAmericas": "Américas",
+  "regionEurope": "Europa",
+  "regionAsia": "Ásia",
+  "regionSoutheastAsia": "Sudeste Asiático",
+  "regionMiddleEast": "Oriente Médio",
+
+  "currencyUSD": "Dólar americano",
+  "currencyEUR": "Euro",
+  "currencyGBP": "Libra esterlina",
+  "currencyJPY": "Iene japonês",
+  "currencyKRW": "Won coreano",
+  "currencyCNY": "Yuan chinês",
+  "currencyTWD": "Dólar taiwanês",
+  "currencyHKD": "Dólar de Hong Kong",
+  "currencyINR": "Rúpia indiana",
+  "currencyVND": "Dong vietnamita",
+  "currencyTHB": "Baht tailandês",
+  "currencyIDR": "Rúpia indonésia",
+  "currencyMXN": "Peso mexicano",
+  "currencyBRL": "Real brasileiro",
+  "currencyCHF": "Franco suíço",
+  "currencyRUB": "Rublo russo",
+  "currencySAR": "Rial saudita",
+
+  "categoryManagement": "Categorias",
+  "addCategory": "Adicionar categoria",
+  "noCategoriesInList": "Sem categorias",
+  "tapPlusToAddCategory": "Toque em + para adicionar uma categoria",
+
+  "addCategoryTitle": "Adicionar categoria",
+  "categoryName": "Nome",
+  "categoryNameHint": "Digite o nome da categoria",
+  "categoryNameRequired": "Por favor, digite um nome de categoria",
+  "categoryNameTooLong": "O nome deve ter no máximo 20 caracteres",
+  "selectIcon": "Ícone",
+  "selectColor": "Cor",
+  "categoryAdded": "Categoria adicionada",
+  "preview": "Pré-visualização",
+  "categoryNameDuplicate": "Já existe uma categoria com este nome",
+
+  "editCategoryTitle": "Editar categoria",
+  "categoryUpdated": "Categoria atualizada",
+  "categoryDeleted": "Categoria excluída",
+  "deleteCategory": "Excluir categoria",
+  "deleteCategoryConfirm": "Tem certeza de que deseja excluir \"{categoryName}\"?",
+  "@deleteCategoryConfirm": {
+    "placeholders": {
+      "categoryName": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteCategoryWarning": "Esta categoria tem {count} transações. Ao excluir, elas serão alteradas para \"Outros\".",
+  "@deleteCategoryWarning": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cannotDeleteDefaultCategory": "Categorias padrão não podem ser excluídas",
+  "cannotEditDefaultCategory": "Categorias padrão não podem ser editadas",
+  "defaultCategoryNameHint": "Nomes de categorias padrão não podem ser alterados",
+
+  "selectIconTitle": "Selecionar ícone",
+  "searchIcon": "Pesquisar ícones...",
+  "iconCategoryFood": "Alimentação",
+  "iconCategoryTransport": "Transporte",
+  "iconCategoryShopping": "Compras",
+  "iconCategoryLiving": "Vida diária",
+  "iconCategoryHealth": "Saúde",
+  "iconCategoryLeisure": "Lazer",
+  "iconCategoryEducation": "Educação",
+  "iconCategoryFinance": "Finanças",
+  "iconCategoryFamily": "Família",
+  "iconCategoryEtc": "Outros",
+
+  "vsLastMonth": "vs mês anterior",
+  "categoryExpenseTitle": "Despesas por categoria",
+  "noExpenseData": "Sem dados de despesas",
+  "noIncomeData": "Sem dados de receitas",
+  "noDataForMonth": "Sem transações este mês",
+
+  "categoryStatisticsTitle": "Estatísticas por categoria",
+  "totalExpense": "Despesa total",
+  "totalIncome": "Receita total",
+  "transactionCount": "{count} transações",
+  "@transactionCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "tapToSeeDetails": "Toque para ver detalhes",
+
+  "monthlyTrend": "Tendência mensal",
+  "barChart": "Barras",
+  "lineChart": "Linha",
+  "incomeLabel": "Receitas",
+  "expenseLabel": "Despesas",
+  "balanceLabel": "Saldo",
+  "noTrendData": "Sem dados para este período",
+  "last6Months": "Últimos 6 meses",
+  "categoryIncomeTitle": "Receitas por categoria",
+  "loadingStatistics": "Carregando estatísticas...",
+  "statisticsError": "Erro ao carregar estatísticas",
+
+  "language": "Idioma",
+  "selectLanguage": "Selecionar idioma",
+  "languageChanged": "Idioma alterado",
+  "currentLanguage": "Atual: {language}",
+  "@currentLanguage": {
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
+  "systemDefault": "Padrão do sistema",
+
+  "currency": "Moeda",
+  "selectCurrency": "Selecionar moeda",
+  "currencyChanged": "Moeda alterada",
+  "currentCurrency": "Atual: {currency}",
+  "@currentCurrency": {
+    "placeholders": {
+      "currency": {
+        "type": "String"
+      }
+    }
+  },
+
+  "general": "Geral",
+  "appearance": "Aparência",
+  "dataManagement": "Gerenciamento de dados",
+  "about": "Sobre",
+  "version": "Versão",
+  "privacyPolicy": "Política de privacidade",
+  "termsOfService": "Termos de serviço",
+  "feedback": "Enviar feedback",
+  "rateApp": "Avaliar o app",
+
+  "backup": "Backup",
+  "restore": "Restaurar",
+  "exportData": "Exportar dados",
+  "importData": "Importar dados",
+  "backupSuccess": "Backup concluído",
+  "restoreSuccess": "Restauração concluída",
+  "backupFailed": "Falha no backup",
+  "restoreFailed": "Falha na restauração",
+
+  "darkMode": "Modo escuro",
+  "lightMode": "Modo claro",
+  "systemTheme": "Sistema",
+
+  "languageEnglish": "English",
+  "languageKorean": "한국어",
+  "languageJapanese": "日本語",
+  "languageChinese": "中文",
+  "languageGerman": "Deutsch",
+  "languageFrench": "Français",
+  "languageSpanish": "Español",
+  "languagePortuguese": "Português",
+  "languageItalian": "Italiano",
+  "languageRussian": "Русский",
+  "languageArabic": "العربية",
+  "languageThai": "ภาษาไทย",
+  "languageVietnamese": "Tiếng Việt",
+  "languageIndonesian": "Bahasa Indonesia",
+
+  "restartRequired": "Por favor, reinicie o app para aplicar as alterações",
+  "ok": "OK",
+
+  "termsAndPolicies": "Termos e políticas",
+  "support": "Suporte",
+  "cannotOpenLink": "Não foi possível abrir o link",
+  "openSource": "Licenças de código aberto"
+}

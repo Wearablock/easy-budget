@@ -47,7 +47,7 @@ class DismissibleTransactionTile extends StatelessWidget {
         color: AppColors.expense,
         borderRadius: AppSpacing.borderRadiusMd,
       ),
-      alignment: Alignment.centerRight,
+      alignment: AlignmentDirectional.centerEnd,
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

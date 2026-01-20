@@ -1,0 +1,255 @@
+{
+  "@@locale": "id",
+  "appTitle": "Anggaran Mudah",
+  "income": "Pemasukan",
+  "expense": "Pengeluaran",
+  "balance": "Saldo",
+  "addTransaction": "Tambah Transaksi",
+  "category": "Kategori",
+  "amount": "Jumlah",
+  "memo": "Catatan",
+  "date": "Tanggal",
+  "today": "Hari Ini",
+  "statistics": "Statistik",
+  "settings": "Pengaturan",
+  "save": "Simpan",
+  "cancel": "Batal",
+  "delete": "Hapus",
+  "edit": "Edit",
+  "confirmDelete": "Apakah Anda yakin ingin menghapus?",
+  "noTransactions": "Belum ada transaksi",
+  "thisMonth": "Bulan Ini",
+  "monthlyTotal": "Total Bulanan",
+  "next": "Berikutnya",
+  "errorOccurred": "Terjadi kesalahan",
+  "retry": "Coba Lagi",
+  "noCategories": "Tidak ada kategori",
+  "memoHint": "Tambahkan catatan (opsional)",
+  "incomeAdded": "Pemasukan ditambahkan",
+  "expenseAdded": "Pengeluaran ditambahkan",
+
+  "home": "Beranda",
+  "monthlyBalance": "Saldo Bulanan",
+  "recentTransactions": "Transaksi Terbaru",
+  "viewAll": "Lihat Semua",
+  "addFirstTransaction": "Ketuk + untuk menambahkan transaksi pertama Anda",
+  "settingsScreenTitle": "Pengaturan",
+  "statisticsScreenTitle": "Statistik",
+  "comingSoonPhase6": "Akan datang di Fase 6",
+  "comingSoonPhase7": "Akan datang di Fase 7",
+
+  "categoryFood": "Makanan",
+  "categoryTransport": "Transportasi",
+  "categoryShopping": "Belanja",
+  "categoryHousing": "Tempat Tinggal",
+  "categoryMedical": "Kesehatan",
+  "categoryEntertainment": "Hiburan",
+  "categoryEducation": "Pendidikan",
+  "categoryOther": "Lainnya",
+
+  "categorySalary": "Gaji",
+  "categorySideIncome": "Pendapatan Sampingan",
+  "categoryInterest": "Bunga",
+  "categoryOtherIncome": "Lainnya",
+
+  "editTransaction": "Edit Transaksi",
+  "deleteTransaction": "Hapus Transaksi",
+  "deleteConfirmTitle": "Hapus Transaksi?",
+  "deleteConfirmMessage": "Anda dapat membatalkan tindakan ini selama beberapa detik setelah penghapusan.",
+  "transactionUpdated": "Transaksi diperbarui",
+  "transactionDeleted": "Transaksi dihapus",
+
+  "enterAmount": "Masukkan jumlah",
+  "unknownCategory": "Tidak diketahui",
+
+  "selectDateToView": "Pilih tanggal untuk melihat transaksi",
+  "noTransactionsOnDate": "Tidak ada transaksi pada tanggal ini",
+
+  "all": "Semua",
+
+  "undo": "Urungkan",
+  "transactionRestored": "Transaksi dipulihkan",
+
+  "selectCurrencyTitle": "Pilih Mata Uang",
+  "selectCurrencySubtitle": "Pilih mata uang yang paling sering Anda gunakan",
+  "continue_": "Lanjutkan",
+
+  "regionAmericas": "Amerika",
+  "regionEurope": "Eropa",
+  "regionAsia": "Asia",
+  "regionSoutheastAsia": "Asia Tenggara",
+  "regionMiddleEast": "Timur Tengah",
+
+  "currencyUSD": "Dolar AS",
+  "currencyEUR": "Euro",
+  "currencyGBP": "Poundsterling Inggris",
+  "currencyJPY": "Yen Jepang",
+  "currencyKRW": "Won Korea",
+  "currencyCNY": "Yuan Tiongkok",
+  "currencyTWD": "Dolar Taiwan",
+  "currencyHKD": "Dolar Hong Kong",
+  "currencyINR": "Rupee India",
+  "currencyVND": "Dong Vietnam",
+  "currencyTHB": "Baht Thailand",
+  "currencyIDR": "Rupiah Indonesia",
+  "currencyMXN": "Peso Meksiko",
+  "currencyBRL": "Real Brasil",
+  "currencyCHF": "Franc Swiss",
+  "currencyRUB": "Rubel Rusia",
+  "currencySAR": "Riyal Saudi",
+
+  "categoryManagement": "Kategori",
+  "addCategory": "Tambah Kategori",
+  "noCategoriesInList": "Belum ada kategori",
+  "tapPlusToAddCategory": "Ketuk + untuk menambah kategori",
+
+  "addCategoryTitle": "Tambah Kategori",
+  "categoryName": "Nama",
+  "categoryNameHint": "Masukkan nama kategori",
+  "categoryNameRequired": "Silakan masukkan nama kategori",
+  "categoryNameTooLong": "Nama harus 20 karakter atau kurang",
+  "selectIcon": "Ikon",
+  "selectColor": "Warna",
+  "categoryAdded": "Kategori ditambahkan",
+  "preview": "Pratinjau",
+  "categoryNameDuplicate": "Kategori dengan nama ini sudah ada",
+
+  "editCategoryTitle": "Edit Kategori",
+  "categoryUpdated": "Kategori diperbarui",
+  "categoryDeleted": "Kategori dihapus",
+  "deleteCategory": "Hapus Kategori",
+  "deleteCategoryConfirm": "Apakah Anda yakin ingin menghapus \"{categoryName}\"?",
+  "@deleteCategoryConfirm": {
+    "placeholders": {
+      "categoryName": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteCategoryWarning": "Kategori ini memiliki {count} transaksi. Menghapusnya akan mengubah transaksi tersebut menjadi \"Lainnya\".",
+  "@deleteCategoryWarning": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cannotDeleteDefaultCategory": "Kategori default tidak dapat dihapus",
+  "cannotEditDefaultCategory": "Kategori default tidak dapat diedit",
+  "defaultCategoryNameHint": "Nama kategori default tidak dapat diubah",
+
+  "selectIconTitle": "Pilih Ikon",
+  "searchIcon": "Cari ikon...",
+  "iconCategoryFood": "Makanan",
+  "iconCategoryTransport": "Transportasi",
+  "iconCategoryShopping": "Belanja",
+  "iconCategoryLiving": "Tempat Tinggal",
+  "iconCategoryHealth": "Kesehatan",
+  "iconCategoryLeisure": "Hiburan",
+  "iconCategoryEducation": "Pendidikan",
+  "iconCategoryFinance": "Keuangan",
+  "iconCategoryFamily": "Keluarga",
+  "iconCategoryEtc": "Lainnya",
+
+  "vsLastMonth": "vs bulan lalu",
+  "categoryExpenseTitle": "Pengeluaran per Kategori",
+  "noExpenseData": "Tidak ada data pengeluaran",
+  "noIncomeData": "Tidak ada data pemasukan",
+  "noDataForMonth": "Tidak ada transaksi bulan ini",
+
+  "categoryStatisticsTitle": "Statistik Kategori",
+  "totalExpense": "Total Pengeluaran",
+  "totalIncome": "Total Pemasukan",
+  "transactionCount": "{count} transaksi",
+  "@transactionCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "tapToSeeDetails": "Ketuk bagian untuk melihat detail",
+
+  "monthlyTrend": "Tren Bulanan",
+  "barChart": "Batang",
+  "lineChart": "Garis",
+  "incomeLabel": "Pemasukan",
+  "expenseLabel": "Pengeluaran",
+  "balanceLabel": "Saldo",
+  "noTrendData": "Tidak ada data untuk periode ini",
+  "last6Months": "6 bulan terakhir",
+  "categoryIncomeTitle": "Pemasukan per Kategori",
+  "loadingStatistics": "Memuat statistik...",
+  "statisticsError": "Gagal memuat statistik",
+
+  "language": "Bahasa",
+  "selectLanguage": "Pilih Bahasa",
+  "languageChanged": "Bahasa diubah",
+  "currentLanguage": "Saat ini: {language}",
+  "@currentLanguage": {
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
+  "systemDefault": "Default Sistem",
+
+  "currency": "Mata Uang",
+  "selectCurrency": "Pilih Mata Uang",
+  "currencyChanged": "Mata uang diubah",
+  "currentCurrency": "Saat ini: {currency}",
+  "@currentCurrency": {
+    "placeholders": {
+      "currency": {
+        "type": "String"
+      }
+    }
+  },
+
+  "general": "Umum",
+  "appearance": "Tampilan",
+  "dataManagement": "Manajemen Data",
+  "about": "Tentang",
+  "version": "Versi",
+  "privacyPolicy": "Kebijakan Privasi",
+  "termsOfService": "Ketentuan Layanan",
+  "feedback": "Kirim Masukan",
+  "rateApp": "Nilai Aplikasi Ini",
+
+  "backup": "Cadangkan",
+  "restore": "Pulihkan",
+  "exportData": "Ekspor Data",
+  "importData": "Impor Data",
+  "backupSuccess": "Pencadangan selesai",
+  "restoreSuccess": "Pemulihan selesai",
+  "backupFailed": "Pencadangan gagal",
+  "restoreFailed": "Pemulihan gagal",
+
+  "darkMode": "Mode Gelap",
+  "lightMode": "Mode Terang",
+  "systemTheme": "Sistem",
+
+  "languageEnglish": "English",
+  "languageKorean": "한국어",
+  "languageJapanese": "日本語",
+  "languageChinese": "中文",
+  "languageGerman": "Deutsch",
+  "languageFrench": "Français",
+  "languageSpanish": "Español",
+  "languagePortuguese": "Português",
+  "languageItalian": "Italiano",
+  "languageRussian": "Русский",
+  "languageArabic": "العربية",
+  "languageThai": "ภาษาไทย",
+  "languageVietnamese": "Tiếng Việt",
+  "languageIndonesian": "Bahasa Indonesia",
+
+  "restartRequired": "Silakan restart aplikasi untuk menerapkan perubahan",
+  "ok": "OK",
+
+  "termsAndPolicies": "Syarat & Kebijakan",
+  "support": "Dukungan",
+  "cannotOpenLink": "Tidak dapat membuka tautan",
+  "openSource": "Lisensi Open Source"
+}

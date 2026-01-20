@@ -51,7 +51,7 @@ class _MonthlyLineChartState extends State<MonthlyLineChart> {
     return SizedBox(
       height: 220,
       child: Padding(
-        padding: const EdgeInsets.only(right: 16, top: 16),
+        padding: const EdgeInsetsDirectional.only(end: 16, top: 16),
         child: LineChart(
           LineChartData(
             minY: yAxisMin,

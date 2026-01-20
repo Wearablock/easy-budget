@@ -86,7 +86,7 @@ class _EasyBudgetAppState extends State<EasyBudgetApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Easy Budget',
+      onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
       debugShowCheckedModeBanner: false,
       scaffoldMessengerKey: EasyBudgetApp.scaffoldMessengerKey,
 
@@ -109,6 +109,16 @@ class _EasyBudgetAppState extends State<EasyBudgetApp> {
         Locale('ja'),
         Locale('zh'),
         Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hant'),
+        Locale('de'),
+        Locale('fr'),
+        Locale('es'),
+        Locale('pt'),
+        Locale('it'),
+        Locale('ru'),
+        Locale('ar'),
+        Locale('th'),
+        Locale('vi'),
+        Locale('id'),
       ],
 
       home: _showOnboarding

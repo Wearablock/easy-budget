@@ -1,0 +1,255 @@
+{
+  "@@locale": "de",
+  "appTitle": "Einfaches Budget",
+  "income": "Einnahmen",
+  "expense": "Ausgaben",
+  "balance": "Saldo",
+  "addTransaction": "Transaktion hinzufügen",
+  "category": "Kategorie",
+  "amount": "Betrag",
+  "memo": "Notiz",
+  "date": "Datum",
+  "today": "Heute",
+  "statistics": "Statistik",
+  "settings": "Einstellungen",
+  "save": "Speichern",
+  "cancel": "Abbrechen",
+  "delete": "Löschen",
+  "edit": "Bearbeiten",
+  "confirmDelete": "Möchten Sie wirklich löschen?",
+  "noTransactions": "Noch keine Transaktionen",
+  "thisMonth": "Dieser Monat",
+  "monthlyTotal": "Monatssumme",
+  "next": "Weiter",
+  "errorOccurred": "Ein Fehler ist aufgetreten",
+  "retry": "Erneut versuchen",
+  "noCategories": "Keine Kategorien verfügbar",
+  "memoHint": "Notiz hinzufügen (optional)",
+  "incomeAdded": "Einnahme hinzugefügt",
+  "expenseAdded": "Ausgabe hinzugefügt",
+
+  "home": "Startseite",
+  "monthlyBalance": "Monatssaldo",
+  "recentTransactions": "Letzte Transaktionen",
+  "viewAll": "Alle anzeigen",
+  "addFirstTransaction": "Tippen Sie auf + um Ihre erste Transaktion hinzuzufügen",
+  "settingsScreenTitle": "Einstellungen",
+  "statisticsScreenTitle": "Statistik",
+  "comingSoonPhase6": "Kommt in Phase 6",
+  "comingSoonPhase7": "Kommt in Phase 7",
+
+  "categoryFood": "Essen",
+  "categoryTransport": "Transport",
+  "categoryShopping": "Einkaufen",
+  "categoryHousing": "Wohnen",
+  "categoryMedical": "Medizin",
+  "categoryEntertainment": "Unterhaltung",
+  "categoryEducation": "Bildung",
+  "categoryOther": "Sonstiges",
+
+  "categorySalary": "Gehalt",
+  "categorySideIncome": "Nebeneinkommen",
+  "categoryInterest": "Zinsen",
+  "categoryOtherIncome": "Sonstiges",
+
+  "editTransaction": "Transaktion bearbeiten",
+  "deleteTransaction": "Transaktion löschen",
+  "deleteConfirmTitle": "Transaktion löschen?",
+  "deleteConfirmMessage": "Sie können diese Aktion einige Sekunden nach dem Löschen rückgängig machen.",
+  "transactionUpdated": "Transaktion aktualisiert",
+  "transactionDeleted": "Transaktion gelöscht",
+
+  "enterAmount": "Betrag eingeben",
+  "unknownCategory": "Unbekannt",
+
+  "selectDateToView": "Wählen Sie ein Datum aus, um Transaktionen anzuzeigen",
+  "noTransactionsOnDate": "Keine Transaktionen an diesem Datum",
+
+  "all": "Alle",
+
+  "undo": "Rückgängig",
+  "transactionRestored": "Transaktion wiederhergestellt",
+
+  "selectCurrencyTitle": "Währung auswählen",
+  "selectCurrencySubtitle": "Wählen Sie Ihre bevorzugte Währung",
+  "continue_": "Weiter",
+
+  "regionAmericas": "Amerika",
+  "regionEurope": "Europa",
+  "regionAsia": "Asien",
+  "regionSoutheastAsia": "Südostasien",
+  "regionMiddleEast": "Naher Osten",
+
+  "currencyUSD": "US-Dollar",
+  "currencyEUR": "Euro",
+  "currencyGBP": "Britisches Pfund",
+  "currencyJPY": "Japanischer Yen",
+  "currencyKRW": "Koreanischer Won",
+  "currencyCNY": "Chinesischer Yuan",
+  "currencyTWD": "Taiwan-Dollar",
+  "currencyHKD": "Hongkong-Dollar",
+  "currencyINR": "Indische Rupie",
+  "currencyVND": "Vietnamesischer Dong",
+  "currencyTHB": "Thailändischer Baht",
+  "currencyIDR": "Indonesische Rupiah",
+  "currencyMXN": "Mexikanischer Peso",
+  "currencyBRL": "Brasilianischer Real",
+  "currencyCHF": "Schweizer Franken",
+  "currencyRUB": "Russischer Rubel",
+  "currencySAR": "Saudi-Riyal",
+
+  "categoryManagement": "Kategorien",
+  "addCategory": "Kategorie hinzufügen",
+  "noCategoriesInList": "Noch keine Kategorien",
+  "tapPlusToAddCategory": "Tippen Sie auf + um eine Kategorie hinzuzufügen",
+
+  "addCategoryTitle": "Kategorie hinzufügen",
+  "categoryName": "Name",
+  "categoryNameHint": "Kategorienamen eingeben",
+  "categoryNameRequired": "Bitte geben Sie einen Kategorienamen ein",
+  "categoryNameTooLong": "Name darf maximal 20 Zeichen haben",
+  "selectIcon": "Symbol",
+  "selectColor": "Farbe",
+  "categoryAdded": "Kategorie hinzugefügt",
+  "preview": "Vorschau",
+  "categoryNameDuplicate": "Eine Kategorie mit diesem Namen existiert bereits",
+
+  "editCategoryTitle": "Kategorie bearbeiten",
+  "categoryUpdated": "Kategorie aktualisiert",
+  "categoryDeleted": "Kategorie gelöscht",
+  "deleteCategory": "Kategorie löschen",
+  "deleteCategoryConfirm": "Möchten Sie \"{categoryName}\" wirklich löschen?",
+  "@deleteCategoryConfirm": {
+    "placeholders": {
+      "categoryName": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteCategoryWarning": "Diese Kategorie hat {count} Transaktionen. Beim Löschen werden diese zu \"Sonstiges\" geändert.",
+  "@deleteCategoryWarning": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cannotDeleteDefaultCategory": "Standardkategorien können nicht gelöscht werden",
+  "cannotEditDefaultCategory": "Standardkategorien können nicht bearbeitet werden",
+  "defaultCategoryNameHint": "Standardkategorienamen können nicht geändert werden",
+
+  "selectIconTitle": "Symbol auswählen",
+  "searchIcon": "Symbole suchen...",
+  "iconCategoryFood": "Essen",
+  "iconCategoryTransport": "Transport",
+  "iconCategoryShopping": "Einkaufen",
+  "iconCategoryLiving": "Wohnen",
+  "iconCategoryHealth": "Gesundheit",
+  "iconCategoryLeisure": "Freizeit",
+  "iconCategoryEducation": "Bildung",
+  "iconCategoryFinance": "Finanzen",
+  "iconCategoryFamily": "Familie",
+  "iconCategoryEtc": "Sonstiges",
+
+  "vsLastMonth": "vs. letzter Monat",
+  "categoryExpenseTitle": "Ausgaben nach Kategorie",
+  "noExpenseData": "Keine Ausgabendaten",
+  "noIncomeData": "Keine Einnahmedaten",
+  "noDataForMonth": "Keine Transaktionen in diesem Monat",
+
+  "categoryStatisticsTitle": "Kategoriestatistik",
+  "totalExpense": "Gesamtausgaben",
+  "totalIncome": "Gesamteinnahmen",
+  "transactionCount": "{count} Transaktionen",
+  "@transactionCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "tapToSeeDetails": "Tippen Sie für Details",
+
+  "monthlyTrend": "Monatstrend",
+  "barChart": "Balken",
+  "lineChart": "Linie",
+  "incomeLabel": "Einnahmen",
+  "expenseLabel": "Ausgaben",
+  "balanceLabel": "Saldo",
+  "noTrendData": "Keine Daten für diesen Zeitraum",
+  "last6Months": "Letzte 6 Monate",
+  "categoryIncomeTitle": "Einnahmen nach Kategorie",
+  "loadingStatistics": "Statistik wird geladen...",
+  "statisticsError": "Statistik konnte nicht geladen werden",
+
+  "language": "Sprache",
+  "selectLanguage": "Sprache auswählen",
+  "languageChanged": "Sprache geändert",
+  "currentLanguage": "Aktuell: {language}",
+  "@currentLanguage": {
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
+  "systemDefault": "Systemstandard",
+
+  "currency": "Währung",
+  "selectCurrency": "Währung auswählen",
+  "currencyChanged": "Währung geändert",
+  "currentCurrency": "Aktuell: {currency}",
+  "@currentCurrency": {
+    "placeholders": {
+      "currency": {
+        "type": "String"
+      }
+    }
+  },
+
+  "general": "Allgemein",
+  "appearance": "Darstellung",
+  "dataManagement": "Datenverwaltung",
+  "about": "Über",
+  "version": "Version",
+  "privacyPolicy": "Datenschutzrichtlinie",
+  "termsOfService": "Nutzungsbedingungen",
+  "feedback": "Feedback senden",
+  "rateApp": "App bewerten",
+
+  "backup": "Sichern",
+  "restore": "Wiederherstellen",
+  "exportData": "Daten exportieren",
+  "importData": "Daten importieren",
+  "backupSuccess": "Sicherung abgeschlossen",
+  "restoreSuccess": "Wiederherstellung abgeschlossen",
+  "backupFailed": "Sicherung fehlgeschlagen",
+  "restoreFailed": "Wiederherstellung fehlgeschlagen",
+
+  "darkMode": "Dunkler Modus",
+  "lightMode": "Heller Modus",
+  "systemTheme": "System",
+
+  "languageEnglish": "English",
+  "languageKorean": "한국어",
+  "languageJapanese": "日本語",
+  "languageChinese": "中文",
+  "languageGerman": "Deutsch",
+  "languageFrench": "Français",
+  "languageSpanish": "Español",
+  "languagePortuguese": "Português",
+  "languageItalian": "Italiano",
+  "languageRussian": "Русский",
+  "languageArabic": "العربية",
+  "languageThai": "ภาษาไทย",
+  "languageVietnamese": "Tiếng Việt",
+  "languageIndonesian": "Bahasa Indonesia",
+
+  "restartRequired": "Bitte starten Sie die App neu, um die Änderungen anzuwenden",
+  "ok": "OK",
+
+  "termsAndPolicies": "Bedingungen & Richtlinien",
+  "support": "Support",
+  "cannotOpenLink": "Link kann nicht geöffnet werden",
+  "openSource": "Open-Source-Lizenzen"
+}

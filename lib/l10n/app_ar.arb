@@ -1,0 +1,255 @@
+{
+  "@@locale": "ar",
+  "appTitle": "ميزانية سهلة",
+  "income": "الدخل",
+  "expense": "المصروفات",
+  "balance": "الرصيد",
+  "addTransaction": "إضافة معاملة",
+  "category": "الفئة",
+  "amount": "المبلغ",
+  "memo": "ملاحظة",
+  "date": "التاريخ",
+  "today": "اليوم",
+  "statistics": "الإحصائيات",
+  "settings": "الإعدادات",
+  "save": "حفظ",
+  "cancel": "إلغاء",
+  "delete": "حذف",
+  "edit": "تعديل",
+  "confirmDelete": "هل أنت متأكد من الحذف؟",
+  "noTransactions": "لا توجد معاملات",
+  "thisMonth": "هذا الشهر",
+  "monthlyTotal": "إجمالي الشهر",
+  "next": "التالي",
+  "errorOccurred": "حدث خطأ",
+  "retry": "إعادة المحاولة",
+  "noCategories": "لا توجد فئات متاحة",
+  "memoHint": "أضف ملاحظة (اختياري)",
+  "incomeAdded": "تم إضافة الدخل",
+  "expenseAdded": "تم إضافة المصروف",
+
+  "home": "الرئيسية",
+  "monthlyBalance": "رصيد الشهر",
+  "recentTransactions": "المعاملات الأخيرة",
+  "viewAll": "عرض الكل",
+  "addFirstTransaction": "اضغط + لإضافة أول معاملة",
+  "settingsScreenTitle": "الإعدادات",
+  "statisticsScreenTitle": "الإحصائيات",
+  "comingSoonPhase6": "قريباً في المرحلة 6",
+  "comingSoonPhase7": "قريباً في المرحلة 7",
+
+  "categoryFood": "طعام",
+  "categoryTransport": "مواصلات",
+  "categoryShopping": "تسوق",
+  "categoryHousing": "سكن",
+  "categoryMedical": "صحة",
+  "categoryEntertainment": "ترفيه",
+  "categoryEducation": "تعليم",
+  "categoryOther": "أخرى",
+
+  "categorySalary": "راتب",
+  "categorySideIncome": "دخل إضافي",
+  "categoryInterest": "فوائد",
+  "categoryOtherIncome": "أخرى",
+
+  "editTransaction": "تعديل المعاملة",
+  "deleteTransaction": "حذف المعاملة",
+  "deleteConfirmTitle": "حذف المعاملة؟",
+  "deleteConfirmMessage": "يمكنك التراجع عن هذا الإجراء خلال ثوانٍ قليلة بعد الحذف.",
+  "transactionUpdated": "تم تحديث المعاملة",
+  "transactionDeleted": "تم حذف المعاملة",
+
+  "enterAmount": "أدخل المبلغ",
+  "unknownCategory": "غير معروف",
+
+  "selectDateToView": "اختر تاريخاً لعرض المعاملات",
+  "noTransactionsOnDate": "لا توجد معاملات في هذا التاريخ",
+
+  "all": "الكل",
+
+  "undo": "تراجع",
+  "transactionRestored": "تم استعادة المعاملة",
+
+  "selectCurrencyTitle": "اختر عملتك",
+  "selectCurrencySubtitle": "اختر العملة التي تستخدمها أكثر",
+  "continue_": "متابعة",
+
+  "regionAmericas": "الأمريكتان",
+  "regionEurope": "أوروبا",
+  "regionAsia": "آسيا",
+  "regionSoutheastAsia": "جنوب شرق آسيا",
+  "regionMiddleEast": "الشرق الأوسط",
+
+  "currencyUSD": "دولار أمريكي",
+  "currencyEUR": "يورو",
+  "currencyGBP": "جنيه إسترليني",
+  "currencyJPY": "ين ياباني",
+  "currencyKRW": "وون كوري",
+  "currencyCNY": "يوان صيني",
+  "currencyTWD": "دولار تايواني",
+  "currencyHKD": "دولار هونغ كونغ",
+  "currencyINR": "روبية هندية",
+  "currencyVND": "دونغ فيتنامي",
+  "currencyTHB": "بات تايلندي",
+  "currencyIDR": "روبية إندونيسية",
+  "currencyMXN": "بيزو مكسيكي",
+  "currencyBRL": "ريال برازيلي",
+  "currencyCHF": "فرنك سويسري",
+  "currencyRUB": "روبل روسي",
+  "currencySAR": "ريال سعودي",
+
+  "categoryManagement": "الفئات",
+  "addCategory": "إضافة فئة",
+  "noCategoriesInList": "لا توجد فئات",
+  "tapPlusToAddCategory": "اضغط + لإضافة فئة",
+
+  "addCategoryTitle": "إضافة فئة",
+  "categoryName": "الاسم",
+  "categoryNameHint": "أدخل اسم الفئة",
+  "categoryNameRequired": "الرجاء إدخال اسم الفئة",
+  "categoryNameTooLong": "يجب ألا يتجاوز الاسم 20 حرفاً",
+  "selectIcon": "الأيقونة",
+  "selectColor": "اللون",
+  "categoryAdded": "تم إضافة الفئة",
+  "preview": "معاينة",
+  "categoryNameDuplicate": "توجد فئة بهذا الاسم بالفعل",
+
+  "editCategoryTitle": "تعديل الفئة",
+  "categoryUpdated": "تم تحديث الفئة",
+  "categoryDeleted": "تم حذف الفئة",
+  "deleteCategory": "حذف الفئة",
+  "deleteCategoryConfirm": "هل أنت متأكد من حذف \"{categoryName}\"؟",
+  "@deleteCategoryConfirm": {
+    "placeholders": {
+      "categoryName": {
+        "type": "String"
+      }
+    }
+  },
+  "deleteCategoryWarning": "تحتوي هذه الفئة على {count} معاملة. عند الحذف، ستتغير إلى \"أخرى\".",
+  "@deleteCategoryWarning": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "cannotDeleteDefaultCategory": "لا يمكن حذف الفئات الافتراضية",
+  "cannotEditDefaultCategory": "لا يمكن تعديل الفئات الافتراضية",
+  "defaultCategoryNameHint": "لا يمكن تغيير أسماء الفئات الافتراضية",
+
+  "selectIconTitle": "اختر أيقونة",
+  "searchIcon": "البحث عن أيقونات...",
+  "iconCategoryFood": "طعام",
+  "iconCategoryTransport": "مواصلات",
+  "iconCategoryShopping": "تسوق",
+  "iconCategoryLiving": "الحياة اليومية",
+  "iconCategoryHealth": "صحة",
+  "iconCategoryLeisure": "ترفيه",
+  "iconCategoryEducation": "تعليم",
+  "iconCategoryFinance": "مالية",
+  "iconCategoryFamily": "عائلة",
+  "iconCategoryEtc": "أخرى",
+
+  "vsLastMonth": "مقارنة بالشهر السابق",
+  "categoryExpenseTitle": "المصروفات حسب الفئة",
+  "noExpenseData": "لا توجد بيانات مصروفات",
+  "noIncomeData": "لا توجد بيانات دخل",
+  "noDataForMonth": "لا توجد معاملات هذا الشهر",
+
+  "categoryStatisticsTitle": "إحصائيات الفئات",
+  "totalExpense": "إجمالي المصروفات",
+  "totalIncome": "إجمالي الدخل",
+  "transactionCount": "{count} معاملة",
+  "@transactionCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "tapToSeeDetails": "اضغط لعرض التفاصيل",
+
+  "monthlyTrend": "الاتجاه الشهري",
+  "barChart": "أعمدة",
+  "lineChart": "خط",
+  "incomeLabel": "الدخل",
+  "expenseLabel": "المصروفات",
+  "balanceLabel": "الرصيد",
+  "noTrendData": "لا توجد بيانات لهذه الفترة",
+  "last6Months": "آخر 6 أشهر",
+  "categoryIncomeTitle": "الدخل حسب الفئة",
+  "loadingStatistics": "جارٍ تحميل الإحصائيات...",
+  "statisticsError": "خطأ في تحميل الإحصائيات",
+
+  "language": "اللغة",
+  "selectLanguage": "اختر اللغة",
+  "languageChanged": "تم تغيير اللغة",
+  "currentLanguage": "الحالية: {language}",
+  "@currentLanguage": {
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
+  "systemDefault": "افتراضي النظام",
+
+  "currency": "العملة",
+  "selectCurrency": "اختر العملة",
+  "currencyChanged": "تم تغيير العملة",
+  "currentCurrency": "الحالية: {currency}",
+  "@currentCurrency": {
+    "placeholders": {
+      "currency": {
+        "type": "String"
+      }
+    }
+  },
+
+  "general": "عام",
+  "appearance": "المظهر",
+  "dataManagement": "إدارة البيانات",
+  "about": "حول",
+  "version": "الإصدار",
+  "privacyPolicy": "سياسة الخصوصية",
+  "termsOfService": "شروط الخدمة",
+  "feedback": "إرسال ملاحظات",
+  "rateApp": "تقييم التطبيق",
+
+  "backup": "نسخ احتياطي",
+  "restore": "استعادة",
+  "exportData": "تصدير البيانات",
+  "importData": "استيراد البيانات",
+  "backupSuccess": "تم النسخ الاحتياطي",
+  "restoreSuccess": "تمت الاستعادة",
+  "backupFailed": "فشل النسخ الاحتياطي",
+  "restoreFailed": "فشلت الاستعادة",
+
+  "darkMode": "الوضع الداكن",
+  "lightMode": "الوضع الفاتح",
+  "systemTheme": "النظام",
+
+  "languageEnglish": "English",
+  "languageKorean": "한국어",
+  "languageJapanese": "日本語",
+  "languageChinese": "中文",
+  "languageGerman": "Deutsch",
+  "languageFrench": "Français",
+  "languageSpanish": "Español",
+  "languagePortuguese": "Português",
+  "languageItalian": "Italiano",
+  "languageRussian": "Русский",
+  "languageArabic": "العربية",
+  "languageThai": "ภาษาไทย",
+  "languageVietnamese": "Tiếng Việt",
+  "languageIndonesian": "Bahasa Indonesia",
+
+  "restartRequired": "يرجى إعادة تشغيل التطبيق لتطبيق التغييرات",
+  "ok": "موافق",
+
+  "termsAndPolicies": "الشروط والسياسات",
+  "support": "الدعم",
+  "cannotOpenLink": "تعذر فتح الرابط",
+  "openSource": "تراخيص المصادر المفتوحة"
+}
