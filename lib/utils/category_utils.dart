@@ -40,4 +40,15 @@ class CategoryUtils {
       _ => nameKey,
     };
   }
+
+  /// 카테고리 이름을 표시용으로 변환
+  /// nameKey인 경우 번역하고, 그렇지 않으면 그대로 반환
+  static String getDisplayName(BuildContext context, String name) {
+    // nameKey 패턴인지 확인 (category로 시작하는 경우)
+    if (name.startsWith('category')) {
+      return getLocalizedName(context, name);
+    }
+    // 사용자 정의 이름은 그대로 반환
+    return name;
+  }
 }

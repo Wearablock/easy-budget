@@ -1,10 +1,13 @@
 import 'package:easy_budget/models/currency_config.dart';
 import 'package:easy_budget/utils/currency_utils.dart';
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class PreferencesService {
   static const String _keyIsFirstRun = 'is_first_run';
   static const String _keyCurrencyCode = 'currency_code';
+  static const String _keyLanguageCode = 'language_code';
+  static const String _keyThemeMode = 'theme_mode';
 
   static late SharedPreferences _prefs;
 
@@ -39,5 +42,55 @@ class PreferencesService {
   static void applySavedCurrency() {
     final code = currencyCode;
     CurrencyUtils.setCurrency(CurrencyConfig.fromCode(code));
+  }
+
+  /// 저장된 언어 코드 가져오기 (null이면 시스템 기본값)
+  static String? get languageCode {
+    return _prefs.getString(_keyLanguageCode);
+  }
+
+  /// 언어 코드 저장
+  static Future<void> setLanguageCode(String? code) async {
+    if (code == null) {
+      await _prefs.remove(_keyLanguageCode);
+    } else {
+      await _prefs.setString(_keyLanguageCode, code);
+    }
+  }
+
+  /// 저장된 Locale 가져오기
+  static Locale? get locale {
+    final code = languageCode;
+    return code != null ? Locale(code) : null;
+  }
+
+  /// 저장된 테마 모드 가져오기
+  static ThemeMode get themeMode {
+    final value = _prefs.getString(_keyThemeMode);
+    switch (value) {
+      case 'light':
+        return ThemeMode.light;
+      case 'dark':
+        return ThemeMode.dark;
+      default:
+        return ThemeMode.system;
+    }
+  }
+
+  /// 테마 모드 저장
+  static Future<void> setThemeMode(ThemeMode mode) async {
+    String value;
+    switch (mode) {
+      case ThemeMode.light:
+        value = 'light';
+        break;
+      case ThemeMode.dark:
+        value = 'dark';
+        break;
+      case ThemeMode.system:
+        value = 'system';
+        break;
+    }
+    await _prefs.setString(_keyThemeMode, value);
   }
 }

@@ -149,5 +149,107 @@
   "iconCategoryEducation": "교육",
   "iconCategoryFinance": "금융",
   "iconCategoryFamily": "가족",
-  "iconCategoryEtc": "기타"
+  "iconCategoryEtc": "기타",
+
+  "vsLastMonth": "전월 대비",
+  "categoryExpenseTitle": "카테고리별 지출",
+  "noExpenseData": "지출 내역이 없습니다",
+  "noIncomeData": "수입 내역이 없습니다",
+  "noDataForMonth": "이번 달 거래 내역이 없습니다",
+
+  "categoryStatisticsTitle": "카테고리별 통계",
+  "totalExpense": "총 지출",
+  "totalIncome": "총 수입",
+  "transactionCount": "{count}건",
+  "@transactionCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "tapToSeeDetails": "섹션을 탭하여 상세 정보를 확인하세요",
+
+  "monthlyTrend": "월별 추이",
+  "barChart": "막대",
+  "lineChart": "선",
+  "incomeLabel": "수입",
+  "expenseLabel": "지출",
+  "balanceLabel": "잔액",
+  "noTrendData": "해당 기간 데이터가 없습니다",
+  "last6Months": "최근 6개월",
+  "categoryIncomeTitle": "카테고리별 수입",
+  "loadingStatistics": "통계 로딩 중...",
+  "statisticsError": "통계를 불러오지 못했습니다",
+
+  "language": "언어",
+  "selectLanguage": "언어 선택",
+  "languageChanged": "언어가 변경되었습니다",
+  "currentLanguage": "현재: {language}",
+  "@currentLanguage": {
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
+  "systemDefault": "시스템 기본값",
+
+  "currency": "통화",
+  "selectCurrency": "통화 선택",
+  "currencyChanged": "통화가 변경되었습니다",
+  "currentCurrency": "현재: {currency}",
+  "@currentCurrency": {
+    "placeholders": {
+      "currency": {
+        "type": "String"
+      }
+    }
+  },
+
+  "general": "일반",
+  "appearance": "화면",
+  "dataManagement": "데이터 관리",
+  "about": "정보",
+  "version": "버전",
+  "privacyPolicy": "개인정보처리방침",
+  "termsOfService": "이용약관",
+  "feedback": "피드백 보내기",
+  "rateApp": "앱 평가하기",
+
+  "backup": "백업",
+  "restore": "복원",
+  "exportData": "데이터 내보내기",
+  "importData": "데이터 가져오기",
+  "backupSuccess": "백업이 완료되었습니다",
+  "restoreSuccess": "복원이 완료되었습니다",
+  "backupFailed": "백업에 실패했습니다",
+  "restoreFailed": "복원에 실패했습니다",
+
+  "darkMode": "다크 모드",
+  "lightMode": "라이트 모드",
+  "systemTheme": "시스템 설정",
+
+  "languageEnglish": "English",
+  "languageKorean": "한국어",
+  "languageJapanese": "日本語",
+  "languageChinese": "中文",
+  "languageGerman": "Deutsch",
+  "languageFrench": "Français",
+  "languageSpanish": "Español",
+  "languagePortuguese": "Português",
+  "languageItalian": "Italiano",
+  "languageRussian": "Русский",
+  "languageArabic": "العربية",
+  "languageThai": "ภาษาไทย",
+  "languageVietnamese": "Tiếng Việt",
+  "languageIndonesian": "Bahasa Indonesia",
+
+  "restartRequired": "변경사항을 적용하려면 앱을 다시 시작해주세요",
+  "ok": "확인",
+
+  "termsAndPolicies": "약관 및 정책",
+  "support": "고객 지원",
+  "cannotOpenLink": "링크를 열 수 없습니다",
+  "openSource": "오픈소스 라이선스"
 }

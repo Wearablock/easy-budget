@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service - Easy Budget</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <h1>Easy Budget</h1>
+      </div>
+      <div class="lang-selector">
+        <button class="lang-btn" onclick="toggleDropdown()">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+          </svg>
+          <span id="currentLang">English</span>
+        </button>
+        <div class="lang-dropdown" id="langDropdown">
+          <button class="lang-option active" onclick="switchLang('en')">English</button>
+          <button class="lang-option" onclick="switchLang('ko')">한국어</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- English Content -->
+    <main id="content-en" class="content-section active">
+      <h2>Terms of Service</h2>
+      <p><strong>Effective Date:</strong> January 19, 2026</p>
+
+      <div class="info-box">
+        <p>By using Easy Budget, you agree to these Terms of Service. Please read them carefully before using the application.</p>
+      </div>
+
+      <h3>1. Service Provider</h3>
+      <p>This application is provided by:</p>
+      <ul>
+        <li><strong>Company:</strong> Wearablock Inc.</li>
+        <li><strong>Address:</strong> 288-5, Gimpo Hangang 11-ro, Gimpo-si, Gyeonggi-do, Republic of Korea</li>
+        <li><strong>Contact:</strong> admin@wearablock.com</li>
+      </ul>
+
+      <h3>2. Service Description</h3>
+      <p>Easy Budget is a personal finance management application that allows users to:</p>
+      <ul>
+        <li>Record income and expense transactions</li>
+        <li>Organize transactions by customizable categories</li>
+        <li>View monthly financial summaries and statistics</li>
+        <li>Track spending patterns with visual charts</li>
+        <li>Manage finances in multiple currencies</li>
+      </ul>
+
+      <h3>3. Age Requirement</h3>
+      <p>This service is intended for users aged 14 and older. If you are under 14 years of age, you must obtain consent from a parent or legal guardian before using this application.</p>
+
+      <h3>4. User Responsibilities</h3>
+      <p>Users agree to:</p>
+      <ul>
+        <li>Use the application in compliance with applicable laws</li>
+        <li>Not attempt to reverse engineer, modify, or distribute the application</li>
+        <li>Not use the application for any illegal or unauthorized purpose</li>
+        <li>Maintain the accuracy of their own financial records</li>
+        <li>Keep their device secure to protect their financial data</li>
+      </ul>
+
+      <h3>5. Intellectual Property</h3>
+      <p>All content in this application, including but not limited to design, graphics, user interface, and source code, is protected by copyright. Users may not copy, reproduce, or distribute any content without prior written permission.</p>
+
+      <h3>6. Advertising</h3>
+      <p>This application displays advertisements provided by Google AdMob. By using the application, you acknowledge that:</p>
+      <ul>
+        <li>Advertisements may be displayed within the application</li>
+        <li>Ad content is provided by third-party advertisers</li>
+        <li>You may remove advertisements through an in-app purchase</li>
+      </ul>
+
+      <h3>7. In-App Purchases</h3>
+      <table>
+        <tr>
+          <th>Item</th>
+          <th>Price</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>Remove Ads</td>
+          <td>$2.99</td>
+          <td>Permanently removes all advertisements</td>
+        </tr>
+      </table>
+      <p>All purchases are processed through Apple App Store or Google Play Store. Refunds are subject to the respective store's refund policy.</p>
+
+      <h3>8. Data Storage</h3>
+      <p>All financial data is stored locally on your device. We do not collect, transmit, or store your financial data on external servers. You are responsible for:</p>
+      <ul>
+        <li>Backing up your device to preserve your data</li>
+        <li>Understanding that uninstalling the app will delete all data</li>
+        <li>Maintaining the security of your device</li>
+      </ul>
+
+      <h3>9. Financial Disclaimer</h3>
+      <p>Easy Budget is a personal finance tracking tool and does not provide:</p>
+      <ul>
+        <li>Financial, investment, or tax advice</li>
+        <li>Banking or payment processing services</li>
+        <li>Guaranteed accuracy of calculations</li>
+      </ul>
+      <p>Users should consult qualified professionals for financial advice. We are not responsible for financial decisions made based on data in the app.</p>
+
+      <h3>10. Disclaimer of Warranties</h3>
+      <p>The application is provided "as is" without warranties of any kind. We are not liable for:</p>
+      <ul>
+        <li>Loss of data due to device failure, app deletion, or software updates</li>
+        <li>Any indirect or consequential damages arising from use of the application</li>
+        <li>Service interruptions, bugs, or errors</li>
+        <li>Financial losses resulting from reliance on the application</li>
+      </ul>
+
+      <h3>11. Changes to Terms</h3>
+      <p>We reserve the right to modify these terms at any time. Significant changes will be communicated through app updates. Continued use of the application after changes constitutes acceptance of the new terms.</p>
+
+      <h3>12. Governing Law</h3>
+      <p>These terms are governed by the laws of the Republic of Korea. Any disputes shall be resolved in the courts of Korea.</p>
+
+      <h3>13. Contact</h3>
+      <p>For questions regarding these terms, please contact us at <a href="mailto:admin@wearablock.com">admin@wearablock.com</a>.</p>
+    </main>
+
+    <!-- Korean Content -->
+    <main id="content-ko" class="content-section">
+      <h2>이용약관</h2>
+      <p><strong>시행일:</strong> 2026년 1월 19일</p>
+
+      <div class="info-box">
+        <p>Easy Budget을 사용함으로써 본 이용약관에 동의하게 됩니다. 애플리케이션 사용 전에 주의 깊게 읽어주시기 바랍니다.</p>
+      </div>
+
+      <h3>제1조 (서비스 제공자)</h3>
+      <p>본 애플리케이션은 아래 사업자가 제공합니다:</p>
+      <ul>
+        <li><strong>상호:</strong> 주식회사 위어러블록</li>
+        <li><strong>주소:</strong> 경기도 김포시 김포한강11로 288-5</li>
+        <li><strong>연락처:</strong> admin@wearablock.com</li>
+      </ul>
+
+      <h3>제2조 (서비스 내용)</h3>
+      <p>Easy Budget은 다음 기능을 제공하는 개인 재무 관리 애플리케이션입니다:</p>
+      <ul>
+        <li>수입 및 지출 거래 기록</li>
+        <li>사용자 정의 카테고리별 거래 정리</li>
+        <li>월별 재무 요약 및 통계 조회</li>
+        <li>시각적 차트를 통한 지출 패턴 추적</li>
+        <li>다양한 통화로 재무 관리</li>
+      </ul>
+
+      <h3>제3조 (이용 연령)</h3>
+      <p>본 서비스는 만 14세 이상 사용자를 대상으로 합니다. 만 14세 미만인 경우, 부모님 또는 법정대리인의 동의를 받은 후 본 애플리케이션을 사용해야 합니다.</p>
+
+      <h3>제4조 (이용자의 의무)</h3>
+      <p>이용자는 다음 사항을 준수해야 합니다:</p>
+      <ul>
+        <li>관련 법령을 준수하여 애플리케이션 사용</li>
+        <li>애플리케이션의 역설계, 수정, 배포 금지</li>
+        <li>불법적이거나 허가되지 않은 목적으로 사용 금지</li>
+        <li>본인의 재무 기록 정확성 유지</li>
+        <li>재무 데이터 보호를 위한 기기 보안 유지</li>
+      </ul>
+
+      <h3>제5조 (지적재산권)</h3>
+      <p>본 애플리케이션의 모든 콘텐츠(디자인, 그래픽, 사용자 인터페이스, 소스 코드 등)는 저작권법에 의해 보호됩니다. 사전 서면 동의 없이 콘텐츠를 복사, 복제 또는 배포할 수 없습니다.</p>
+
+      <h3>제6조 (광고)</h3>
+      <p>본 애플리케이션은 Google AdMob을 통해 광고를 표시합니다. 애플리케이션 사용 시 다음 사항에 동의하게 됩니다:</p>
+      <ul>
+        <li>애플리케이션 내 광고가 표시될 수 있음</li>
+        <li>광고 콘텐츠는 제3자 광고주가 제공함</li>
+        <li>인앱 결제를 통해 광고를 제거할 수 있음</li>
+      </ul>
+
+      <h3>제7조 (인앱 결제)</h3>
+      <table>
+        <tr>
+          <th>항목</th>
+          <th>가격</th>
+          <th>설명</th>
+        </tr>
+        <tr>
+          <td>광고 제거</td>
+          <td>₩3,900</td>
+          <td>모든 광고를 영구적으로 제거</td>
+        </tr>
+      </table>
+      <p>모든 결제는 Apple App Store 또는 Google Play Store를 통해 처리됩니다. 환불은 각 스토어의 환불 정책에 따릅니다.</p>
+
+      <h3>제8조 (데이터 저장)</h3>
+      <p>모든 재무 데이터는 사용자의 기기에 로컬로 저장됩니다. 당사는 사용자의 재무 데이터를 수집, 전송 또는 외부 서버에 저장하지 않습니다. 사용자는 다음에 대해 책임을 집니다:</p>
+      <ul>
+        <li>데이터 보존을 위한 기기 백업</li>
+        <li>앱 삭제 시 모든 데이터가 삭제됨을 인지</li>
+        <li>기기 보안 유지</li>
+      </ul>
+
+      <h3>제9조 (재무 관련 면책조항)</h3>
+      <p>Easy Budget은 개인 재무 추적 도구이며 다음을 제공하지 않습니다:</p>
+      <ul>
+        <li>재무, 투자 또는 세무 조언</li>
+        <li>은행 또는 결제 처리 서비스</li>
+        <li>계산의 정확성 보장</li>
+      </ul>
+      <p>재무 조언이 필요한 경우 자격을 갖춘 전문가와 상담하시기 바랍니다. 앱의 데이터를 기반으로 한 재무 결정에 대해 당사는 책임지지 않습니다.</p>
+
+      <h3>제10조 (보증의 부인)</h3>
+      <p>애플리케이션은 "있는 그대로" 제공되며 어떠한 종류의 보증도 하지 않습니다. 당사는 다음에 대해 책임지지 않습니다:</p>
+      <ul>
+        <li>기기 고장, 앱 삭제 또는 소프트웨어 업데이트로 인한 데이터 손실</li>
+        <li>애플리케이션 사용으로 인한 간접적 또는 결과적 손해</li>
+        <li>서비스 중단, 버그 또는 오류</li>
+        <li>애플리케이션에 대한 의존으로 인한 재정적 손실</li>
+      </ul>
+
+      <h3>제11조 (약관 변경)</h3>
+      <p>당사는 언제든지 본 약관을 수정할 권리를 보유합니다. 중요한 변경 사항은 앱 업데이트를 통해 공지됩니다. 변경 후에도 계속 애플리케이션을 사용하면 새로운 약관에 동의한 것으로 간주됩니다.</p>
+
+      <h3>제12조 (준거법)</h3>
+      <p>본 약관은 대한민국 법률의 적용을 받습니다. 분쟁 발생 시 대한민국 법원에서 해결합니다.</p>
+
+      <h3>제13조 (문의)</h3>
+      <p>본 약관에 관한 문의사항은 <a href="mailto:admin@wearablock.com">admin@wearablock.com</a>으로 연락해 주시기 바랍니다.</p>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Wearablock Inc. All rights reserved.</p>
+      <p>
+        <a href="terms.html">Terms of Service</a> |
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="support.html">Support</a>
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    function toggleDropdown() {
+      document.getElementById('langDropdown').classList.toggle('show');
+    }
+
+    function switchLang(lang) {
+      document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.lang-option').forEach(el => el.classList.remove('active'));
+
+      document.getElementById('content-' + lang).classList.add('active');
+      event.target.classList.add('active');
+
+      const langNames = { 'en': 'English', 'ko': '한국어' };
+      document.getElementById('currentLang').textContent = langNames[lang];
+      document.getElementById('langDropdown').classList.remove('show');
+    }
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.lang-selector')) {
+        document.getElementById('langDropdown').classList.remove('show');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,5 +1,24 @@
 guides
 
+# Environment & Secrets
+.env
+.env.*
+*.env
+secrets/
+
+# API Keys & Signing
+android/key.properties
+android/app/*.jks
+android/app/*.keystore
+*.jks
+*.keystore
+*.pem
+*.p12
+
+# Firebase (if used)
+**/google-services.json
+**/GoogleService-Info.plist
+
 # Miscellaneous
 *.class
 *.log
@@ -33,11 +52,19 @@ migrate_working_dir/
 **/doc/api/
 **/ios/Flutter/.last_build_id
 .dart_tool/
+.flutter-plugins
 .flutter-plugins-dependencies
 .pub-cache/
 .pub/
 /build/
 /coverage/
+flutter_export_environment.sh
+
+# iOS CocoaPods
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
 
 # Symbolication related
 app.*.symbols

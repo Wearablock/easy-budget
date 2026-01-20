@@ -4,6 +4,7 @@ import 'package:easy_budget/database/database.dart';
 import 'package:easy_budget/l10n/app_localizations.dart';
 import 'package:easy_budget/models/currency_config.dart';
 import 'package:easy_budget/screens/transaction/category_selection_screen.dart';
+import 'package:easy_budget/services/transaction_notifier.dart';
 import 'package:easy_budget/utils/currency_utils.dart';
 import 'package:easy_budget/widgets/amount_input/amount_display.dart';
 import 'package:easy_budget/widgets/amount_input/number_keypad.dart';
@@ -225,6 +226,9 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
           behavior: SnackBarBehavior.floating,
         ),
       );
+
+      // 거래 변경 알림
+      TransactionNotifier().notifyTransactionChanged();
 
       Navigator.of(context).popUntil((route) => route.isFirst);
     } catch (e) {

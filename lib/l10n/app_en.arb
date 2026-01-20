@@ -149,5 +149,107 @@
   "iconCategoryEducation": "Education",
   "iconCategoryFinance": "Finance",
   "iconCategoryFamily": "Family",
-  "iconCategoryEtc": "Other"
+  "iconCategoryEtc": "Other",
+
+  "vsLastMonth": "vs last month",
+  "categoryExpenseTitle": "Expenses by Category",
+  "noExpenseData": "No expense data",
+  "noIncomeData": "No income data",
+  "noDataForMonth": "No transactions for this month",
+
+  "categoryStatisticsTitle": "Category Statistics",
+  "totalExpense": "Total Expense",
+  "totalIncome": "Total Income",
+  "transactionCount": "{count} transactions",
+  "@transactionCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "tapToSeeDetails": "Tap a section to see details",
+
+  "monthlyTrend": "Monthly Trend",
+  "barChart": "Bar",
+  "lineChart": "Line",
+  "incomeLabel": "Income",
+  "expenseLabel": "Expense",
+  "balanceLabel": "Balance",
+  "noTrendData": "No data for this period",
+  "last6Months": "Last 6 months",
+  "categoryIncomeTitle": "Income by Category",
+  "loadingStatistics": "Loading statistics...",
+  "statisticsError": "Failed to load statistics",
+
+  "language": "Language",
+  "selectLanguage": "Select Language",
+  "languageChanged": "Language changed",
+  "currentLanguage": "Current: {language}",
+  "@currentLanguage": {
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
+  "systemDefault": "System Default",
+
+  "currency": "Currency",
+  "selectCurrency": "Select Currency",
+  "currencyChanged": "Currency changed",
+  "currentCurrency": "Current: {currency}",
+  "@currentCurrency": {
+    "placeholders": {
+      "currency": {
+        "type": "String"
+      }
+    }
+  },
+
+  "general": "General",
+  "appearance": "Appearance",
+  "dataManagement": "Data Management",
+  "about": "About",
+  "version": "Version",
+  "privacyPolicy": "Privacy Policy",
+  "termsOfService": "Terms of Service",
+  "feedback": "Send Feedback",
+  "rateApp": "Rate This App",
+
+  "backup": "Backup",
+  "restore": "Restore",
+  "exportData": "Export Data",
+  "importData": "Import Data",
+  "backupSuccess": "Backup completed",
+  "restoreSuccess": "Restore completed",
+  "backupFailed": "Backup failed",
+  "restoreFailed": "Restore failed",
+
+  "darkMode": "Dark Mode",
+  "lightMode": "Light Mode",
+  "systemTheme": "System",
+
+  "languageEnglish": "English",
+  "languageKorean": "한국어",
+  "languageJapanese": "日本語",
+  "languageChinese": "中文",
+  "languageGerman": "Deutsch",
+  "languageFrench": "Français",
+  "languageSpanish": "Español",
+  "languagePortuguese": "Português",
+  "languageItalian": "Italiano",
+  "languageRussian": "Русский",
+  "languageArabic": "العربية",
+  "languageThai": "ภาษาไทย",
+  "languageVietnamese": "Tiếng Việt",
+  "languageIndonesian": "Bahasa Indonesia",
+
+  "restartRequired": "Please restart the app to apply changes",
+  "ok": "OK",
+
+  "termsAndPolicies": "Terms & Policies",
+  "support": "Support",
+  "cannotOpenLink": "Cannot open link",
+  "openSource": "Open Source Licenses"
 }

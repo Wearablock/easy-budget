@@ -2,6 +2,7 @@ import 'package:drift/drift.dart' show Value;
 import 'package:easy_budget/app.dart';
 import 'package:easy_budget/database/database.dart';
 import 'package:easy_budget/l10n/app_localizations.dart';
+import 'package:easy_budget/services/transaction_notifier.dart';
 import 'package:easy_budget/utils/currency_utils.dart';
 import 'package:easy_budget/widgets/transaction_summary.dart';
 import 'package:flutter/material.dart';
@@ -259,6 +260,9 @@ class _MemoInputScreenState extends State<MemoInputScreen> {
           ),
         );
       }
+
+      // 거래 변경 알림 (통계 화면 등에서 새로고침)
+      TransactionNotifier().notifyTransactionChanged();
 
       // 홈 화면으로 복귀 (모든 거래 입력 화면 닫기)
       Navigator.of(context).popUntil((route) => route.isFirst);

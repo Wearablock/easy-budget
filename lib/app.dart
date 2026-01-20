@@ -9,9 +9,21 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 class EasyBudgetApp extends StatefulWidget {
   const EasyBudgetApp({super.key});
 
-  /// 앱 전역 ScaffoldMessenger 키
-  /// 화면 전환 시에도 스낵바가 정상 작동하도록 함
   static final scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
+
+  // 상태 변경 콜백 (내부에서 설정됨)
+  static void Function(ThemeMode)? _setThemeMode;
+  static void Function(Locale?)? _setLocale;
+
+  /// 테마 변경
+  static void setThemeMode(ThemeMode mode) {
+    _setThemeMode?.call(mode);
+  }
+
+  /// 언어 변경
+  static void setLocale(Locale? locale) {
+    _setLocale?.call(locale);
+  }
 
   @override
   State<EasyBudgetApp> createState() => _EasyBudgetAppState();
@@ -19,17 +31,47 @@ class EasyBudgetApp extends StatefulWidget {
 
 class _EasyBudgetAppState extends State<EasyBudgetApp> {
   bool _showOnboarding = false;
+  ThemeMode _themeMode = ThemeMode.system;
+  Locale? _locale;
 
   @override
   void initState() {
     super.initState();
     _showOnboarding = PreferencesService.isFirstRun;
+    _themeMode = PreferencesService.themeMode;
+    _locale = PreferencesService.locale;
+
+    // 콜백 등록
+    EasyBudgetApp._setThemeMode = _handleSetThemeMode;
+    EasyBudgetApp._setLocale = _handleSetLocale;
+  }
+
+  @override
+  void dispose() {
+    // 콜백 해제
+    EasyBudgetApp._setThemeMode = null;
+    EasyBudgetApp._setLocale = null;
+    super.dispose();
   }
 
   void _onOnboardingComplete() {
     setState(() {
       _showOnboarding = false;
     });
+  }
+
+  void _handleSetThemeMode(ThemeMode mode) {
+    setState(() {
+      _themeMode = mode;
+    });
+    PreferencesService.setThemeMode(mode);
+  }
+
+  void _handleSetLocale(Locale? locale) {
+    setState(() {
+      _locale = locale;
+    });
+    PreferencesService.setLanguageCode(locale?.languageCode);
   }
 
   @override
@@ -42,9 +84,10 @@ class _EasyBudgetAppState extends State<EasyBudgetApp> {
       // 테마 설정
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
-      themeMode: ThemeMode.system,
+      themeMode: _themeMode,
 
       // 다국어 설정
+      locale: _locale,
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -54,7 +97,6 @@ class _EasyBudgetAppState extends State<EasyBudgetApp> {
       supportedLocales: const [
         Locale('en'),
         Locale('ko'),
-        // 추후 다른 언어 추가
       ],
 
       home: _showOnboarding

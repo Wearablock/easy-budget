@@ -99,4 +99,58 @@ class CurrencyUtils {
       return int.tryParse(cleaned) ?? 0;
     }
   }
+
+  /// 금액을 간략하게 표시 (예: ₩1.2M, $500K)
+  static String formatCompact(int amount, {CurrencyConfig? currency}) {
+    final config = currency ?? _currentCurrency;
+    final absAmount = amount.abs();
+
+    String formatted;
+
+    if (absAmount >= 1000000000) {
+      // 10억 이상: B (Billion)
+      formatted = '${(absAmount / 1000000000).toStringAsFixed(1)}B';
+    } else if (absAmount >= 1000000) {
+      // 100만 이상: M (Million)
+      formatted = '${(absAmount / 1000000).toStringAsFixed(1)}M';
+    } else if (absAmount >= 1000) {
+      // 1000 이상: K (Thousand)
+      formatted = '${(absAmount / 1000).toStringAsFixed(1)}K';
+    } else {
+      formatted = absAmount.toString();
+    }
+
+    // 소수점 .0 제거
+    formatted = formatted.replaceAll('.0', '');
+
+    // 통화 기호 추가
+    final space = config.symbolSpaced ? ' ' : '';
+    if (config.symbolBefore) {
+      return '${amount < 0 ? '-' : ''}${config.symbol}$space$formatted';
+    } else {
+      return '${amount < 0 ? '-' : ''}$formatted$space${config.symbol}';
+    }
+  }
+
+  /// 한국어 단위 사용 (만, 억)
+  static String formatCompactKorean(int amount) {
+    final absAmount = amount.abs();
+
+    String formatted;
+
+    if (absAmount >= 100000000) {
+      // 1억 이상
+      formatted = '${(absAmount / 100000000).toStringAsFixed(1)}억';
+    } else if (absAmount >= 10000) {
+      // 1만 이상
+      formatted = '${(absAmount / 10000).toStringAsFixed(1)}만';
+    } else {
+      formatted = absAmount.toString();
+    }
+
+    // 소수점 .0 제거
+    formatted = formatted.replaceAll('.0', '');
+
+    return '${amount < 0 ? '-' : ''}₩$formatted';
+  }
 }

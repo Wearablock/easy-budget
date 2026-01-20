@@ -16,7 +16,11 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
+  int _previousIndex = 0;
   late AppDatabase _db;
+
+  // StatisticsScreen 새로고침을 위한 키
+  final GlobalKey<StatisticsScreenState> _statisticsKey = GlobalKey();
 
   // 각 탭의 화면들
   late final List<Widget> _screens;
@@ -27,7 +31,7 @@ class _MainScreenState extends State<MainScreen> {
     _db = AppDatabase();
     _screens = [
       HomeScreen(database: _db),
-      StatisticsScreen(database: _db),
+      StatisticsScreen(key: _statisticsKey, database: _db),
       SettingsScreen(database: _db),
     ];
   }
@@ -57,22 +61,33 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
-  void _openAddTransaction(BuildContext context) {
-    Navigator.of(context).push(
+  Future<void> _openAddTransaction(BuildContext context) async {
+    final result = await Navigator.of(context).push<bool>(
       MaterialPageRoute(
         builder: (context) => AddTransactionScreen(database: _db),
         fullscreenDialog: true,
       ),
     );
+
+    // 거래가 추가/수정되었으면 통계 화면 새로고침
+    if (result == true) {
+      _statisticsKey.currentState?.refresh();
+    }
   }
 
   Widget _buildBottomNavigationBar(BuildContext context) {
     return BottomNavigationBar(
       currentIndex: _currentIndex,
       onTap: (index) {
+        _previousIndex = _currentIndex;
         setState(() {
           _currentIndex = index;
         });
+
+        // 통계 탭으로 전환 시 데이터 새로고침
+        if (index == 1 && _previousIndex != 1) {
+          _statisticsKey.currentState?.refresh();
+        }
       },
       items: [
         BottomNavigationBarItem(

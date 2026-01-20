@@ -19,11 +19,24 @@ class MonthlySummaryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<Map<String, int>>(
-      future: _loadSummary(),
+    // StreamBuilder를 사용하여 실시간 업데이트
+    return StreamBuilder<List<Transaction>>(
+      stream: database.watchTransactionsByMonth(year, month),
       builder: (context, snapshot) {
-        final income = snapshot.data?['income'] ?? 0;
-        final expense = snapshot.data?['expense'] ?? 0;
+        // 거래 목록에서 수입/지출 합계 계산
+        int income = 0;
+        int expense = 0;
+
+        if (snapshot.hasData) {
+          for (final transaction in snapshot.data!) {
+            if (transaction.isIncome) {
+              income += transaction.amount;
+            } else {
+              expense += transaction.amount;
+            }
+          }
+        }
+
         final balance = income - expense;
 
         return Card(
@@ -73,12 +86,6 @@ class MonthlySummaryCard extends StatelessWidget {
         );
       },
     );
-  }
-
-  Future<Map<String, int>> _loadSummary() async {
-    final income = await database.getTotalIncomeByMonth(year, month);
-    final expense = await database.getTotalExpenseByMonth(year, month);
-    return {'income': income, 'expense': expense};
   }
 
   Widget _buildBalanceSection(BuildContext context, int balance) {

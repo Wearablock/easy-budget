@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:easy_budget/database/category_seeder.dart';
+import 'package:easy_budget/models/monthly_trend_data.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p;
 
@@ -349,6 +350,306 @@ class AppDatabase extends _$AppDatabase {
     return result?.read(transactions.amount.sum()) ?? 0;
   }
 
+  /// 특정 월의 카테고리별 지출 합계 조회
+  Future<List<CategoryExpenseData>> getExpensesByCategory(
+    int year,
+    int month,
+  ) async {
+    final startDate = DateTime(year, month, 1);
+    final endDate = DateTime(year, month + 1, 0, 23, 59, 59);
+
+    // 카테고리별 지출 합계 쿼리
+    final query = select(transactions).join([
+      innerJoin(categories, categories.id.equalsExp(transactions.categoryId)),
+    ])
+      ..where(
+        transactions.isDeleted.equals(false) &
+            transactions.isIncome.equals(false) &
+            transactions.transactionDate.isBiggerOrEqualValue(startDate) &
+            transactions.transactionDate.isSmallerOrEqualValue(endDate),
+      );
+
+    final results = await query.get();
+
+    // 카테고리별로 그룹화하여 합계 계산
+    final Map<int, CategoryExpenseData> categoryMap = {};
+
+    for (final row in results) {
+      final category = row.readTable(categories);
+      final transaction = row.readTable(transactions);
+
+      if (categoryMap.containsKey(category.id)) {
+        final existing = categoryMap[category.id]!;
+        categoryMap[category.id] = CategoryExpenseData(
+          categoryId: category.id,
+          categoryName: category.customName ?? category.nameKey,
+          iconName: category.icon,
+          colorValue: category.color,
+          amount: existing.amount + transaction.amount,
+          percentage: 0, // 나중에 계산
+        );
+      } else {
+        categoryMap[category.id] = CategoryExpenseData(
+          categoryId: category.id,
+          categoryName: category.customName ?? category.nameKey,
+          iconName: category.icon,
+          colorValue: category.color,
+          amount: transaction.amount,
+          percentage: 0, // 나중에 계산
+        );
+      }
+    }
+
+    // 총 지출 계산
+    final totalExpense = categoryMap.values.fold<int>(
+      0,
+      (sum, data) => sum + data.amount,
+    );
+
+    // 퍼센트 계산 및 정렬
+    final resultList = categoryMap.values.map((data) {
+      return CategoryExpenseData(
+        categoryId: data.categoryId,
+        categoryName: data.categoryName,
+        iconName: data.iconName,
+        colorValue: data.colorValue,
+        amount: data.amount,
+        percentage: totalExpense > 0 ? (data.amount / totalExpense) * 100 : 0,
+      );
+    }).toList();
+
+    // 금액 높은 순으로 정렬
+    resultList.sort((a, b) => b.amount.compareTo(a.amount));
+
+    return resultList;
+  }
+
+  /// 특정 월 이전의 누적 잔액 조회 (전월까지의 잔액)
+  Future<int> getBalanceBeforeMonth(int year, int month) async {
+    final endDate = DateTime(year, month, 1).subtract(
+      const Duration(seconds: 1),
+    );
+
+    final incomeResult =
+        await (selectOnly(transactions)
+              ..addColumns([transactions.amount.sum()])
+              ..where(
+                transactions.isDeleted.equals(false) &
+                    transactions.isIncome.equals(true) &
+                    transactions.transactionDate.isSmallerOrEqualValue(endDate),
+              ))
+            .getSingleOrNull();
+
+    final expenseResult =
+        await (selectOnly(transactions)
+              ..addColumns([transactions.amount.sum()])
+              ..where(
+                transactions.isDeleted.equals(false) &
+                    transactions.isIncome.equals(false) &
+                    transactions.transactionDate.isSmallerOrEqualValue(endDate),
+              ))
+            .getSingleOrNull();
+
+    final income = incomeResult?.read(transactions.amount.sum()) ?? 0;
+    final expense = expenseResult?.read(transactions.amount.sum()) ?? 0;
+
+    return income - expense;
+  }
+
+  /// 특정 월의 카테고리별 수입 합계 조회
+  Future<List<CategoryExpenseData>> getIncomesByCategory(
+    int year,
+    int month,
+  ) async {
+    final startDate = DateTime(year, month, 1);
+    final endDate = DateTime(year, month + 1, 0, 23, 59, 59);
+
+    // 카테고리별 수입 합계 쿼리
+    final query = select(transactions).join([
+      innerJoin(categories, categories.id.equalsExp(transactions.categoryId)),
+    ])
+      ..where(
+        transactions.isDeleted.equals(false) &
+            transactions.isIncome.equals(true) &
+            transactions.transactionDate.isBiggerOrEqualValue(startDate) &
+            transactions.transactionDate.isSmallerOrEqualValue(endDate),
+      );
+
+    final results = await query.get();
+
+    // 카테고리별로 그룹화하여 합계 계산
+    final Map<int, CategoryExpenseData> categoryMap = {};
+
+    for (final row in results) {
+      final category = row.readTable(categories);
+      final transaction = row.readTable(transactions);
+
+      if (categoryMap.containsKey(category.id)) {
+        final existing = categoryMap[category.id]!;
+        categoryMap[category.id] = CategoryExpenseData(
+          categoryId: category.id,
+          categoryName: category.customName ?? category.nameKey,
+          iconName: category.icon,
+          colorValue: category.color,
+          amount: existing.amount + transaction.amount,
+          percentage: 0,
+        );
+      } else {
+        categoryMap[category.id] = CategoryExpenseData(
+          categoryId: category.id,
+          categoryName: category.customName ?? category.nameKey,
+          iconName: category.icon,
+          colorValue: category.color,
+          amount: transaction.amount,
+          percentage: 0,
+        );
+      }
+    }
+
+    // 총 수입 계산
+    final totalIncome = categoryMap.values.fold<int>(
+      0,
+      (sum, data) => sum + data.amount,
+    );
+
+    // 퍼센트 계산 및 정렬
+    final resultList = categoryMap.values.map((data) {
+      return CategoryExpenseData(
+        categoryId: data.categoryId,
+        categoryName: data.categoryName,
+        iconName: data.iconName,
+        colorValue: data.colorValue,
+        amount: data.amount,
+        percentage: totalIncome > 0 ? (data.amount / totalIncome) * 100 : 0,
+      );
+    }).toList();
+
+    // 금액 높은 순으로 정렬
+    resultList.sort((a, b) => b.amount.compareTo(a.amount));
+
+    return resultList;
+  }
+
+  // ===== 월별 추이 메서드 =====
+
+  /// 최근 N개월간 월별 수입/지출 합계 조회
+  ///
+  /// [endYear], [endMonth]: 기준 월 (포함)
+  /// [monthCount]: 조회할 개월 수 (기본 6개월)
+  ///
+  /// 반환: 과거 → 현재 순으로 정렬된 월별 데이터
+  Future<List<MonthlyTrendData>> getMonthlyTrends({
+    required int endYear,
+    required int endMonth,
+    int monthCount = 6,
+  }) async {
+    final results = <MonthlyTrendData>[];
+
+    // 시작 월 계산
+    var year = endYear;
+    var month = endMonth;
+
+    // monthCount개월 전으로 이동
+    for (var i = 0; i < monthCount - 1; i++) {
+      month--;
+      if (month < 1) {
+        month = 12;
+        year--;
+      }
+    }
+
+    // 각 월별 데이터 조회
+    for (var i = 0; i < monthCount; i++) {
+      final income = await getTotalIncomeByMonth(year, month);
+      final expense = await getTotalExpenseByMonth(year, month);
+
+      results.add(MonthlyTrendData(
+        year: year,
+        month: month,
+        income: income,
+        expense: expense,
+      ));
+
+      // 다음 월로 이동
+      month++;
+      if (month > 12) {
+        month = 1;
+        year++;
+      }
+    }
+
+    return results;
+  }
+
+  /// 최근 N개월간 누적 잔액 조회 (라인 차트용)
+  ///
+  /// 각 월말 기준 누적 잔액을 반환
+  Future<List<MonthlyTrendData>> getCumulativeBalances({
+    required int endYear,
+    required int endMonth,
+    int monthCount = 6,
+  }) async {
+    final results = <MonthlyTrendData>[];
+
+    // 시작 월 계산
+    var year = endYear;
+    var month = endMonth;
+
+    for (var i = 0; i < monthCount - 1; i++) {
+      month--;
+      if (month < 1) {
+        month = 12;
+        year--;
+      }
+    }
+
+    // 시작 월 이전까지의 누적 잔액
+    int cumulativeBalance = await getBalanceBeforeMonth(year, month);
+
+    // 각 월별 데이터 조회
+    for (var i = 0; i < monthCount; i++) {
+      final income = await getTotalIncomeByMonth(year, month);
+      final expense = await getTotalExpenseByMonth(year, month);
+
+      // 해당 월까지의 누적 잔액
+      cumulativeBalance += (income - expense);
+
+      results.add(MonthlyTrendData(
+        year: year,
+        month: month,
+        income: income,
+        expense: expense,
+        cumulativeBalance: cumulativeBalance,
+      ));
+
+      month++;
+      if (month > 12) {
+        month = 1;
+        year++;
+      }
+    }
+
+    return results;
+  }
+}
+
+/// 카테고리별 지출 데이터 클래스
+class CategoryExpenseData {
+  final int categoryId;
+  final String categoryName;
+  final String iconName;
+  final int colorValue;
+  final int amount;
+  final double percentage;
+
+  CategoryExpenseData({
+    required this.categoryId,
+    required this.categoryName,
+    required this.iconName,
+    required this.colorValue,
+    required this.amount,
+    required this.percentage,
+  });
 }
 
 LazyDatabase _openConnection() {
