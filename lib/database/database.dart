@@ -244,6 +244,16 @@ class AppDatabase extends _$AppDatabase {
         .get();
   }
 
+  /// 거래 내역 존재 여부 확인 (통화 변경 경고용)
+  Future<bool> hasAnyTransactions() async {
+    final query = selectOnly(transactions)
+      ..where(transactions.isDeleted.equals(false))
+      ..addColumns([transactions.id])
+      ..limit(1);
+    final result = await query.get();
+    return result.isNotEmpty;
+  }
+
   Future<List<Transaction>> getTransactionsByMonth(int year, int month) {
     final startDate = DateHelper.getMonthStart(year, month);
     final endDate = DateHelper.getMonthEnd(year, month);

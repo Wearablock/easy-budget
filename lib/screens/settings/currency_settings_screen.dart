@@ -1,3 +1,4 @@
+import 'package:easy_budget/database/database.dart';
 import 'package:easy_budget/l10n/app_localizations.dart';
 import 'package:easy_budget/services/preferences_service.dart';
 import 'package:easy_budget/utils/currency_utils.dart';
@@ -100,6 +101,37 @@ class _CurrencySettingsScreenState extends State<CurrencySettingsScreen> {
   }
 
   Future<void> _onCurrencySelected(String code) async {
+    // 같은 통화 선택 시 무시
+    if (code == CurrencyUtils.currentCurrency.code) return;
+
+    final l10n = AppLocalizations.of(context);
+
+    // 기존 거래 내역이 있는지 확인
+    final hasTransactions = await AppDatabase().hasAnyTransactions();
+
+    if (hasTransactions && mounted) {
+      // 경고 다이얼로그 표시
+      final confirmed = await showDialog<bool>(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(l10n.currencyChangeWarningTitle),
+          content: Text(l10n.currencyChangeWarningMessage),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              child: Text(l10n.cancel),
+            ),
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(true),
+              child: Text(l10n.continueButton),
+            ),
+          ],
+        ),
+      );
+
+      if (confirmed != true) return;
+    }
+
     setState(() {
       _selectedCode = code;
     });
@@ -108,7 +140,6 @@ class _CurrencySettingsScreenState extends State<CurrencySettingsScreen> {
     await PreferencesService.setCurrencyCode(code);
 
     if (mounted) {
-      final l10n = AppLocalizations.of(context);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(l10n.currencyChanged),

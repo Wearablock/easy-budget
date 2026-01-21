@@ -198,6 +198,9 @@
   "currency": "통화",
   "selectCurrency": "통화 선택",
   "currencyChanged": "통화가 변경되었습니다",
+  "currencyChangeWarningTitle": "통화 변경",
+  "currencyChangeWarningMessage": "기존 거래 내역의 금액은 변환되지 않습니다.\n예: ₩50,000 → $50,000\n\n계속하시겠습니까?",
+  "continueButton": "계속",
   "currentCurrency": "현재: {currency}",
   "@currentCurrency": {
     "placeholders": {

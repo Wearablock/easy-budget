@@ -198,6 +198,9 @@
   "currency": "Devise",
   "selectCurrency": "Choisir la devise",
   "currencyChanged": "Devise modifiée",
+  "currencyChangeWarningTitle": "Changer de devise",
+  "currencyChangeWarningMessage": "Les montants des transactions existantes ne seront pas convertis.\nExemple : €50 000 → $50 000\n\nVoulez-vous continuer ?",
+  "continueButton": "Continuer",
   "currentCurrency": "Actuel : {currency}",
   "@currentCurrency": {
     "placeholders": {

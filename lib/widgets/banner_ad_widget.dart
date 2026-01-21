@@ -17,6 +17,7 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+    if (!AdService.showAds) return;
     // 화면 너비를 가져와서 광고 로드
     final width = MediaQuery.of(context).size.width;
     AdService().loadBannerAd(width);
@@ -24,6 +25,9 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
 
   @override
   Widget build(BuildContext context) {
+    // 광고 비활성화 시 빈 위젯 반환
+    if (!AdService.showAds) return const SizedBox.shrink();
+
     return ListenableBuilder(
       listenable: AdService(),
       builder: (context, _) {
@@ -62,12 +66,16 @@ class _SafeBannerAdWidgetState extends State<SafeBannerAdWidget> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+    if (!AdService.showAds) return;
     final width = MediaQuery.of(context).size.width;
     AdService().loadBannerAd(width);
   }
 
   @override
   Widget build(BuildContext context) {
+    // 광고 비활성화 시 빈 위젯 반환
+    if (!AdService.showAds) return const SizedBox.shrink();
+
     return ListenableBuilder(
       listenable: AdService(),
       builder: (context, _) {

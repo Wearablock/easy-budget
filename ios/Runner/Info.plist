@@ -61,9 +61,9 @@
 		<true/>
 		<key>UIApplicationSupportsIndirectInputEvents</key>
 		<true/>
-		<!-- Google Mobile Ads App ID (테스트용 - 배포 시 실제 ID로 교체) -->
+		<!-- Google Mobile Ads App ID -->
 		<key>GADApplicationIdentifier</key>
-		<string>ca-app-pub-3940256099942544~1458002511</string>
+		<string>ca-app-pub-8841058711613546~5392706052</string>
 		<!-- App Tracking Transparency (iOS 14.5+) -->
 		<key>NSUserTrackingUsageDescription</key>
 		<string>This identifier will be used to deliver personalized ads to you.</string>

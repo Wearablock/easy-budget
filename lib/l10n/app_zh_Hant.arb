@@ -198,6 +198,9 @@
   "currency": "貨幣",
   "selectCurrency": "選擇貨幣",
   "currencyChanged": "貨幣已更改",
+  "currencyChangeWarningTitle": "更改貨幣",
+  "currencyChangeWarningMessage": "現有交易金額不會被轉換。\n例如：¥50,000 → $50,000\n\n是否繼續？",
+  "continueButton": "繼續",
   "currentCurrency": "目前: {currency}",
   "@currentCurrency": {
     "placeholders": {

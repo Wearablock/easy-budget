@@ -198,6 +198,9 @@
   "currency": "สกุลเงิน",
   "selectCurrency": "เลือกสกุลเงิน",
   "currencyChanged": "เปลี่ยนสกุลเงินแล้ว",
+  "currencyChangeWarningTitle": "เปลี่ยนสกุลเงิน",
+  "currencyChangeWarningMessage": "จำนวนเงินของรายการที่มีอยู่จะไม่ถูกแปลง\nตัวอย่าง: ฿50,000 → $50,000\n\nต้องการดำเนินการต่อหรือไม่?",
+  "continueButton": "ดำเนินการต่อ",
   "currentCurrency": "ปัจจุบัน: {currency}",
   "@currentCurrency": {
     "placeholders": {

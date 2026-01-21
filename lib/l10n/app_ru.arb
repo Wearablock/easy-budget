@@ -198,6 +198,9 @@
   "currency": "Валюта",
   "selectCurrency": "Выбрать валюту",
   "currencyChanged": "Валюта изменена",
+  "currencyChangeWarningTitle": "Изменить валюту",
+  "currencyChangeWarningMessage": "Суммы существующих транзакций не будут конвертированы.\nПример: ₽50 000 → $50 000\n\nПродолжить?",
+  "continueButton": "Продолжить",
   "currentCurrency": "Текущая: {currency}",
   "@currentCurrency": {
     "placeholders": {

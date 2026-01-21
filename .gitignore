@@ -66,6 +66,10 @@ ios/.symlinks/
 ios/Flutter/Flutter.framework
 ios/Flutter/Flutter.podspec
 
+# iOS Build & Automation
+ios/ExportOptions.plist
+ios/fastlane/
+
 # Symbolication related
 app.*.symbols
 
@@ -90,3 +94,6 @@ ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-*.png
 ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage*.png
 ios/Runner/Assets.xcassets/BrandingImage.imageset/
 ios/Runner/Assets.xcassets/LaunchBackground.imageset/
+
+# Store automation scripts (local only)
+store-automation/

@@ -198,6 +198,9 @@
   "currency": "العملة",
   "selectCurrency": "اختر العملة",
   "currencyChanged": "تم تغيير العملة",
+  "currencyChangeWarningTitle": "تغيير العملة",
+  "currencyChangeWarningMessage": "لن يتم تحويل مبالغ المعاملات الحالية.\nمثال: ٥٠٬٠٠٠ ر.س → $٥٠٬٠٠٠\n\nهل تريد المتابعة؟",
+  "continueButton": "متابعة",
   "currentCurrency": "الحالية: {currency}",
   "@currentCurrency": {
     "placeholders": {

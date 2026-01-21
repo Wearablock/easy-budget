@@ -198,6 +198,9 @@
   "currency": "Đơn vị tiền tệ",
   "selectCurrency": "Chọn đơn vị tiền tệ",
   "currencyChanged": "Đã thay đổi đơn vị tiền tệ",
+  "currencyChangeWarningTitle": "Thay đổi đơn vị tiền tệ",
+  "currencyChangeWarningMessage": "Số tiền của các giao dịch hiện có sẽ không được chuyển đổi.\nVí dụ: ₫50.000 → $50.000\n\nBạn có muốn tiếp tục không?",
+  "continueButton": "Tiếp tục",
   "currentCurrency": "Hiện tại: {currency}",
   "@currentCurrency": {
     "placeholders": {

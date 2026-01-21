@@ -198,6 +198,9 @@
   "currency": "Currency",
   "selectCurrency": "Select Currency",
   "currencyChanged": "Currency changed",
+  "currencyChangeWarningTitle": "Change Currency",
+  "currencyChangeWarningMessage": "Existing transaction amounts will not be converted.\nFor example: ¥50,000 → $50,000\n\nDo you want to continue?",
+  "continueButton": "Continue",
   "currentCurrency": "Current: {currency}",
   "@currentCurrency": {
     "placeholders": {

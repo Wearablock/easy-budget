@@ -198,6 +198,9 @@
   "currency": "通貨",
   "selectCurrency": "通貨を選択",
   "currencyChanged": "通貨を変更しました",
+  "currencyChangeWarningTitle": "通貨を変更",
+  "currencyChangeWarningMessage": "既存の取引金額は変換されません。\n例: ¥50,000 → $50,000\n\n続けますか？",
+  "continueButton": "続ける",
   "currentCurrency": "現在: {currency}",
   "@currentCurrency": {
     "placeholders": {

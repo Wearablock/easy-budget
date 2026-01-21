@@ -16,8 +16,10 @@ void main() async {
   // 저장된 통화 설정 적용
   PreferencesService.applySavedCurrency();
 
-  // AdMob 초기화
-  await AdService().initialize();
+  // AdMob 초기화 (showAds가 true일 때만)
+  if (AdService.showAds) {
+    await AdService().initialize();
+  }
 
   // 스플래시 화면 종료
   FlutterNativeSplash.remove();

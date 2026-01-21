@@ -16,15 +16,24 @@ class AdService extends ChangeNotifier {
   factory AdService() => _instance;
   AdService._internal();
 
+  // ========== 광고 표시 설정 ==========
+
+  /// 광고 표시 여부 (스크린샷 촬영 시 false로 설정)
+  static const bool showAds = true;
+
   // ========== 광고 ID 설정 ==========
 
   /// 실제 배포용 광고 단위 ID (AdMob 콘솔에서 생성 후 교체)
-  static const String _productionBannerAdUnitIdAndroid = 'ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX'; // TODO: 실제 Android 배너 ID로 교체
-  static const String _productionBannerAdUnitIdIOS = 'ca-app-pub-XXXXXXXXXXXXXXXX/XXXXXXXXXX'; // TODO: 실제 iOS 배너 ID로 교체
+  static const String _productionBannerAdUnitIdAndroid =
+      'ca-app-pub-8841058711613546/6105369534';
+  static const String _productionBannerAdUnitIdIOS =
+      'ca-app-pub-8841058711613546/3694828613';
 
   /// 테스트용 광고 단위 ID (Google 공식 테스트 ID)
-  static const String _testBannerAdUnitIdAndroid = 'ca-app-pub-3940256099942544/6300978111';
-  static const String _testBannerAdUnitIdIOS = 'ca-app-pub-3940256099942544/2934735716';
+  static const String _testBannerAdUnitIdAndroid =
+      'ca-app-pub-3940256099942544/6300978111';
+  static const String _testBannerAdUnitIdIOS =
+      'ca-app-pub-3940256099942544/2934735716';
 
   /// 현재 환경에 맞는 배너 광고 단위 ID 반환
   String get bannerAdUnitId {
@@ -124,7 +133,9 @@ class AdService extends ChangeNotifier {
           onAdLoaded: (ad) {
             _isBannerAdLoaded = true;
             notifyListeners();
-            debugPrint('[AdService] 배너 광고 로드 성공: ${adSize.width}x${adSize.height}');
+            debugPrint(
+              '[AdService] 배너 광고 로드 성공: ${adSize.width}x${adSize.height}',
+            );
           },
           onAdFailedToLoad: (ad, error) {
             _isBannerAdLoaded = false;

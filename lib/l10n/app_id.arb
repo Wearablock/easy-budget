@@ -198,6 +198,9 @@
   "currency": "Mata Uang",
   "selectCurrency": "Pilih Mata Uang",
   "currencyChanged": "Mata uang diubah",
+  "currencyChangeWarningTitle": "Ubah Mata Uang",
+  "currencyChangeWarningMessage": "Jumlah transaksi yang ada tidak akan dikonversi.\nContoh: Rp50.000 → $50.000\n\nApakah Anda ingin melanjutkan?",
+  "continueButton": "Lanjutkan",
   "currentCurrency": "Saat ini: {currency}",
   "@currentCurrency": {
     "placeholders": {

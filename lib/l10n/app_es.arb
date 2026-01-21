@@ -198,6 +198,9 @@
   "currency": "Moneda",
   "selectCurrency": "Seleccionar moneda",
   "currencyChanged": "Moneda cambiada",
+  "currencyChangeWarningTitle": "Cambiar moneda",
+  "currencyChangeWarningMessage": "Los montos de las transacciones existentes no se convertirán.\nEjemplo: €50.000 → $50.000\n\n¿Desea continuar?",
+  "continueButton": "Continuar",
   "currentCurrency": "Actual: {currency}",
   "@currentCurrency": {
     "placeholders": {
