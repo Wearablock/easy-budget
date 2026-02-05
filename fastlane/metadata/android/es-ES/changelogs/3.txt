@@ -1,0 +1,3 @@
+• Añadida función Premium para eliminar anuncios
+• Mejora de la estabilidad de la aplicación
+• Corrección de errores y optimizaciones

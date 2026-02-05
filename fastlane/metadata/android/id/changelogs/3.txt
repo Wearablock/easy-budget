@@ -1,0 +1,3 @@
+• Menambahkan fitur Premium untuk menghapus iklan
+• Meningkatkan stabilitas aplikasi
+• Perbaikan bug dan optimalisasi
