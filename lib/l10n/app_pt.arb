@@ -1,6 +1,6 @@
 {
   "@@locale": "pt",
-  "appTitle": "Orçamento Fácil",
+  "appTitle": "Easy Budget - Orçamento",
   "income": "Receitas",
   "expense": "Despesas",
   "balance": "Saldo",
@@ -254,5 +254,14 @@
   "termsAndPolicies": "Termos e políticas",
   "support": "Suporte",
   "cannotOpenLink": "Não foi possível abrir o link",
-  "openSource": "Licenças de código aberto"
+  "openSource": "Licenças de código aberto",
+
+  "premium": "Premium",
+  "removeAds": "Remover anúncios",
+  "premiumActivated": "Premium ativado",
+  "purchase": "Comprar",
+  "restorePurchases": "Restaurar compras",
+  "purchaseFailed": "Falha na compra",
+  "purchasesRestored": "Compras restauradas",
+  "productNotAvailable": "Produto não disponível"
 }

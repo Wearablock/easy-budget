@@ -70,6 +70,9 @@ ios/Flutter/Flutter.podspec
 ios/ExportOptions.plist
 ios/fastlane/
 
+# Android Fastlane (contains sensitive keys)
+android/fastlane/
+
 # Symbolication related
 app.*.symbols
 

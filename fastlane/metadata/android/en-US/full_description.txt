@@ -1,0 +1,44 @@
+Easy Budget - Simple Personal Finance App
+
+Manage your finances efficiently with Easy Budget, an intuitive expense tracking app that anyone can use.
+
+
+📊 Key Features
+
+• Easy Transaction Tracking
+Record your income and expenses with just a few taps.
+
+• Visual Statistics
+View your spending at a glance with charts and category-based analysis.
+
+• Custom Categories
+Create categories that fit your lifestyle with your own icons and colors.
+
+• Multi-Currency Support
+Supports 15+ currencies including USD, EUR, KRW, JPY, CNY, and more.
+
+• Multi-Language Support
+Available in 15 languages including English, Korean, Japanese, Chinese, German, French, and Spanish.
+
+• Dark Mode Support
+Fully supports dark mode.
+
+• Privacy First
+All data is stored securely on your device. No account creation required.
+
+
+💡 Perfect For
+
+• Daily expense tracking
+• Monthly budget management
+• Understanding spending habits
+
+
+📱 Simple and Clean Design
+
+We help you manage your finances with only the information you need, without complexity.
+
+
+🔒 Privacy Protection, Local Storage
+
+All data is stored locally on your device. We do not collect your financial information.

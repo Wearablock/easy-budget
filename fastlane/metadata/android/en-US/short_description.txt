@@ -1,0 +1,1 @@
+Simple personal finance app. Track your expenses easily.

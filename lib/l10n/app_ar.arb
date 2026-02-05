@@ -1,6 +1,6 @@
 {
   "@@locale": "ar",
-  "appTitle": "ميزانية سهلة",
+  "appTitle": "Easy Budget - الميزانية",
   "income": "الدخل",
   "expense": "المصروفات",
   "balance": "الرصيد",
@@ -254,5 +254,14 @@
   "termsAndPolicies": "الشروط والسياسات",
   "support": "الدعم",
   "cannotOpenLink": "تعذر فتح الرابط",
-  "openSource": "تراخيص المصادر المفتوحة"
+  "openSource": "تراخيص المصادر المفتوحة",
+
+  "premium": "بريميوم",
+  "removeAds": "إزالة الإعلانات",
+  "premiumActivated": "تم تفعيل البريميوم",
+  "purchase": "شراء",
+  "restorePurchases": "استعادة المشتريات",
+  "purchaseFailed": "فشل الشراء",
+  "purchasesRestored": "تمت استعادة المشتريات",
+  "productNotAvailable": "المنتج غير متوفر"
 }

@@ -1,0 +1,1 @@
+Aplikasi keuangan pribadi sederhana. Lacak pengeluaran Anda dengan mudah.

@@ -1,6 +1,6 @@
 {
   "@@locale": "th",
-  "appTitle": "บัญชีง่ายๆ",
+  "appTitle": "Easy Budget - บัญชี",
   "income": "รายรับ",
   "expense": "รายจ่าย",
   "balance": "ยอดคงเหลือ",
@@ -254,5 +254,14 @@
   "termsAndPolicies": "ข้อกำหนดและนโยบาย",
   "support": "ช่วยเหลือ",
   "cannotOpenLink": "ไม่สามารถเปิดลิงก์ได้",
-  "openSource": "ใบอนุญาตโอเพนซอร์ส"
+  "openSource": "ใบอนุญาตโอเพนซอร์ส",
+
+  "premium": "พรีเมียม",
+  "removeAds": "ลบโฆษณา",
+  "premiumActivated": "เปิดใช้งานพรีเมียมแล้ว",
+  "purchase": "ซื้อ",
+  "restorePurchases": "กู้คืนการซื้อ",
+  "purchaseFailed": "การซื้อล้มเหลว",
+  "purchasesRestored": "กู้คืนการซื้อแล้ว",
+  "productNotAvailable": "ไม่พบสินค้า"
 }

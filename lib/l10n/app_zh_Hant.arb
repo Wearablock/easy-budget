@@ -1,6 +1,6 @@
 {
   "@@locale": "zh_Hant",
-  "appTitle": "輕鬆記帳",
+  "appTitle": "Easy Budget - 記帳",
   "income": "收入",
   "expense": "支出",
   "balance": "餘額",
@@ -254,5 +254,14 @@
   "termsAndPolicies": "條款與政策",
   "support": "支援",
   "cannotOpenLink": "無法開啟連結",
-  "openSource": "開放原始碼授權"
+  "openSource": "開放原始碼授權",
+
+  "premium": "進階版",
+  "removeAds": "移除廣告",
+  "premiumActivated": "進階版已啟用",
+  "purchase": "購買",
+  "restorePurchases": "恢復購買",
+  "purchaseFailed": "購買失敗",
+  "purchasesRestored": "購買已恢復",
+  "productNotAvailable": "無法載入商品"
 }

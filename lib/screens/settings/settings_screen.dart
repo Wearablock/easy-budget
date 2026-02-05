@@ -7,6 +7,7 @@ import 'package:easy_budget/screens/category/category_list_screen.dart';
 import 'package:easy_budget/screens/settings/language_selection_screen.dart';
 import 'package:easy_budget/screens/settings/currency_settings_screen.dart';
 import 'package:easy_budget/screens/settings/webview_screen.dart';
+import 'package:easy_budget/services/iap_service.dart';
 import 'package:easy_budget/services/preferences_service.dart';
 import 'package:easy_budget/utils/currency_utils.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +31,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
       appBar: AppBar(title: Text(l10n.settings)),
       body: ListView(
         children: [
+          // 프리미엄 섹션
+          _buildSectionHeader(context, l10n.premium),
+          _buildPremiumTile(context, l10n),
+
+          const SizedBox(height: 8),
+
           // 일반 섹션
           _buildSectionHeader(context, l10n.general),
           _buildLanguageTile(context, l10n),
@@ -166,6 +173,93 @@ class _SettingsScreenState extends State<SettingsScreen> {
       title: Text(l10n.version),
       subtitle: const Text('1.0.0'),
     );
+  }
+
+  Widget _buildPremiumTile(BuildContext context, AppLocalizations l10n) {
+    return ListenableBuilder(
+      listenable: IAPService(),
+      builder: (context, _) {
+        final iapService = IAPService();
+        final isPremium = iapService.isPremium;
+        final product = iapService.removeAdsProduct;
+        final isAvailable = iapService.isAvailable;
+        final isLoading = iapService.isLoading;
+
+        // 이미 프리미엄 사용자인 경우
+        if (isPremium) {
+          return ListTile(
+            leading: _buildIconContainer(
+              context,
+              PhosphorIconsThin.checkCircle,
+            ),
+            title: Text(l10n.removeAds),
+            subtitle: Text(l10n.premiumActivated),
+          );
+        }
+
+        // 일반 사용자: 구매 UI 표시
+        return Column(
+          children: [
+            // 광고 제거 구매 버튼
+            ListTile(
+              leading: _buildIconContainer(context, PhosphorIconsThin.prohibit),
+              title: Text(l10n.removeAds),
+              subtitle: Text(
+                isAvailable && product != null
+                    ? product.price
+                    : l10n.productNotAvailable,
+              ),
+              trailing: isLoading
+                  ? const SizedBox(
+                      width: 24,
+                      height: 24,
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    )
+                  : FilledButton(
+                      onPressed: isAvailable && product != null
+                          ? () => _purchaseRemoveAds(context, l10n)
+                          : null,
+                      child: Text(l10n.purchase),
+                    ),
+            ),
+
+            // 구매 복원 버튼 (App Store 정책 필수)
+            ListTile(
+              leading: _buildIconContainer(
+                context,
+                PhosphorIconsThin.arrowCounterClockwise,
+              ),
+              title: Text(l10n.restorePurchases),
+              onTap: isLoading ? null : () => _restorePurchases(context, l10n),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<void> _purchaseRemoveAds(
+    BuildContext context,
+    AppLocalizations l10n,
+  ) async {
+    final success = await IAPService().purchaseRemoveAds();
+    if (!success && context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(l10n.purchaseFailed)),
+      );
+    }
+  }
+
+  Future<void> _restorePurchases(
+    BuildContext context,
+    AppLocalizations l10n,
+  ) async {
+    await IAPService().restorePurchases();
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(l10n.purchasesRestored)),
+      );
+    }
   }
 
   Widget _buildIconContainer(BuildContext context, IconData icon) {

@@ -1,6 +1,6 @@
 {
   "@@locale": "ja",
-  "appTitle": "かんたん家計簿",
+  "appTitle": "Easy Budget - 家計簿",
   "income": "収入",
   "expense": "支出",
   "balance": "残高",
@@ -254,5 +254,14 @@
   "termsAndPolicies": "規約とポリシー",
   "support": "サポート",
   "cannotOpenLink": "リンクを開けません",
-  "openSource": "オープンソースライセンス"
+  "openSource": "オープンソースライセンス",
+
+  "premium": "プレミアム",
+  "removeAds": "広告を削除",
+  "premiumActivated": "プレミアムが有効になりました",
+  "purchase": "購入",
+  "restorePurchases": "購入を復元",
+  "purchaseFailed": "購入に失敗しました",
+  "purchasesRestored": "購入が復元されました",
+  "productNotAvailable": "商品を読み込めません"
 }

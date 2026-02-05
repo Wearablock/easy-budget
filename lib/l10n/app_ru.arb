@@ -1,6 +1,6 @@
 {
   "@@locale": "ru",
-  "appTitle": "Простой Бюджет",
+  "appTitle": "Easy Budget - Бюджет",
   "income": "Доходы",
   "expense": "Расходы",
   "balance": "Баланс",
@@ -254,5 +254,14 @@
   "termsAndPolicies": "Условия и политики",
   "support": "Поддержка",
   "cannotOpenLink": "Не удалось открыть ссылку",
-  "openSource": "Лицензии открытого ПО"
+  "openSource": "Лицензии открытого ПО",
+
+  "premium": "Премиум",
+  "removeAds": "Удалить рекламу",
+  "premiumActivated": "Премиум активирован",
+  "purchase": "Купить",
+  "restorePurchases": "Восстановить покупки",
+  "purchaseFailed": "Ошибка покупки",
+  "purchasesRestored": "Покупки восстановлены",
+  "productNotAvailable": "Товар недоступен"
 }

@@ -1,0 +1,44 @@
+Easy Budget - Aplikasi Keuangan Pribadi Sederhana
+
+Kelola keuangan Anda secara efisien dengan Easy Budget, aplikasi pelacakan pengeluaran intuitif yang dapat digunakan siapa saja.
+
+
+📊 Fitur Utama
+
+• Pelacakan Transaksi Mudah
+Catat pemasukan dan pengeluaran Anda hanya dengan beberapa ketukan.
+
+• Statistik Visual
+Lihat pengeluaran Anda sekilas dengan grafik dan analisis berdasarkan kategori.
+
+• Kategori Kustom
+Buat kategori yang sesuai dengan gaya hidup Anda dengan ikon dan warna pilihan Anda sendiri.
+
+• Dukungan Multi-Mata Uang
+Mendukung lebih dari 15 mata uang termasuk IDR, USD, EUR, JPY, dan lainnya.
+
+• Dukungan Multi-Bahasa
+Tersedia dalam 15 bahasa termasuk Indonesia, Inggris, Jepang, Cina, Jerman, dan Prancis.
+
+• Dukungan Mode Gelap
+Mendukung penuh mode gelap.
+
+• Privasi Utama
+Semua data disimpan dengan aman di perangkat Anda. Tidak perlu membuat akun.
+
+
+💡 Sempurna Untuk
+
+• Pelacakan pengeluaran harian
+• Manajemen anggaran bulanan
+• Memahami kebiasaan pengeluaran
+
+
+📱 Desain Sederhana dan Bersih
+
+Kami membantu Anda mengelola keuangan dengan hanya informasi yang diperlukan, tanpa kerumitan.
+
+
+🔒 Perlindungan Privasi, Penyimpanan Lokal
+
+Semua data disimpan secara lokal di perangkat Anda. Kami tidak mengumpulkan informasi keuangan Anda.

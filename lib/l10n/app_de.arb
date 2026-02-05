@@ -1,6 +1,6 @@
 {
   "@@locale": "de",
-  "appTitle": "Einfaches Budget",
+  "appTitle": "Easy Budget - Haushaltsbuch",
   "income": "Einnahmen",
   "expense": "Ausgaben",
   "balance": "Saldo",
@@ -254,5 +254,14 @@
   "termsAndPolicies": "Bedingungen & Richtlinien",
   "support": "Support",
   "cannotOpenLink": "Link kann nicht geöffnet werden",
-  "openSource": "Open-Source-Lizenzen"
+  "openSource": "Open-Source-Lizenzen",
+
+  "premium": "Premium",
+  "removeAds": "Werbung entfernen",
+  "premiumActivated": "Premium aktiviert",
+  "purchase": "Kaufen",
+  "restorePurchases": "Käufe wiederherstellen",
+  "purchaseFailed": "Kauf fehlgeschlagen",
+  "purchasesRestored": "Käufe wiederhergestellt",
+  "productNotAvailable": "Produkt nicht verfügbar"
 }

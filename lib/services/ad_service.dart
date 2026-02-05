@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
+import 'package:easy_budget/services/iap_service.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -19,7 +20,10 @@ class AdService extends ChangeNotifier {
   // ========== 광고 표시 설정 ==========
 
   /// 광고 표시 여부 (스크린샷 촬영 시 false로 설정)
-  static const bool showAds = true;
+  static const bool _showAdsConfig = true;
+
+  /// 광고 표시 여부 (프리미엄 사용자는 광고 제거)
+  static bool get showAds => _showAdsConfig && !IAPService().isPremium;
 
   // ========== 광고 ID 설정 ==========
 

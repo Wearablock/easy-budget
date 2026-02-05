@@ -1,0 +1,87 @@
+# frozen_string_literal: true
+
+# Fastfile for Easy Budget
+#
+# IAP 상품 관리:
+#   fastlane sync_iap          - 모든 IAP 상품 동기화
+#   fastlane list_iap          - 등록된 상품 목록 조회
+#
+# 필요 조건:
+#   gem install google-apis-androidpublisher_v3
+
+default_platform(:android)
+
+# ============================================================
+# IAP 관리 레인
+# ============================================================
+
+desc "Sync all IAP products to Google Play Console"
+lane :sync_iap do
+  require_relative 'iap/sync_iap'
+  GooglePlayIAPSync.new.sync_all
+end
+
+desc "List all IAP products"
+lane :list_iap do
+  require_relative 'iap/sync_iap'
+  GooglePlayIAPSync.new.list_products
+end
+
+desc "Create IAP product"
+lane :create_iap do |options|
+  require_relative 'iap/sync_iap'
+  file = options[:file] || 'easy_budget_premium.json'
+  GooglePlayIAPSync.new.create_product(file)
+end
+
+desc "Update IAP product"
+lane :update_iap do |options|
+  require_relative 'iap/sync_iap'
+  file = options[:file] || 'easy_budget_premium.json'
+  GooglePlayIAPSync.new.update_product(file)
+end
+
+desc "Get IAP product info"
+lane :get_iap do |options|
+  require_relative 'iap/sync_iap'
+  sku = options[:sku]
+  if sku.nil?
+    UI.user_error!("SKU를 지정하세요. 예: fastlane get_iap sku:easy_budget_premium")
+  end
+  GooglePlayIAPSync.new.get_product(sku)
+end
+
+# ============================================================
+# iOS IAP 관리 레인
+# ============================================================
+
+desc "Sync IAP localizations to App Store Connect"
+lane :sync_iap_ios do |options|
+  require_relative 'iap/sync_iap_ios'
+  file = options[:file] || 'easy_budget_premium.json'
+  AppStoreConnectIAPSync.new.sync_localizations(file)
+end
+
+desc "List all IAP products on App Store Connect"
+lane :list_iap_ios do
+  require_relative 'iap/sync_iap_ios'
+  AppStoreConnectIAPSync.new.list_iaps
+end
+
+# ============================================================
+# 통합 레인 (Android + iOS 동시 동기화)
+# ============================================================
+
+desc "Sync IAP to both Android and iOS"
+lane :sync_iap_all do |options|
+  file = options[:file] || 'easy_budget_premium.json'
+
+  UI.message("🤖 Android IAP 동기화...")
+  sync_iap(file: file)
+
+  UI.message("")
+  UI.message("🍎 iOS IAP 동기화...")
+  sync_iap_ios(file: file)
+
+  UI.success("✅ 모든 플랫폼 동기화 완료!")
+end

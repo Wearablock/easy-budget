@@ -1,0 +1,3 @@
+• App-Update-Benachrichtigungsfunktion hinzugefügt
+• Verbesserte Stabilität und Leistung
+• Fehlerbehebungen und Optimierungen

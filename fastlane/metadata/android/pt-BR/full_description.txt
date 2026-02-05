@@ -1,0 +1,44 @@
+Easy Budget - Aplicativo simples de finanças pessoais
+
+Gerencie suas finanças de forma eficiente com o Easy Budget, um aplicativo intuitivo de controle de gastos que qualquer pessoa pode usar.
+
+
+📊 Principais recursos
+
+• Rastreamento fácil de transações
+Registre suas receitas e despesas com apenas alguns toques.
+
+• Estatísticas visuais
+Visualize seus gastos de relance com gráficos e análises por categoria.
+
+• Categorias personalizadas
+Crie categorias que se adequem ao seu estilo de vida com seus próprios ícones e cores.
+
+• Suporte a múltiplas moedas
+Suporta mais de 15 moedas, incluindo BRL, USD, EUR, JPY e mais.
+
+• Suporte multilíngue
+Disponível em 15 idiomas, incluindo português, inglês, japonês, chinês, alemão e francês.
+
+• Suporte ao modo escuro
+Totalmente compatível com o modo escuro.
+
+• Privacidade em primeiro lugar
+Todos os dados são armazenados com segurança no seu dispositivo. Não é necessário criar conta.
+
+
+💡 Perfeito para
+
+• Rastreamento de despesas diárias
+• Gerenciamento de orçamento mensal
+• Entender hábitos de consumo
+
+
+📱 Design simples e limpo
+
+Ajudamos você a gerenciar suas finanças com apenas as informações necessárias, sem complexidade.
+
+
+🔒 Proteção de privacidade, armazenamento local
+
+Todos os dados são armazenados localmente no seu dispositivo. Não coletamos suas informações financeiras.

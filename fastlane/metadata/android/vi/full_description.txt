@@ -1,0 +1,44 @@
+Easy Budget - Ứng dụng quản lý tài chính cá nhân đơn giản
+
+Quản lý tài chính của bạn hiệu quả với Easy Budget, ứng dụng theo dõi chi tiêu trực quan mà ai cũng có thể sử dụng.
+
+
+📊 Tính năng chính
+
+• Theo dõi giao dịch dễ dàng
+Ghi lại thu nhập và chi tiêu chỉ với vài lần chạm.
+
+• Thống kê trực quan
+Xem chi tiêu của bạn trong nháy mắt với biểu đồ và phân tích theo danh mục.
+
+• Danh mục tùy chỉnh
+Tạo danh mục phù hợp với lối sống của bạn với biểu tượng và màu sắc riêng.
+
+• Hỗ trợ đa tiền tệ
+Hỗ trợ hơn 15 loại tiền tệ bao gồm VND, USD, EUR, JPY và nhiều hơn nữa.
+
+• Hỗ trợ đa ngôn ngữ
+Có sẵn bằng 15 ngôn ngữ bao gồm tiếng Việt, Anh, Nhật, Trung, Đức và Pháp.
+
+• Hỗ trợ chế độ tối
+Hỗ trợ đầy đủ chế độ tối.
+
+• Quyền riêng tư là ưu tiên
+Tất cả dữ liệu được lưu trữ an toàn trên thiết bị của bạn. Không cần tạo tài khoản.
+
+
+💡 Phù hợp cho
+
+• Theo dõi chi tiêu hàng ngày
+• Quản lý ngân sách hàng tháng
+• Hiểu thói quen chi tiêu
+
+
+📱 Thiết kế đơn giản và gọn gàng
+
+Chúng tôi giúp bạn quản lý tài chính chỉ với thông tin cần thiết, không phức tạp.
+
+
+🔒 Bảo vệ quyền riêng tư, lưu trữ cục bộ
+
+Tất cả dữ liệu được lưu trữ cục bộ trên thiết bị của bạn. Chúng tôi không thu thập thông tin tài chính của bạn.

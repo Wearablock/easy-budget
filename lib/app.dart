@@ -5,6 +5,7 @@ import 'package:easy_budget/services/preferences_service.dart';
 import 'package:easy_budget/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:upgrader/upgrader.dart';
 
 class EasyBudgetApp extends StatefulWidget {
   const EasyBudgetApp({super.key});
@@ -121,9 +122,13 @@ class _EasyBudgetAppState extends State<EasyBudgetApp> {
         Locale('id'),
       ],
 
-      home: _showOnboarding
-          ? CurrencySelectionScreen(onComplete: _onOnboardingComplete)
-          : const MainScreen(),
+      home: UpgradeAlert(
+        showIgnore: false,
+        showLater: true,
+        child: _showOnboarding
+            ? CurrencySelectionScreen(onComplete: _onOnboardingComplete)
+            : const MainScreen(),
+      ),
     );
   }
 }

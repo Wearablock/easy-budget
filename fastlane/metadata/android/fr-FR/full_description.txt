@@ -1,0 +1,44 @@
+Easy Budget - Application simple de gestion financière personnelle
+
+Gérez vos finances efficacement avec Easy Budget, une application intuitive de suivi des dépenses que tout le monde peut utiliser.
+
+
+📊 Fonctionnalités principales
+
+• Suivi facile des transactions
+Enregistrez vos revenus et dépenses en quelques tapotements.
+
+• Statistiques visuelles
+Visualisez vos dépenses en un coup d'œil avec des graphiques et des analyses par catégorie.
+
+• Catégories personnalisées
+Créez des catégories adaptées à votre style de vie avec vos propres icônes et couleurs.
+
+• Support multi-devises
+Prend en charge plus de 15 devises, dont EUR, USD, CHF, JPY et plus encore.
+
+• Support multilingue
+Disponible en 15 langues, dont le français, l'anglais, le japonais, le chinois, l'allemand et l'espagnol.
+
+• Support du mode sombre
+Prise en charge complète du mode sombre.
+
+• Confidentialité avant tout
+Toutes les données sont stockées en toute sécurité sur votre appareil. Aucune création de compte requise.
+
+
+💡 Parfait pour
+
+• Le suivi des dépenses quotidiennes
+• La gestion du budget mensuel
+• Comprendre les habitudes de dépenses
+
+
+📱 Design simple et épuré
+
+Nous vous aidons à gérer vos finances avec uniquement les informations nécessaires, sans complexité.
+
+
+🔒 Protection de la vie privée, stockage local
+
+Toutes les données sont stockées localement sur votre appareil. Nous ne collectons aucune de vos informations financières.

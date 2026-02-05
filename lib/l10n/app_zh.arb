@@ -1,6 +1,6 @@
 {
   "@@locale": "zh",
-  "appTitle": "轻松记账",
+  "appTitle": "Easy Budget - 记账",
   "income": "收入",
   "expense": "支出",
   "balance": "余额",
@@ -254,5 +254,14 @@
   "termsAndPolicies": "条款与政策",
   "support": "支持",
   "cannotOpenLink": "无法打开链接",
-  "openSource": "开源许可"
+  "openSource": "开源许可",
+
+  "premium": "高级版",
+  "removeAds": "移除广告",
+  "premiumActivated": "高级版已激活",
+  "purchase": "购买",
+  "restorePurchases": "恢复购买",
+  "purchaseFailed": "购买失败",
+  "purchasesRestored": "购买已恢复",
+  "productNotAvailable": "无法加载商品"
 }

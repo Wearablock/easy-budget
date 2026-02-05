@@ -1,0 +1,3 @@
+• Menambahkan fitur notifikasi pembaruan aplikasi
+• Peningkatan stabilitas dan performa
+• Perbaikan bug dan optimasi

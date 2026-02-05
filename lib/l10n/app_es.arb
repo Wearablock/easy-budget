@@ -1,6 +1,6 @@
 {
   "@@locale": "es",
-  "appTitle": "Presupuesto Fácil",
+  "appTitle": "Easy Budget - Presupuesto",
   "income": "Ingresos",
   "expense": "Gastos",
   "balance": "Saldo",
@@ -254,5 +254,14 @@
   "termsAndPolicies": "Términos y políticas",
   "support": "Soporte",
   "cannotOpenLink": "No se puede abrir el enlace",
-  "openSource": "Licencias de código abierto"
+  "openSource": "Licencias de código abierto",
+
+  "premium": "Premium",
+  "removeAds": "Eliminar anuncios",
+  "premiumActivated": "Premium activado",
+  "purchase": "Comprar",
+  "restorePurchases": "Restaurar compras",
+  "purchaseFailed": "Error en la compra",
+  "purchasesRestored": "Compras restauradas",
+  "productNotAvailable": "Producto no disponible"
 }

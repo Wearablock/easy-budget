@@ -1,0 +1,3 @@
+• Añadida función de notificación de actualización
+• Mejora de estabilidad y rendimiento
+• Correcciones de errores y optimizaciones

@@ -1,5 +1,6 @@
 import 'package:easy_budget/app.dart';
 import 'package:easy_budget/services/ad_service.dart';
+import 'package:easy_budget/services/iap_service.dart';
 import 'package:easy_budget/services/preferences_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -16,7 +17,10 @@ void main() async {
   // 저장된 통화 설정 적용
   PreferencesService.applySavedCurrency();
 
-  // AdMob 초기화 (showAds가 true일 때만)
+  // IAP 초기화 (프리미엄 상태 로드 + 스토어 연결)
+  await IAPService().initialize();
+
+  // AdMob 초기화 (프리미엄 사용자가 아닌 경우에만)
   if (AdService.showAds) {
     await AdService().initialize();
   }

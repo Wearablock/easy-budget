@@ -1,0 +1,1 @@
+App semplice per le finanze personali. Tieni traccia delle tue spese facilmente.

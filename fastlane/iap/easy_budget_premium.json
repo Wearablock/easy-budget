@@ -1,0 +1,71 @@
+{
+  "sku": "easy_budget_premium",
+  "status": "active",
+  "purchaseType": "managedUser",
+  "defaultPrice": {
+    "priceMicros": "4400000000",
+    "currency": "KRW"
+  },
+  "listings": {
+    "en-US": {
+      "title": "Remove Ads",
+      "description": "Remove all ads permanently. One-time purchase."
+    },
+    "ko": {
+      "title": "광고 제거",
+      "description": "모든 광고를 영구적으로 제거합니다. 일회성 구매."
+    },
+    "ja": {
+      "title": "広告を削除",
+      "description": "すべての広告を永久に削除。一度の購入で永久に。"
+    },
+    "zh-Hans": {
+      "title": "移除广告",
+      "description": "永久移除所有广告。一次购买，永久享受。"
+    },
+    "zh-Hant": {
+      "title": "移除廣告",
+      "description": "永久移除所有廣告。一次購買，永久享受。"
+    },
+    "de": {
+      "title": "Werbung entfernen",
+      "description": "Alle Werbung dauerhaft entfernen. Einmaliger Kauf."
+    },
+    "fr": {
+      "title": "Supprimer les publicités",
+      "description": "Supprimer toutes les pubs. Achat unique."
+    },
+    "es": {
+      "title": "Eliminar anuncios",
+      "description": "Elimina todos los anuncios. Compra única."
+    },
+    "pt-BR": {
+      "title": "Remover anúncios",
+      "description": "Remova todos os anúncios. Compra única."
+    },
+    "it": {
+      "title": "Rimuovi pubblicità",
+      "description": "Rimuovi tutta la pubblicità. Acquisto unico."
+    },
+    "ru": {
+      "title": "Удалить рекламу",
+      "description": "Удалить всю рекламу навсегда. Разовая покупка."
+    },
+    "ar": {
+      "title": "إزالة الإعلانات",
+      "description": "أزل جميع الإعلانات نهائياً. شراء لمرة واحدة."
+    },
+    "th": {
+      "title": "ลบโฆษณา",
+      "description": "ลบโฆษณาทั้งหมดถาวร ซื้อครั้งเดียว"
+    },
+    "vi": {
+      "title": "Xóa quảng cáo",
+      "description": "Xóa vĩnh viễn tất cả quảng cáo. Mua một lần."
+    },
+    "id": {
+      "title": "Hapus Iklan",
+      "description": "Hapus semua iklan secara permanen. Beli sekali."
+    }
+  }
+}

@@ -1,0 +1,44 @@
+Easy Budget - App semplice per le finanze personali
+
+Gestisci le tue finanze in modo efficiente con Easy Budget, un'app intuitiva per il monitoraggio delle spese che chiunque può usare.
+
+
+📊 Funzionalità principali
+
+• Tracciamento facile delle transazioni
+Registra le tue entrate e uscite con pochi tocchi.
+
+• Statistiche visive
+Visualizza le tue spese a colpo d'occhio con grafici e analisi per categoria.
+
+• Categorie personalizzate
+Crea categorie adatte al tuo stile di vita con le tue icone e colori.
+
+• Supporto multi-valuta
+Supporta oltre 15 valute, tra cui EUR, USD, CHF, JPY e altre.
+
+• Supporto multilingue
+Disponibile in 15 lingue, tra cui italiano, inglese, giapponese, cinese, tedesco e francese.
+
+• Supporto modalità scura
+Supporto completo per la modalità scura.
+
+• Privacy prima di tutto
+Tutti i dati sono archiviati in modo sicuro sul tuo dispositivo. Non è richiesta la creazione di un account.
+
+
+💡 Perfetto per
+
+• Monitoraggio delle spese quotidiane
+• Gestione del budget mensile
+• Comprendere le abitudini di spesa
+
+
+📱 Design semplice e pulito
+
+Ti aiutiamo a gestire le tue finanze con solo le informazioni necessarie, senza complessità.
+
+
+🔒 Protezione della privacy, archiviazione locale
+
+Tutti i dati sono archiviati localmente sul tuo dispositivo. Non raccogliamo le tue informazioni finanziarie.

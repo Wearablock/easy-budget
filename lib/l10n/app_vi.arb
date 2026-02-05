@@ -1,6 +1,6 @@
 {
   "@@locale": "vi",
-  "appTitle": "Sổ Thu Chi",
+  "appTitle": "Easy Budget - Sổ Thu Chi",
   "income": "Thu nhập",
   "expense": "Chi tiêu",
   "balance": "Số dư",
@@ -254,5 +254,14 @@
   "termsAndPolicies": "Điều khoản & Chính sách",
   "support": "Hỗ trợ",
   "cannotOpenLink": "Không thể mở liên kết",
-  "openSource": "Giấy phép mã nguồn mở"
+  "openSource": "Giấy phép mã nguồn mở",
+
+  "premium": "Cao cấp",
+  "removeAds": "Xóa quảng cáo",
+  "premiumActivated": "Đã kích hoạt cao cấp",
+  "purchase": "Mua",
+  "restorePurchases": "Khôi phục mua hàng",
+  "purchaseFailed": "Mua hàng thất bại",
+  "purchasesRestored": "Đã khôi phục mua hàng",
+  "productNotAvailable": "Sản phẩm không khả dụng"
 }

@@ -254,5 +254,14 @@
   "termsAndPolicies": "Terms & Policies",
   "support": "Support",
   "cannotOpenLink": "Cannot open link",
-  "openSource": "Open Source Licenses"
+  "openSource": "Open Source Licenses",
+
+  "premium": "Premium",
+  "removeAds": "Remove Ads",
+  "premiumActivated": "Premium activated",
+  "purchase": "Purchase",
+  "restorePurchases": "Restore Purchases",
+  "purchaseFailed": "Purchase failed",
+  "purchasesRestored": "Purchases restored",
+  "productNotAvailable": "Product not available"
 }

@@ -1,0 +1,44 @@
+Easy Budget - Aplicación simple de finanzas personales
+
+Gestiona tus finanzas de manera eficiente con Easy Budget, una aplicación intuitiva de seguimiento de gastos que cualquiera puede usar.
+
+
+📊 Características principales
+
+• Seguimiento fácil de transacciones
+Registra tus ingresos y gastos con solo unos toques.
+
+• Estadísticas visuales
+Visualiza tus gastos de un vistazo con gráficos y análisis por categoría.
+
+• Categorías personalizadas
+Crea categorías que se adapten a tu estilo de vida con tus propios iconos y colores.
+
+• Soporte multi-moneda
+Compatible con más de 15 monedas, incluyendo EUR, USD, MXN, JPY y más.
+
+• Soporte multilingüe
+Disponible en 15 idiomas, incluyendo español, inglés, japonés, chino, alemán y francés.
+
+• Soporte de modo oscuro
+Totalmente compatible con el modo oscuro.
+
+• Privacidad primero
+Todos los datos se almacenan de forma segura en tu dispositivo. No se requiere creación de cuenta.
+
+
+💡 Perfecto para
+
+• Seguimiento de gastos diarios
+• Gestión del presupuesto mensual
+• Comprender los hábitos de gasto
+
+
+📱 Diseño simple y limpio
+
+Te ayudamos a gestionar tus finanzas con solo la información necesaria, sin complejidad.
+
+
+🔒 Protección de privacidad, almacenamiento local
+
+Todos los datos se almacenan localmente en tu dispositivo. No recopilamos tu información financiera.

@@ -1,6 +1,6 @@
 {
   "@@locale": "id",
-  "appTitle": "Anggaran Mudah",
+  "appTitle": "Easy Budget - Anggaran",
   "income": "Pemasukan",
   "expense": "Pengeluaran",
   "balance": "Saldo",
@@ -254,5 +254,14 @@
   "termsAndPolicies": "Syarat & Kebijakan",
   "support": "Dukungan",
   "cannotOpenLink": "Tidak dapat membuka tautan",
-  "openSource": "Lisensi Open Source"
+  "openSource": "Lisensi Open Source",
+
+  "premium": "Premium",
+  "removeAds": "Hapus Iklan",
+  "premiumActivated": "Premium diaktifkan",
+  "purchase": "Beli",
+  "restorePurchases": "Pulihkan Pembelian",
+  "purchaseFailed": "Pembelian gagal",
+  "purchasesRestored": "Pembelian dipulihkan",
+  "productNotAvailable": "Produk tidak tersedia"
 }

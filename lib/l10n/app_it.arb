@@ -1,6 +1,6 @@
 {
   "@@locale": "it",
-  "appTitle": "Budget Facile",
+  "appTitle": "Easy Budget - Bilancio",
   "income": "Entrate",
   "expense": "Uscite",
   "balance": "Saldo",
@@ -254,5 +254,14 @@
   "termsAndPolicies": "Termini e condizioni",
   "support": "Supporto",
   "cannotOpenLink": "Impossibile aprire il link",
-  "openSource": "Licenze open source"
+  "openSource": "Licenze open source",
+
+  "premium": "Premium",
+  "removeAds": "Rimuovi pubblicità",
+  "premiumActivated": "Premium attivato",
+  "purchase": "Acquista",
+  "restorePurchases": "Ripristina acquisti",
+  "purchaseFailed": "Acquisto non riuscito",
+  "purchasesRestored": "Acquisti ripristinati",
+  "productNotAvailable": "Prodotto non disponibile"
 }
